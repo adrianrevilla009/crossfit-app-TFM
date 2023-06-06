@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+// @Table(name = "classes" , schema = "classes")
 public class ClassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,12 +18,12 @@ public class ClassEntity {
     @Column(nullable = false)
     private LocalDateTime time;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "classEntity")
     private List<UserEntity> userList;
 
     private Boolean isFull;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "classEntity")
     private List<ExerciseForClassEntity> exerciseForClassEntityList;
 
     private final int MAX_PEOPLE = 20;

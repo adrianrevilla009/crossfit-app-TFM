@@ -4,6 +4,7 @@ package adrian.tfm.crossfit.classes.infraestructure.model;
 import jakarta.persistence.*;
 
 @Entity
+// @Table(name = "exercise_for_class" , schema = "classes")
 public class ExerciseForClassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,4 +18,7 @@ public class ExerciseForClassEntity {
 
     @Column(nullable = false)
     private int repetitions;
+
+    @ManyToOne
+    private ClassEntity classEntity;
 }
