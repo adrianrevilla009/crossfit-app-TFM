@@ -25,8 +25,8 @@ public class DatabaseInitializer {
         this.mapper = mapper;
     }
 
-    @PostConstruct
-    @Transactional
+//    @PostConstruct
+//    @Transactional
     public void init() {
         logger.info("INITIALIZING DB DATA");
 
