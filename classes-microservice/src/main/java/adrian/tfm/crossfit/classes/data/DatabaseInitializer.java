@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
@@ -27,7 +29,7 @@ public class DatabaseInitializer {
 
     @PostConstruct
     @Transactional
-    public void init() {
+    public void init() throws ParseException {
         logger.info("INITIALIZING DB DATA");
 
         ExerciseDto exerciseDto1 = new ExerciseDto(1L, "DUMBBELL WALKING LUNGE");
@@ -124,21 +126,6 @@ public class DatabaseInitializer {
                 exerciseList8, exerciseList9, exerciseList10, exerciseList11, exerciseList12, exerciseList13, exerciseList14, exerciseList15
         ));
 
-        int[][] tabla = new int[12][7];
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, LocalDateTime.now().getYear());
-        calendar.set(Calendar.MONTH, Calendar.JANUARY);
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-
-        while (calendar.get(Calendar.YEAR) == LocalDateTime.now().getYear()) {
-            int month = calendar.get(Calendar.MONTH);
-            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-            tabla[month][dayOfWeek]++;
-
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-
         List<LocalTime> times = new ArrayList<>(Arrays.asList(
                 LocalTime.of(7,0),
                 LocalTime.of(8,0),
@@ -157,26 +144,44 @@ public class DatabaseInitializer {
                 LocalTime.of(21,0)
         ));
 
-        List<ClassDto> classDtoList = new ArrayList<>();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(formatter.parse(LocalDateTime.now().getYear() + "-12-01"));
+        int maxDecemberDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        Date startDate = formatter.parse(LocalDateTime.now().getYear() + "-01-01");
+        Date endDate = formatter.parse(LocalDateTime.now().getYear() + "-12-" + maxDecemberDay);
+
+        Calendar start = Calendar.getInstance();
+        start.setTime(startDate);
+        Calendar end = Calendar.getInstance();
+        end.setTime(endDate);
 
         int classCounter = 0;
-        for (int i = 0; i < tabla.length - 1; i++) {
-            int[] months = tabla[i];
-            for (int j = 0; j < months.length - 1; j++) {
-                int day = months[j];
-                LocalDateTime date = LocalDateTime.of(LocalDateTime.now().getYear(), i, day, times.get(classCounter).getHour(), times.get(classCounter).getMinute());
+        List<ClassDto> classDtoList = new ArrayList<>();
 
-                ClassDto classDto = new ClassDto(
-                        "Clase del " + date.getDayOfMonth() + " de " + date.getMonthValue() + " del " + date.getYear(),
-                        date,
-                        null,
-                        false,
-                        exerciseForClassList.get(classCounter));
-                classDtoList.add(classDto);
+        while (start.before(end)) {
+            int year = LocalDateTime.now().getYear();
+            int month = start.get(Calendar.MONTH) + 1;
+            int dayOfMonth = start.get(Calendar.DAY_OF_MONTH);
 
-                classCounter++;
-                if (classCounter == times.size()) classCounter = 0;
-            }
+            LocalDateTime date = LocalDateTime.of(year, month, dayOfMonth, times.get(classCounter).getHour(), times.get(classCounter).getMinute());
+
+            ClassDto classDto = new ClassDto(
+                    "Clase del " + date.getDayOfMonth() + " de " + date.getMonthValue() + " del " + date.getYear(),
+                    date,
+                    new ArrayList<>(),
+                    false,
+                    exerciseForClassList.get(classCounter));
+            classDtoList.add(classDto);
+
+            logger.info("Clase del " + date.getDayOfMonth() + " de " + date.getMonthValue() + " del " + date.getYear());
+
+            classCounter++;
+            if (classCounter == times.size()) classCounter = 0;
+
+            start.add(Calendar.DATE, 1);
         }
 
         this.exerciseRepository.saveExerciseList(exerciseDtoList);

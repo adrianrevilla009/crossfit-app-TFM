@@ -1,35 +1,23 @@
-package adrian.tfm.crossfit.classes.domain.port;
+package adrian.tfm.crossfit.classes.dto.request;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ClassDto {
-    private Long id;
+public class ClassRequest {
     private String name;
     private LocalDateTime time;
 
-    private List<UserDto> userList;
+    private List<UserRequest> userList;
 
     private Boolean isFull;
-    private List<ExerciseForClassDto> exerciseForClassDtoList;
+    private List<ExerciseForClassRequest> exerciseForClassDtoList;
 
-    public ClassDto() {
-    }
-
-    public ClassDto(String name, LocalDateTime time, List<UserDto> userList, Boolean isFull, List<ExerciseForClassDto> exerciseForClassDtoList) {
+    public ClassRequest(String name, LocalDateTime time, List<UserRequest> userList, Boolean isFull, List<ExerciseForClassRequest> exerciseForClassDtoList) {
         this.name = name;
         this.time = time;
         this.userList = userList;
         this.isFull = isFull;
         this.exerciseForClassDtoList = exerciseForClassDtoList;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,11 +36,11 @@ public class ClassDto {
         this.time = time;
     }
 
-    public List<UserDto> getUserList() {
+    public List<UserRequest> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<UserDto> userList) {
+    public void setUserList(List<UserRequest> userList) {
         this.userList = userList;
     }
 
@@ -64,11 +52,11 @@ public class ClassDto {
         isFull = full;
     }
 
-    public List<ExerciseForClassDto> getExerciseForClassDtoList() {
+    public List<ExerciseForClassRequest> getExerciseForClassDtoList() {
         return exerciseForClassDtoList;
     }
 
-    public void setExerciseForClassDtoList(List<ExerciseForClassDto> exerciseForClassDtoList) {
+    public void setExerciseForClassDtoList(List<ExerciseForClassRequest> exerciseForClassDtoList) {
         this.exerciseForClassDtoList = exerciseForClassDtoList;
     }
 }

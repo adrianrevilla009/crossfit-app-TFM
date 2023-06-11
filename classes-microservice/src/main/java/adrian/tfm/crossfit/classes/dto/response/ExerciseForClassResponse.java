@@ -1,41 +1,23 @@
-package adrian.tfm.crossfit.classes.domain.port;
+package adrian.tfm.crossfit.classes.dto.response;
 
-public class ExerciseForClassDto {
-    private Long id;
-    private ExerciseDto exercise;
+public class ExerciseForClassResponse {
+    private ExerciseResponse exercise;
     private int series;
     private int repetitions;
-
     private String meters;
 
-    public ExerciseForClassDto() {
-    }
-
-    public ExerciseForClassDto(ExerciseDto exercise, int series, int repetitions) {
+    public ExerciseForClassResponse(ExerciseResponse exercise, int series, int repetitions, String meters) {
         this.exercise = exercise;
         this.series = series;
         this.repetitions = repetitions;
-    }
-
-    public ExerciseForClassDto(ExerciseDto exercise, int series, String meters) {
-        this.exercise = exercise;
-        this.series = series;
         this.meters = meters;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public ExerciseDto getExercise() {
+    public ExerciseResponse getExercise() {
         return exercise;
     }
 
-    public void setExercise(ExerciseDto exercise) {
+    public void setExercise(ExerciseResponse exercise) {
         this.exercise = exercise;
     }
 

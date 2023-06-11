@@ -1,35 +1,26 @@
-package adrian.tfm.crossfit.classes.domain.port;
+package adrian.tfm.crossfit.classes.dto.response;
+
+import adrian.tfm.crossfit.classes.dto.request.ExerciseForClassRequest;
+import adrian.tfm.crossfit.classes.dto.request.UserRequest;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ClassDto {
-    private Long id;
+public class ClassResponse {
     private String name;
     private LocalDateTime time;
 
-    private List<UserDto> userList;
+    private List<UserResponse> userList;
 
     private Boolean isFull;
-    private List<ExerciseForClassDto> exerciseForClassDtoList;
+    private List<ExerciseForClassResponse> exerciseForClassDtoList;
 
-    public ClassDto() {
-    }
-
-    public ClassDto(String name, LocalDateTime time, List<UserDto> userList, Boolean isFull, List<ExerciseForClassDto> exerciseForClassDtoList) {
+    public ClassResponse(String name, LocalDateTime time, List<UserResponse> userList, Boolean isFull, List<ExerciseForClassResponse> exerciseForClassDtoList) {
         this.name = name;
         this.time = time;
         this.userList = userList;
         this.isFull = isFull;
         this.exerciseForClassDtoList = exerciseForClassDtoList;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,11 +39,11 @@ public class ClassDto {
         this.time = time;
     }
 
-    public List<UserDto> getUserList() {
+    public List<UserResponse> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<UserDto> userList) {
+    public void setUserList(List<UserResponse> userList) {
         this.userList = userList;
     }
 
@@ -64,11 +55,11 @@ public class ClassDto {
         isFull = full;
     }
 
-    public List<ExerciseForClassDto> getExerciseForClassDtoList() {
+    public List<ExerciseForClassResponse> getExerciseForClassDtoList() {
         return exerciseForClassDtoList;
     }
 
-    public void setExerciseForClassDtoList(List<ExerciseForClassDto> exerciseForClassDtoList) {
+    public void setExerciseForClassDtoList(List<ExerciseForClassResponse> exerciseForClassDtoList) {
         this.exerciseForClassDtoList = exerciseForClassDtoList;
     }
 }

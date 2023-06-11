@@ -1,5 +1,7 @@
 package adrian.tfm.crossfit.classes;
 
+import adrian.tfm.crossfit.classes.domain.ClassUseCase;
+import adrian.tfm.crossfit.classes.domain.ClassUseCaseImpl;
 import adrian.tfm.crossfit.classes.domain.port.ClassRepository;
 import adrian.tfm.crossfit.classes.infraestructure.ClassRepositoryAdapter;
 import adrian.tfm.crossfit.classes.infraestructure.ExerciseRepositoryAdapter;
@@ -33,6 +35,11 @@ public class ClassesApplication {
 	@Bean
 	public ExerciseRepositoryAdapter exerciseRepository(ExerciseJpaRepository exerciseJpaRepository, Mapper mapper) {
 		return new ExerciseRepositoryAdapter(exerciseJpaRepository, mapper);
+	}
+
+	@Bean
+	public ClassUseCase classUseCase(ClassRepository classRepository) {
+		return new ClassUseCaseImpl(classRepository);
 	}
 
 

@@ -2,7 +2,6 @@ package adrian.tfm.crossfit.classes.infraestructure;
 
 import adrian.tfm.crossfit.classes.domain.port.ExerciseDto;
 import adrian.tfm.crossfit.classes.domain.port.ExerciseRepository;
-import adrian.tfm.crossfit.classes.infraestructure.model.ClassEntity;
 import adrian.tfm.crossfit.classes.infraestructure.model.ExerciseEntity;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ExerciseJpaRepository;
 import org.dozer.Mapper;

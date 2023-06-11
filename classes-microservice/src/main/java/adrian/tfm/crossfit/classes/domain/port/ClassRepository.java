@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface ClassRepository {
     void saveClassList(List<ClassDto> classDtoList);
+
+    List<ClassDto> getAllClasses();
 }
