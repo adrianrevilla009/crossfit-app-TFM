@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "d8881f6d-e88a-4559-b613-baa73c0dfbd5",
+		"name": "001_TFM_Classes_microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11056725"
+	},
+	"item": [
+		{
+			"name": "Get classes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{path}}/api/classes/",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"api",
+						"classes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Clase del 1 de 1 del 2023\",\r\n    \"time\": \"2023-01-01T07:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{path}}/api/classes/user/20895705K",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"api",
+						"classes",
+						"user",
+						"20895705K"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove class",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Clase del 1 de 1 del 2023\",\r\n    \"time\": \"2023-01-01T07:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{path}}/api/classes/user/20895705K",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"api",
+						"classes",
+						"user",
+						"20895705K"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Clase del 2 de 1 del 2023\",\r\n    \"time\": \"2023-01-02T08:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{path}}/api/classes/class/1/user/20895705K",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"api",
+						"classes",
+						"class",
+						"1",
+						"user",
+						"20895705K"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "path",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
