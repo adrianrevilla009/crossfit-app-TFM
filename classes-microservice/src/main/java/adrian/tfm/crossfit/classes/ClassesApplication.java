@@ -5,6 +5,7 @@ import adrian.tfm.crossfit.classes.domain.ClassUseCaseImpl;
 import adrian.tfm.crossfit.classes.domain.port.ClassRepository;
 import adrian.tfm.crossfit.classes.infraestructure.ClassRepositoryAdapter;
 import adrian.tfm.crossfit.classes.infraestructure.ExerciseRepositoryAdapter;
+import adrian.tfm.crossfit.classes.infraestructure.mapper.ClassDtoAndEntityMapper;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ClassJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ExerciseJpaRepository;
 import org.dozer.DozerBeanMapper;
@@ -28,8 +29,9 @@ public class ClassesApplication {
 	}
 
 	@Bean
-	public ClassRepositoryAdapter classRepository(ClassJpaRepository classJpaRepository, Mapper mapper) {
-		return new ClassRepositoryAdapter(classJpaRepository, mapper);
+	public ClassRepositoryAdapter classRepository(ClassJpaRepository classJpaRepository, Mapper mapper,
+												  ClassDtoAndEntityMapper classDtoAndEntityMapper) {
+		return new ClassRepositoryAdapter(classJpaRepository, mapper, classDtoAndEntityMapper);
 	}
 
 	@Bean

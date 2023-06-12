@@ -15,6 +15,9 @@ public class ClassResponse {
     private Boolean isFull;
     private List<ExerciseForClassResponse> exerciseForClassDtoList;
 
+    public ClassResponse() {
+    }
+
     public ClassResponse(String name, LocalDateTime time, List<UserResponse> userList, Boolean isFull, List<ExerciseForClassResponse> exerciseForClassDtoList) {
         this.name = name;
         this.time = time;

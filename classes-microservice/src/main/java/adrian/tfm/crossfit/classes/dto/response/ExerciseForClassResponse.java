@@ -6,6 +6,9 @@ public class ExerciseForClassResponse {
     private int repetitions;
     private String meters;
 
+    public ExerciseForClassResponse() {
+    }
+
     public ExerciseForClassResponse(ExerciseResponse exercise, int series, int repetitions, String meters) {
         this.exercise = exercise;
         this.series = series;

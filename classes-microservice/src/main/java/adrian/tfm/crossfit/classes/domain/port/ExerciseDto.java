@@ -4,6 +4,10 @@ public class ExerciseDto {
     private Long id;
     private String name;
 
+    public ExerciseDto(String name) {
+        this.name = name;
+    }
+
     public ExerciseDto(Long id, String name) {
         this.id = id;
         this.name = name;

@@ -3,6 +3,9 @@ package adrian.tfm.crossfit.classes.dto.response;
 public class UserResponse {
     private String name;
 
+    public UserResponse() {
+    }
+
     public UserResponse(String name) {
         this.name = name;
     }
