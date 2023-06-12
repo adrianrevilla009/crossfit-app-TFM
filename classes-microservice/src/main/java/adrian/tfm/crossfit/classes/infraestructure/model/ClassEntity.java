@@ -18,7 +18,7 @@ public class ClassEntity {
     @Column(nullable = false)
     private LocalDateTime time;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "classEntity")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classEntity")
     private List<UserEntity> userList;
 
     private Boolean isFull;

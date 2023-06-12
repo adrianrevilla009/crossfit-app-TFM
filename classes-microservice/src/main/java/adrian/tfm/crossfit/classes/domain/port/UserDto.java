@@ -4,11 +4,14 @@ public class UserDto {
     private Long id;
     private String name;
 
+    private String nif;
+
     public UserDto() {
     }
 
-    public UserDto(String name) {
+    public UserDto(String name, String nif) {
         this.name = name;
+        this.nif = nif;
     }
 
     public Long getId() {
@@ -25,5 +28,13 @@ public class UserDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNif() {
+        return nif;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 }

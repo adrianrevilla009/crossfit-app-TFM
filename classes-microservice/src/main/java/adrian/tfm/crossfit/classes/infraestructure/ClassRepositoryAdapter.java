@@ -2,16 +2,19 @@ package adrian.tfm.crossfit.classes.infraestructure;
 
 import adrian.tfm.crossfit.classes.domain.port.*;
 import adrian.tfm.crossfit.classes.infraestructure.mapper.ClassDtoAndEntityMapper;
+import adrian.tfm.crossfit.classes.infraestructure.mapper.UserDtoAndEntityMapper;
 import adrian.tfm.crossfit.classes.infraestructure.model.ClassEntity;
-import adrian.tfm.crossfit.classes.infraestructure.model.ExerciseEntity;
-import adrian.tfm.crossfit.classes.infraestructure.model.ExerciseForClassEntity;
 import adrian.tfm.crossfit.classes.infraestructure.model.UserEntity;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ClassJpaRepository;
+import adrian.tfm.crossfit.classes.infraestructure.repository.UserJpaRepository;
+import jakarta.transaction.Transactional;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -22,11 +25,19 @@ public class ClassRepositoryAdapter implements ClassRepository {
 
     private ClassDtoAndEntityMapper classDtoAndEntityMapper;
 
+    private UserDtoAndEntityMapper userDtoAndEntityMapper;
+
+    private UserJpaRepository userJpaRepository;
+
     public ClassRepositoryAdapter(ClassJpaRepository classJpaRepository, Mapper mapper,
-                                  ClassDtoAndEntityMapper classDtoAndEntityMapper) {
+                                  ClassDtoAndEntityMapper classDtoAndEntityMapper,
+                                  UserDtoAndEntityMapper userDtoAndEntityMapper,
+                                  UserJpaRepository userJpaRepository) {
         this.classJpaRepository = classJpaRepository;
         this.mapper = mapper;
         this.classDtoAndEntityMapper = classDtoAndEntityMapper;
+        this.userDtoAndEntityMapper = userDtoAndEntityMapper;
+        this.userJpaRepository = userJpaRepository;
     }
 
     @Override
@@ -48,5 +59,65 @@ public class ClassRepositoryAdapter implements ClassRepository {
             classDtoList.add(classDto);
         }
         return classDtoList;
+    }
+
+    @Override
+    @Transactional
+    public void bookClass(ClassDto classDto, UserDto userDto) throws Exception {
+        Optional<ClassEntity> classEntity = this.classJpaRepository.findById(classDto.getId());
+
+        if (classEntity.isPresent()) {
+            UserEntity userEntity = this.userDtoAndEntityMapper.fromUserDtoToEntity(userDto);
+            userEntity.setClassEntity(classEntity.get());
+            classEntity.get().getUserList().add(userEntity);
+
+            this.classJpaRepository.save(classEntity.get());
+        } else {
+            throw new Exception("No class found");
+        }
+    }
+
+    @Override
+    @Transactional
+    public void removeClass(ClassDto classDto, UserDto userDto) throws Exception {
+        Optional<ClassEntity> classEntity = this.classJpaRepository.findById(classDto.getId());
+
+        if (classEntity.isPresent()) {
+
+            Optional<UserEntity> userEntity = classEntity.get().getUserList().stream().filter(u -> u.getNif().equals(userDto.getNif())).findFirst();
+            if (userEntity.isPresent()) {
+                this.userJpaRepository.deleteByClassAndNif(classEntity.get().getId(), userEntity.get().getNif());
+            } else {
+                throw new Exception("The user is not in this class");
+            }
+        } else {
+            throw new Exception("No class found");
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public void changeBookClass(ClassDto classDto, Long id, UserDto userDto) throws Exception {
+        Optional<ClassEntity> classEntity = this.classJpaRepository.findById(id);
+
+        if (classEntity.isPresent()) {
+            UserEntity userEntity = this.userDtoAndEntityMapper.fromUserDtoToEntity(userDto);
+            userEntity.setClassEntity(classEntity.get());
+
+            // first delete class
+            this.userJpaRepository.deleteByClassAndNif(classEntity.get().getId(), userEntity.getNif());
+
+            // then save new one
+            ClassEntity newClassToSave = this.classJpaRepository.findByTime(classDto.getTime());
+            if (newClassToSave != null) {
+                newClassToSave.getUserList().add(userEntity);
+                this.classJpaRepository.save(newClassToSave);
+            } else {
+                throw new Exception("Class time is not scheduled");
+            }
+        } else {
+            throw new Exception("No class found");
+        }
     }
 }

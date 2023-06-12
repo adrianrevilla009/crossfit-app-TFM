@@ -12,12 +12,21 @@ public class UserEntity {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String nif;
+
     @ManyToOne
     private ClassEntity classEntity;
 
-    public UserEntity(String name, ClassEntity classEntity) {
+    public UserEntity(String name, String nif, ClassEntity classEntity) {
         this.name = name;
+        this.nif = nif;
         this.classEntity = classEntity;
+    }
+
+    public UserEntity(String name, String nif) {
+        this.name = name;
+        this.nif = nif;
     }
 
     public UserEntity() {
@@ -45,5 +54,13 @@ public class UserEntity {
 
     public void setClassEntity(ClassEntity classEntity) {
         this.classEntity = classEntity;
+    }
+
+    public String getNif() {
+        return nif;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 }

@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ClassResponse {
+
+    private Long id;
     private String name;
     private LocalDateTime time;
 
@@ -18,12 +20,21 @@ public class ClassResponse {
     public ClassResponse() {
     }
 
-    public ClassResponse(String name, LocalDateTime time, List<UserResponse> userList, Boolean isFull, List<ExerciseForClassResponse> exerciseForClassDtoList) {
+    public ClassResponse(Long id, String name, LocalDateTime time, List<UserResponse> userList, Boolean isFull, List<ExerciseForClassResponse> exerciseForClassDtoList) {
+        this.id = id;
         this.name = name;
         this.time = time;
         this.userList = userList;
         this.isFull = isFull;
         this.exerciseForClassDtoList = exerciseForClassDtoList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

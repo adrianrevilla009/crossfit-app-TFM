@@ -1,11 +1,10 @@
 package adrian.tfm.crossfit.classes.controller;
 
+import adrian.tfm.crossfit.classes.dto.request.ClassRequest;
 import adrian.tfm.crossfit.classes.dto.response.ClassResponse;
 import adrian.tfm.crossfit.classes.service.ClassService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +21,37 @@ public class ClassController {
     @GetMapping("/")
     public List<ClassResponse> getAllClasses() {
         return this.classService.getAllClasses();
+    }
+
+    @PostMapping("/user/{nif}")
+    public ResponseEntity bookClass(@RequestBody ClassRequest classRequest, @PathVariable("nif") String nif) {
+        try {
+            this.classService.bookClass(classRequest, nif);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping("/user/{nif}")
+    public ResponseEntity removeClass(@RequestBody ClassRequest classRequest, @PathVariable("nif") String nif) {
+        try {
+            this.classService.removeClass(classRequest, nif);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PostMapping("/class/{id}/user/{nif}")
+    public ResponseEntity changeBookClass(@RequestBody ClassRequest classRequest,
+                                          @PathVariable("id") Long id,
+                                          @PathVariable("nif") String nif) {
+        try {
+            this.classService.changeBookClass(classRequest, id, nif);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

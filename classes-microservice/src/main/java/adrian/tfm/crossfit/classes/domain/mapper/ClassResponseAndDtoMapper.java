@@ -47,6 +47,7 @@ public class ClassResponseAndDtoMapper {
 
     public ClassResponse fromClassDtoToResponse(ClassDto classDto) {
         ClassResponse classResponse = new ClassResponse();
+        classResponse.setId(classDto.getId());
         classResponse.setName(classDto.getName());
         classResponse.setTime(classDto.getTime());
         classResponse.setFull(classDto.getFull());

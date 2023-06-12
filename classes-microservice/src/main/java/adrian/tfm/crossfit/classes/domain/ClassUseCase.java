@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface ClassUseCase {
     List<ClassDto> getAllClasses();
+
+    void bookClass(ClassDto classDto, String nif) throws Exception;
+
+    void removeClass(ClassDto classDto, String nif) throws Exception;
+
+    void changeBookClass(ClassDto classDto, Long id, String nif) throws Exception;
 }

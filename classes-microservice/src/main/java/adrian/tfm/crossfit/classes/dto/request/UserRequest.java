@@ -3,8 +3,11 @@ package adrian.tfm.crossfit.classes.dto.request;
 public class UserRequest {
     private String name;
 
-    public UserRequest(String name) {
+    private String nif;
+
+    public UserRequest(String name, String nif) {
         this.name = name;
+        this.nif  = nif;
     }
 
     public String getName() {
@@ -13,5 +16,13 @@ public class UserRequest {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNif() {
+        return nif;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 }
