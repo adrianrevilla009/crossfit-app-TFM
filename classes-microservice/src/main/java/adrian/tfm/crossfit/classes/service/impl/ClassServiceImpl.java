@@ -45,6 +45,17 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
+    public List<ClassResponse> getClassesByUser(String nif) {
+        List<ClassDto> classDtoList = this.classUseCase.getClassesByUser(nif);
+
+        List<ClassResponse> classResponseList = new ArrayList<>();
+        for (ClassDto classDto : classDtoList) {
+            classResponseList.add(this.classResponseAndDtoMapper.fromClassDtoToResponse(classDto));
+        }
+        return classResponseList;
+    }
+
+    @Override
     public void bookClass(ClassRequest classRequest, String nif) throws Exception {
         ClassDto classDto = this.classRequestAndDtoMapper.fromClassRequestToDto(classRequest);
         this.classUseCase.bookClass(classDto, nif);

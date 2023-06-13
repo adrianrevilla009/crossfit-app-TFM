@@ -8,6 +8,8 @@ import java.util.List;
 public interface ClassService {
     List<ClassResponse> getAllClasses();
 
+    List<ClassResponse> getClassesByUser(String nif);
+
     void bookClass(ClassRequest classRequest, String nif) throws Exception;
 
     void removeClass(ClassRequest classRequest, String nif) throws Exception;

@@ -7,6 +7,8 @@ public interface ClassRepository {
 
     List<ClassDto> getAllClasses();
 
+    List<ClassDto> getClassesByUser(String nif);
+
     void bookClass(ClassDto classDto, UserDto userDto) throws Exception;
 
     void removeClass(ClassDto classDto, UserDto userDto) throws Exception;

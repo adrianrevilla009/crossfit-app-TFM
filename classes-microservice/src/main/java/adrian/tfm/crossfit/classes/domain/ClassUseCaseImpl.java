@@ -24,6 +24,11 @@ public class ClassUseCaseImpl implements ClassUseCase{
     }
 
     @Override
+    public List<ClassDto> getClassesByUser(String nif) {
+        return this.classRepository.getClassesByUser(nif);
+    }
+
+    @Override
     public void bookClass(ClassDto classDto, String nif) throws Exception {
         UserDto userDto = this.userRepository.findByNif(nif);
 

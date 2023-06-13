@@ -23,6 +23,11 @@ public class ClassController {
         return this.classService.getAllClasses();
     }
 
+    @GetMapping("/user/{nif}")
+    public List<ClassResponse> getClassesByUser(@PathVariable("nif") String nif) {
+        return this.classService.getClassesByUser(nif);
+    }
+
     @PostMapping("/user/{nif}")
     public ResponseEntity bookClass(@RequestBody ClassRequest classRequest, @PathVariable("nif") String nif) {
         try {
