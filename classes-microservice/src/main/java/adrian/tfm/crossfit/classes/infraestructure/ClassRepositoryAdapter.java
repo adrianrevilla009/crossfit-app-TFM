@@ -29,6 +29,8 @@ public class ClassRepositoryAdapter implements ClassRepository {
 
     private UserJpaRepository userJpaRepository;
 
+    private ClassDao classDao;
+
     public ClassRepositoryAdapter(ClassJpaRepository classJpaRepository, Mapper mapper,
                                   ClassDtoAndEntityMapper classDtoAndEntityMapper,
                                   UserDtoAndEntityMapper userDtoAndEntityMapper,
@@ -62,14 +64,9 @@ public class ClassRepositoryAdapter implements ClassRepository {
     }
 
     @Override
-    public List<ClassDto> getClassesByUser(String nif) {
-        List<ClassEntity> classEntityList = this.classJpaRepository.findByUserNif(nif);
-        List<ClassDto> classDtoList = new ArrayList<>();
-        for (ClassEntity classEntity : classEntityList) {
-            ClassDto classDto = this.classDtoAndEntityMapper.mapFromClassEntityToClassDto(classEntity);
-            classDtoList.add(classDto);
-        }
-        return classDtoList;
+    public List<ClassExerciseUserDto> getClassesByUser(String nif) {
+        List<ClassExerciseUserDto> classesByUser = this.classDao.getClassesByUser(nif);
+        return classesByUser;
     }
 
     @Override

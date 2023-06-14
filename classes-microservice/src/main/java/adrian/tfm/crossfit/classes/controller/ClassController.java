@@ -1,6 +1,7 @@
 package adrian.tfm.crossfit.classes.controller;
 
 import adrian.tfm.crossfit.classes.dto.request.ClassRequest;
+import adrian.tfm.crossfit.classes.dto.response.ClassExerciseUserResponse;
 import adrian.tfm.crossfit.classes.dto.response.ClassResponse;
 import adrian.tfm.crossfit.classes.service.ClassService;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class ClassController {
     }
 
     @GetMapping("/user/{nif}")
-    public List<ClassResponse> getClassesByUser(@PathVariable("nif") String nif) {
+    public List<ClassExerciseUserResponse> getClassesByUser(@PathVariable("nif") String nif) {
         return this.classService.getClassesByUser(nif);
     }
 

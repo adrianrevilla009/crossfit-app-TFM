@@ -7,7 +7,7 @@ public interface ClassRepository {
 
     List<ClassDto> getAllClasses();
 
-    List<ClassDto> getClassesByUser(String nif);
+    List<ClassExerciseUserDto> getClassesByUser(String nif);
 
     void bookClass(ClassDto classDto, UserDto userDto) throws Exception;
 

@@ -1,10 +1,13 @@
 package adrian.tfm.crossfit.classes.service.impl;
 
 import adrian.tfm.crossfit.classes.domain.ClassUseCase;
+import adrian.tfm.crossfit.classes.domain.mapper.ClassExerciseUserResponseAndDtoMapper;
 import adrian.tfm.crossfit.classes.domain.mapper.ClassRequestAndDtoMapper;
 import adrian.tfm.crossfit.classes.domain.mapper.ClassResponseAndDtoMapper;
 import adrian.tfm.crossfit.classes.domain.port.ClassDto;
+import adrian.tfm.crossfit.classes.domain.port.ClassExerciseUserDto;
 import adrian.tfm.crossfit.classes.dto.request.ClassRequest;
+import adrian.tfm.crossfit.classes.dto.response.ClassExerciseUserResponse;
 import adrian.tfm.crossfit.classes.dto.response.ClassResponse;
 import adrian.tfm.crossfit.classes.service.ClassService;
 import org.dozer.Mapper;
@@ -25,12 +28,16 @@ public class ClassServiceImpl implements ClassService {
 
     private ClassRequestAndDtoMapper classRequestAndDtoMapper;
 
+    private ClassExerciseUserResponseAndDtoMapper classExerciseUserResponseAndDtoMapper;
+
     public ClassServiceImpl(ClassUseCase classUseCase, Mapper mapper, ClassResponseAndDtoMapper classResponseAndDtoMapper,
-                            ClassRequestAndDtoMapper classRequestAndDtoMapper) {
+                            ClassRequestAndDtoMapper classRequestAndDtoMapper,
+                            ClassExerciseUserResponseAndDtoMapper classExerciseUserResponseAndDtoMapper) {
         this.classUseCase = classUseCase;
         this.mapper = mapper;
         this.classResponseAndDtoMapper = classResponseAndDtoMapper;
         this.classRequestAndDtoMapper = classRequestAndDtoMapper;
+        this.classExerciseUserResponseAndDtoMapper = classExerciseUserResponseAndDtoMapper;
     }
 
     @Override
@@ -45,12 +52,12 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public List<ClassResponse> getClassesByUser(String nif) {
-        List<ClassDto> classDtoList = this.classUseCase.getClassesByUser(nif);
+    public List<ClassExerciseUserResponse> getClassesByUser(String nif) {
+        List<ClassExerciseUserDto> classesByUser = this.classUseCase.getClassesByUser(nif);
 
-        List<ClassResponse> classResponseList = new ArrayList<>();
-        for (ClassDto classDto : classDtoList) {
-            classResponseList.add(this.classResponseAndDtoMapper.fromClassDtoToResponse(classDto));
+        List<ClassExerciseUserResponse> classResponseList = new ArrayList<>();
+        for (ClassExerciseUserDto classByUserDto : classesByUser) {
+            classResponseList.add(this.classExerciseUserResponseAndDtoMapper.fromClassDtoToResponse(classByUserDto));
         }
         return classResponseList;
     }

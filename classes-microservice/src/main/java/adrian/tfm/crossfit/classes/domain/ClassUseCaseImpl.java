@@ -1,9 +1,6 @@
 package adrian.tfm.crossfit.classes.domain;
 
-import adrian.tfm.crossfit.classes.domain.port.ClassDto;
-import adrian.tfm.crossfit.classes.domain.port.ClassRepository;
-import adrian.tfm.crossfit.classes.domain.port.UserDto;
-import adrian.tfm.crossfit.classes.domain.port.UserRepository;
+import adrian.tfm.crossfit.classes.domain.port.*;
 
 import java.util.List;
 
@@ -24,7 +21,7 @@ public class ClassUseCaseImpl implements ClassUseCase{
     }
 
     @Override
-    public List<ClassDto> getClassesByUser(String nif) {
+    public List<ClassExerciseUserDto> getClassesByUser(String nif) {
         return this.classRepository.getClassesByUser(nif);
     }
 

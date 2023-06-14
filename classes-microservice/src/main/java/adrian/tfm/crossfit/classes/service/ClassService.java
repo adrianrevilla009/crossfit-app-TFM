@@ -1,6 +1,7 @@
 package adrian.tfm.crossfit.classes.service;
 
 import adrian.tfm.crossfit.classes.dto.request.ClassRequest;
+import adrian.tfm.crossfit.classes.dto.response.ClassExerciseUserResponse;
 import adrian.tfm.crossfit.classes.dto.response.ClassResponse;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface ClassService {
     List<ClassResponse> getAllClasses();
 
-    List<ClassResponse> getClassesByUser(String nif);
+    List<ClassExerciseUserResponse> getClassesByUser(String nif);
 
     void bookClass(ClassRequest classRequest, String nif) throws Exception;
 
