@@ -8,17 +8,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="classes-microservice" />
+        <module name="common" />
         <module name="documents" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="classes-microservice" target="17" />
+      <module name="common" target="17" />
       <module name="documents" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="classes-microservice" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="documents" options="-parameters" />
     </option>
   </component>
