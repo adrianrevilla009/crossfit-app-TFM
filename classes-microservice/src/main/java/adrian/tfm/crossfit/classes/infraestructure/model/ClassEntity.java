@@ -18,12 +18,12 @@ public class ClassEntity {
     @Column(nullable = false)
     private LocalDateTime time;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classEntity")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classEntity", fetch = FetchType.EAGER)
     private List<UserEntity> userList;
 
     private Boolean isFull;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "classEntity")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "classEntity", fetch = FetchType.EAGER)
     private List<ExerciseForClassEntity> exerciseForClassEntityList;
 
     private final int MAX_PEOPLE = 20;

@@ -14,6 +14,9 @@ public class ClassRequest {
     private Boolean isFull;
     private List<ExerciseForClassRequest> exerciseForClassDtoList;
 
+    public ClassRequest() {
+    }
+
     public ClassRequest(Long id, String name, LocalDateTime time, List<UserRequest> userList, Boolean isFull, List<ExerciseForClassRequest> exerciseForClassDtoList) {
         this.id = id;
         this.name = name;

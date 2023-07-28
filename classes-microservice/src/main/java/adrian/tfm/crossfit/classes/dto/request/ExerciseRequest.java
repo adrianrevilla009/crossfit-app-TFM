@@ -3,6 +3,9 @@ package adrian.tfm.crossfit.classes.dto.request;
 public class ExerciseRequest {
     private String name;
 
+    public ExerciseRequest() {
+    }
+
     public ExerciseRequest(String name) {
         this.name = name;
     }

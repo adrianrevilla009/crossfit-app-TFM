@@ -7,6 +7,9 @@ public class ExerciseForClassRequest {
     private int repetitions;
     private String meters;
 
+    public ExerciseForClassRequest() {
+    }
+
     public ExerciseForClassRequest(ExerciseRequest exercise, int series, int repetitions, String meters) {
         this.exercise = exercise;
         this.series = series;

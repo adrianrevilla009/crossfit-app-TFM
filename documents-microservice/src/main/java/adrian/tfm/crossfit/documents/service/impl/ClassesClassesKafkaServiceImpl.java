@@ -23,10 +23,11 @@ public class ClassesClassesKafkaServiceImpl implements ClassesKafkaService {
     private final KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate;
     private final String topic = "get-classes-topic"; // TODO set it as config variable
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
 
-    public ClassesClassesKafkaServiceImpl(KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate) {
+    public ClassesClassesKafkaServiceImpl(KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate, ObjectMapper objectMapper) {
         this.kafkaTemplate = kafkaTemplate;
+        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -45,11 +46,11 @@ public class ClassesClassesKafkaServiceImpl implements ClassesKafkaService {
 
     @Override
     @KafkaListener(topics = "send-classes-topic", groupId = "classes-group")
-    public void receiveGetClassesByNifMessage(ClassesResponseMessageDto classesResponseMessageDto) throws Exception {
-        logger.info("Task status is updated : " + classesResponseMessageDto.getClassDtoList().toString());
+    public void receiveGetClassesByNifMessage(String jsonMessage) throws Exception {
+        logger.info("Task status is updated : " + jsonMessage);
 
         try {
-            List<ClassDto> classDtoList = objectMapper.readValue(classesResponseMessageDto.getClassDtoList(), new TypeReference<List<ClassDto>>() {});
+            List<ClassDto> classDtoList = objectMapper.readValue(jsonMessage, new TypeReference<List<ClassDto>>() {});
 
             logger.info("HOLAAAAA", classDtoList.toString());
 

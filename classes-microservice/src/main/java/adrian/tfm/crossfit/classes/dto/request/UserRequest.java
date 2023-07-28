@@ -5,6 +5,9 @@ public class UserRequest {
 
     private String nif;
 
+    public UserRequest() {
+    }
+
     public UserRequest(String name, String nif) {
         this.name = name;
         this.nif  = nif;

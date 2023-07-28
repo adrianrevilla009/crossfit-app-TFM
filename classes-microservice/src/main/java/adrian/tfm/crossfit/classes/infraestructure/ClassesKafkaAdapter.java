@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -31,17 +32,18 @@ public class ClassesKafkaAdapter implements ClassesKafka {
 
     private final ClassDaoJpaRepository classDaoJpaRepository;
 
-    private final KafkaTemplate<String, ClassesResponseMessageDto> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
 
     public ClassesKafkaAdapter(ClassJpaRepository classJpaRepository, ClassDtoAndEntityMapper classDtoAndEntityMapper,
-                               KafkaTemplate<String, ClassesResponseMessageDto> kafkaTemplate,
-                               ClassDaoJpaRepository classDaoJpaRepository) {
+                               KafkaTemplate<String, String> kafkaTemplate,
+                               ClassDaoJpaRepository classDaoJpaRepository, ObjectMapper objectMapper) {
         this.classJpaRepository = classJpaRepository;
         this.classDtoAndEntityMapper = classDtoAndEntityMapper;
         this.kafkaTemplate = kafkaTemplate;
         this.classDaoJpaRepository = classDaoJpaRepository;
+        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -66,7 +68,7 @@ public class ClassesKafkaAdapter implements ClassesKafka {
             throw new Exception("[ERROR] serializing values on message send on kafka");
         }
 
-        var future = kafkaTemplate.send(topicName, new ClassesResponseMessageDto(jsonMessage));
+        var future = kafkaTemplate.send(topicName, jsonMessage);
 
         future.whenComplete((sendResult, exception) -> {
             if (exception != null) {

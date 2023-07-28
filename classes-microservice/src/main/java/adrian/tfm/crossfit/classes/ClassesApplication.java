@@ -12,6 +12,8 @@ import adrian.tfm.crossfit.classes.infraestructure.mapper.UserDtoAndEntityMapper
 import adrian.tfm.crossfit.classes.infraestructure.repository.ClassJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ExerciseJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.UserJpaRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.springframework.boot.SpringApplication;
@@ -56,6 +58,11 @@ public class ClassesApplication {
 		return new ClassUseCaseImpl(classRepository, userRepository);
 	}
 
-
+	@Bean
+	public ObjectMapper objectMapper() {
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new JavaTimeModule());
+		return objectMapper;
+	}
 
 }

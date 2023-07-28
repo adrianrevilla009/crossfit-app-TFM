@@ -65,6 +65,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Jackson serializer / deserializer -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>2.12.4</version>
+		</dependency>
+		<!-- Common module -->
         <dependency>
             <groupId>adrian.tfm.crossfit</groupId>
             <artifactId>common</artifactId>
