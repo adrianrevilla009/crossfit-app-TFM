@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-// @Table(name = "classes" , schema = "classes")
 public class ClassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, name = "class_id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "class_name")
     private String name;
 
     @Column(nullable = false)

@@ -4,10 +4,10 @@ package adrian.tfm.crossfit.classes.infraestructure.model;
 import jakarta.persistence.*;
 
 @Entity
-// @Table(name = "exercise_for_class" , schema = "classes")
 public class ExerciseForClassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, name = "exercise_class_id")
     private Long id;
 
     @ManyToOne

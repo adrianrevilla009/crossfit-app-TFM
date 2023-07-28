@@ -3,12 +3,12 @@ package adrian.tfm.crossfit.classes.infraestructure.model;
 import jakarta.persistence.*;
 
 @Entity
-// @Table(name = "exercise" , schema = "classes")
 public class ExerciseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, name = "exercise_id")
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "exercise_name")
     private String name;
 
     public ExerciseEntity(String name) {
