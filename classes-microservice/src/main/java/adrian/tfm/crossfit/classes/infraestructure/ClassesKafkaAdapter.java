@@ -1,5 +1,6 @@
 package adrian.tfm.crossfit.classes.infraestructure;
 
+import adrian.tfm.crossfit.classes.config.AppConfig;
 import adrian.tfm.crossfit.classes.domain.port.ClassDto;
 import adrian.tfm.crossfit.classes.domain.port.ClassesKafka;
 import adrian.tfm.crossfit.classes.infraestructure.dao.ClassDaoJpaRepository;
@@ -76,7 +77,7 @@ public class ClassesKafkaAdapter implements ClassesKafka {
             } else {
                 future.complete(sendResult);
             }
-            logger.info("Task status send to Kafka topic : "+ classDtoList.toString());
+            logger.info("Task status send to Kafka topic : "+ topicName);
         });
     }
 

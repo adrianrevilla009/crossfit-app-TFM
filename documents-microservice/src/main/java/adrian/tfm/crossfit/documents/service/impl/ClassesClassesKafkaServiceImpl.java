@@ -52,8 +52,6 @@ public class ClassesClassesKafkaServiceImpl implements ClassesKafkaService {
         try {
             List<ClassDto> classDtoList = objectMapper.readValue(jsonMessage, new TypeReference<List<ClassDto>>() {});
 
-            logger.info("HOLAAAAA", classDtoList.toString());
-
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception("[ERROR] serializing values on message send on kafka");
