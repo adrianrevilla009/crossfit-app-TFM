@@ -5,7 +5,7 @@ import adrian.tfm.crossfit.documents.model.Document;
 import adrian.tfm.crossfit.documents.repository.DocumentRepository;
 import adrian.tfm.crossfit.documents.service.DocumentsService;
 import adrian.tfm.crossfit.documents.service.ExcelService;
-import adrian.tfm.crossfit.documents.service.ClassesKafkaService;
+import adrian.tfm.crossfit.documents.service.ClassesKafkaRequestService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,13 +16,13 @@ public class DocumentsServiceImpl implements DocumentsService {
     private DocumentRepository documentRepository;
     private ExcelService excelService;
 
-    private ClassesKafkaService classesKafkaService;
+    private ClassesKafkaRequestService classesKafkaRequestService;
 
     public DocumentsServiceImpl(DocumentRepository documentRepository, ExcelService excelService,
-                                ClassesKafkaService classesKafkaService) {
+                                ClassesKafkaRequestService classesKafkaRequestService) {
         this.documentRepository = documentRepository;
         this.excelService = excelService;
-        this.classesKafkaService = classesKafkaService;
+        this.classesKafkaRequestService = classesKafkaRequestService;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class DocumentsServiceImpl implements DocumentsService {
 
     @Override
     public void createDocument(String nif) {
-        this.classesKafkaService.sendGetClassesByNifMessage("get-classes-topic", nif);
+        this.classesKafkaRequestService.sendGetClassesByNifMessage("get-classes-topic", nif);
     }
 
     @Override
