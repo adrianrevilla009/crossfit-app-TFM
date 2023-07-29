@@ -10,5 +10,5 @@ public interface DocumentsService {
 
     void createDocument(String nif);
 
-    void createFile(String nif, List<ClassDto> classDtoList);
+    void createFile(String nif, List<ClassDto> classDtoList) throws Exception;
 }

@@ -4,7 +4,7 @@ import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.model.Document;
 import adrian.tfm.crossfit.documents.repository.DocumentRepository;
 import adrian.tfm.crossfit.documents.service.DocumentsService;
-import adrian.tfm.crossfit.documents.service.ExcelService;
+import adrian.tfm.crossfit.documents.service.ClassesExcelService;
 import adrian.tfm.crossfit.documents.service.ClassesKafkaRequestService;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +14,14 @@ import java.util.List;
 public class DocumentsServiceImpl implements DocumentsService {
 
     private DocumentRepository documentRepository;
-    private ExcelService excelService;
+    private ClassesExcelService classesExcelService;
 
     private ClassesKafkaRequestService classesKafkaRequestService;
 
-    public DocumentsServiceImpl(DocumentRepository documentRepository, ExcelService excelService,
+    public DocumentsServiceImpl(DocumentRepository documentRepository, ClassesExcelService classesExcelService,
                                 ClassesKafkaRequestService classesKafkaRequestService) {
         this.documentRepository = documentRepository;
-        this.excelService = excelService;
+        this.classesExcelService = classesExcelService;
         this.classesKafkaRequestService = classesKafkaRequestService;
     }
 
@@ -36,8 +36,13 @@ public class DocumentsServiceImpl implements DocumentsService {
     }
 
     @Override
-    public void createFile(String nif, List<ClassDto> classDtoList) {
-        Document excelFile = this.excelService.createExcel(nif, classDtoList);
-        // this.documentRepository.save(excelFile);
+    public void createFile(String nif, List<ClassDto> classDtoList) throws Exception {
+        if (!classDtoList.isEmpty()) {
+            Document excelFile = this.classesExcelService.createExcel(nif, classDtoList);
+            // this.documentRepository.save(excelFile);
+        } else {
+            // throw or log
+        }
+
     }
 }

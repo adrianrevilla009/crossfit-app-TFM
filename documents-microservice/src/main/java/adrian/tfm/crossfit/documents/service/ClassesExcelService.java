@@ -5,6 +5,6 @@ import adrian.tfm.crossfit.documents.model.Document;
 
 import java.util.List;
 
-public interface ExcelService {
-    Document createExcel(String nif, List<ClassDto> classDtoList);
+public interface ClassesExcelService {
+    Document createExcel(String nif, List<ClassDto> classDtoList) throws Exception;
 }

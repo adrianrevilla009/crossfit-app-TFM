@@ -76,6 +76,7 @@ public class ClassDtoAndEntityMapper {
             UserDto userDto = new UserDto();
             userDto.setId(user.getId());
             userDto.setName(user.getName());
+            userDto.setNif(user.getNif());
             userDtoList.add(userDto);
         }
         classDto.setUserList(userDtoList);

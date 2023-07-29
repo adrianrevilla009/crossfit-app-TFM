@@ -3,6 +3,7 @@ package adrian.tfm.crossfit.classes.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+// TODO delete?
 @Configuration
 public class AppConfig {
     @Value("${classes.kafka.topic.get-topic}")
