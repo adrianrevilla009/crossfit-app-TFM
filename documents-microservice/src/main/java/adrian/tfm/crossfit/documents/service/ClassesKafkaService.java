@@ -12,9 +12,9 @@ public interface ClassesKafkaService {
     void sendGetClassesByNifMessage(String topicName, String nif);
 
     /**
-     * Receives some json data from kafka topic
-     * @param jsonMessage
+     * Receives some json data mapped on an object from kafka topic
+     * @param classesResponseMessageDto
      * @throws Exception
      */
-    void receiveGetClassesByNifMessage(String jsonMessage) throws Exception;
+    void receiveGetClassesByNifMessage(ClassesResponseMessageDto classesResponseMessageDto) throws Exception;
 }

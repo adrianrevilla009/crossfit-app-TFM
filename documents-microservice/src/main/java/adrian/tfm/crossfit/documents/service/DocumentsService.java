@@ -1,5 +1,6 @@
 package adrian.tfm.crossfit.documents.service;
 
+import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.model.Document;
 
 import java.util.List;
@@ -7,5 +8,7 @@ import java.util.List;
 public interface DocumentsService {
     List<Document> getAllDocuments();
 
-    void createDocument(Document document, String nif);
+    void createDocument(String nif);
+
+    void createFile(String nif, List<ClassDto> classDtoList);
 }

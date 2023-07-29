@@ -23,9 +23,9 @@ public class DocumentsController {
     }
 
     @PostMapping("/user/{nif}")
-    public ResponseEntity createDocument(@RequestBody Document document, @PathVariable("nif") String nif) {
+    public ResponseEntity createDocument(@PathVariable("nif") String nif) {
         try {
-            this.documentsService.createDocument(document, nif);
+            this.documentsService.createDocument(nif);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();

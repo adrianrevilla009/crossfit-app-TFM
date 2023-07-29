@@ -4,6 +4,7 @@ import adrian.tfm.crossfit.common.dto.ClassesRequestMessageDto;
 import adrian.tfm.crossfit.common.dto.ClassesResponseMessageDto;
 import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.service.ClassesKafkaService;
+import adrian.tfm.crossfit.documents.service.DocumentsService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.java.Log;
@@ -14,20 +15,22 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Log
-public class ClassesClassesKafkaServiceImpl implements ClassesKafkaService {
-    private final Logger logger = LoggerFactory.getLogger(ClassesClassesKafkaServiceImpl.class);
+public class ClassesKafkaServiceImpl implements ClassesKafkaService {
+    private final Logger logger = LoggerFactory.getLogger(ClassesKafkaServiceImpl.class);
     private final KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate;
-    private final String topic = "get-classes-topic"; // TODO set it as config variable
 
     private final ObjectMapper objectMapper;
 
-    public ClassesClassesKafkaServiceImpl(KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate, ObjectMapper objectMapper) {
+    private DocumentsService documentsService;
+
+    public ClassesKafkaServiceImpl(KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate, ObjectMapper objectMapper,
+                                   DocumentsService documentsService) {
         this.kafkaTemplate = kafkaTemplate;
         this.objectMapper = objectMapper;
+        this.documentsService = documentsService;
     }
 
     @Override
@@ -46,11 +49,13 @@ public class ClassesClassesKafkaServiceImpl implements ClassesKafkaService {
 
     @Override
     @KafkaListener(topics = "send-classes-topic", groupId = "classes-group")
-    public void receiveGetClassesByNifMessage(String jsonMessage) throws Exception {
-        logger.info("Task status is updated : " + jsonMessage);
+    public void receiveGetClassesByNifMessage(ClassesResponseMessageDto classesResponseMessageDto) throws Exception {
+        logger.info("Task status is updated : " + classesResponseMessageDto.getNif());
 
         try {
-            List<ClassDto> classDtoList = objectMapper.readValue(jsonMessage, new TypeReference<List<ClassDto>>() {});
+            List<ClassDto> classDtoList = objectMapper.readValue(classesResponseMessageDto.getClassDtoList(), new TypeReference<List<ClassDto>>() {});
+
+            this.documentsService.createFile(classesResponseMessageDto.getNif(), classDtoList);
 
         } catch (Exception e) {
             e.printStackTrace();

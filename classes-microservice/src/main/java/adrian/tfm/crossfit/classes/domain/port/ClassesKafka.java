@@ -8,5 +8,5 @@ import java.util.List;
 public interface ClassesKafka {
     void receiveGetClassesByNifMessage(ClassesRequestMessageDto classesRequestMessageDto) throws Exception;
 
-    void sendGetClassesByNifMessage(String topicName, List<ClassDto> classDtoList) throws Exception;
+    void sendGetClassesByNifMessage(String topicName, List<ClassDto> classDtoList, String nif) throws Exception;
 }

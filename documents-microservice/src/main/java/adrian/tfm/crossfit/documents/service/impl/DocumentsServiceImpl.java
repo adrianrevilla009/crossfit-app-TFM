@@ -1,5 +1,6 @@
 package adrian.tfm.crossfit.documents.service.impl;
 
+import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.model.Document;
 import adrian.tfm.crossfit.documents.repository.DocumentRepository;
 import adrian.tfm.crossfit.documents.service.DocumentsService;
@@ -30,12 +31,13 @@ public class DocumentsServiceImpl implements DocumentsService {
     }
 
     @Override
-    public void createDocument(Document document, String nif) {
+    public void createDocument(String nif) {
         this.classesKafkaService.sendGetClassesByNifMessage("get-classes-topic", nif);
+    }
 
-        String excelFile = this.excelService.createExcel(document);
-        document.setFile(excelFile);
-
-        this.documentRepository.save(document);
+    @Override
+    public void createFile(String nif, List<ClassDto> classDtoList) {
+        Document excelFile = this.excelService.createExcel(nif, classDtoList);
+        this.documentRepository.save(excelFile);
     }
 }

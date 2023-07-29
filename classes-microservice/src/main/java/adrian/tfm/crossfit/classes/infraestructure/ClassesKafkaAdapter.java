@@ -33,12 +33,12 @@ public class ClassesKafkaAdapter implements ClassesKafka {
 
     private final ClassDaoJpaRepository classDaoJpaRepository;
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, ClassesResponseMessageDto> kafkaTemplate;
 
     private final ObjectMapper objectMapper;
 
     public ClassesKafkaAdapter(ClassJpaRepository classJpaRepository, ClassDtoAndEntityMapper classDtoAndEntityMapper,
-                               KafkaTemplate<String, String> kafkaTemplate,
+                               KafkaTemplate<String, ClassesResponseMessageDto> kafkaTemplate,
                                ClassDaoJpaRepository classDaoJpaRepository, ObjectMapper objectMapper) {
         this.classJpaRepository = classJpaRepository;
         this.classDtoAndEntityMapper = classDtoAndEntityMapper;
@@ -55,12 +55,13 @@ public class ClassesKafkaAdapter implements ClassesKafka {
         List<ClassEntity> classEntityList = this.classJpaRepository.findByUserNif(classesRequestMessageDto.getNif());
 
         this.sendGetClassesByNifMessage("send-classes-topic",
-                classEntityList.stream().map(c -> this.classDtoAndEntityMapper.mapFromClassEntityToClassDto(c)).collect(Collectors.toList())
+                classEntityList.stream().map(c -> this.classDtoAndEntityMapper.mapFromClassEntityToClassDto(c)).collect(Collectors.toList()),
+                classesRequestMessageDto.getNif()
         );
     }
 
     @Override
-    public void sendGetClassesByNifMessage(String topicName, List<ClassDto> classDtoList) throws Exception {
+    public void sendGetClassesByNifMessage(String topicName, List<ClassDto> classDtoList, String nif) throws Exception {
         String jsonMessage;
         try {
             jsonMessage = objectMapper.writeValueAsString(classDtoList);
@@ -69,7 +70,9 @@ public class ClassesKafkaAdapter implements ClassesKafka {
             throw new Exception("[ERROR] serializing values on message send on kafka");
         }
 
-        var future = kafkaTemplate.send(topicName, jsonMessage);
+        ClassesResponseMessageDto classesResponseMessageDto = new ClassesResponseMessageDto(jsonMessage, nif);
+
+        var future = kafkaTemplate.send(topicName, classesResponseMessageDto);
 
         future.whenComplete((sendResult, exception) -> {
             if (exception != null) {
