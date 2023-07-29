@@ -18,13 +18,13 @@ import java.util.List;
 @Service
 public class ClassesKafkaResponseServiceImpl implements ClassesKafkaResponseService {
     private final Logger logger = LoggerFactory.getLogger(ClassesKafkaResponseServiceImpl.class);
-    private final KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     private final ObjectMapper objectMapper;
 
     private DocumentsService documentsService;
 
-    public ClassesKafkaResponseServiceImpl(KafkaTemplate<String, ClassesRequestMessageDto> kafkaTemplate, ObjectMapper objectMapper,
+    public ClassesKafkaResponseServiceImpl(KafkaTemplate<String, String> kafkaTemplate, ObjectMapper objectMapper,
                                           DocumentsService documentsService) {
         this.kafkaTemplate = kafkaTemplate;
         this.objectMapper = objectMapper;
@@ -33,10 +33,11 @@ public class ClassesKafkaResponseServiceImpl implements ClassesKafkaResponseServ
 
     @Override
     @KafkaListener(topics = "send-classes-topic", groupId = "classes-group")
-    public void receiveGetClassesByNifMessage(ClassesResponseMessageDto classesResponseMessageDto) throws Exception {
-        logger.info("Task status is updated : " + classesResponseMessageDto.getNif());
+    public void receiveGetClassesByNifMessage(String jsonMessage) throws Exception {
+        logger.info("Task status is updated : " + jsonMessage);
 
         try {
+            ClassesResponseMessageDto classesResponseMessageDto = objectMapper.readValue(jsonMessage, ClassesResponseMessageDto.class);
             List<ClassDto> classDtoList = objectMapper.readValue(classesResponseMessageDto.getClassDtoList(), new TypeReference<List<ClassDto>>() {});
 
             this.documentsService.createFile(classesResponseMessageDto.getNif(), classDtoList);

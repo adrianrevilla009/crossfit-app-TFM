@@ -33,12 +33,12 @@ public class ClassesKafkaAdapter implements ClassesKafka {
 
     private final ClassDaoJpaRepository classDaoJpaRepository;
 
-    private final KafkaTemplate<String, ClassesResponseMessageDto> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     private final ObjectMapper objectMapper;
 
     public ClassesKafkaAdapter(ClassJpaRepository classJpaRepository, ClassDtoAndEntityMapper classDtoAndEntityMapper,
-                               KafkaTemplate<String, ClassesResponseMessageDto> kafkaTemplate,
+                               KafkaTemplate<String, String> kafkaTemplate,
                                ClassDaoJpaRepository classDaoJpaRepository, ObjectMapper objectMapper) {
         this.classJpaRepository = classJpaRepository;
         this.classDtoAndEntityMapper = classDtoAndEntityMapper;
@@ -72,7 +72,15 @@ public class ClassesKafkaAdapter implements ClassesKafka {
 
         ClassesResponseMessageDto classesResponseMessageDto = new ClassesResponseMessageDto(jsonMessage, nif);
 
-        var future = kafkaTemplate.send(topicName, classesResponseMessageDto);
+        try {
+            jsonMessage = objectMapper.writeValueAsString(classesResponseMessageDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("[ERROR] serializing values on message send on kafka");
+        }
+
+
+        var future = kafkaTemplate.send(topicName, jsonMessage);
 
         future.whenComplete((sendResult, exception) -> {
             if (exception != null) {
