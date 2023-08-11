@@ -1,5 +1,7 @@
 package adrian.tfm.crossfit.documents.dto;
 
+import adrian.tfm.crossfit.documents.model.User;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -70,5 +72,21 @@ public class ClassDto {
 
     public void setExerciseForClassDtoList(List<ExerciseForClassDto> exerciseForClassDtoList) {
         this.exerciseForClassDtoList = exerciseForClassDtoList;
+    }
+
+    public static String getUserStringList(List<UserDto> userList) {
+        String result = "";
+        for (UserDto userDto : userList) {
+            result = result + "ID: " + userDto.getId() + ", Name: " + userDto.getName() + ", NIF: " + userDto.getNif() + " \n";
+        }
+        return result;
+    }
+
+    public static String getExerciseStringList(List<ExerciseForClassDto> exerciseList) {
+        String result = "";
+        for (ExerciseForClassDto exercise : exerciseList) {
+            result = result + "Name: " + exercise.getExercise().getName() + ", Series: " + exercise.getSeries() + ", Repetitions: " + exercise.getRepetitions() + " \n";
+        }
+        return result;
     }
 }

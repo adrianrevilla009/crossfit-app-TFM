@@ -31,4 +31,14 @@ public class DocumentsController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @GetMapping("/user/{nif}")
+    public ResponseEntity findByUser(@PathVariable("nif") String nif) {
+        try {
+            List<Document> documents = this.documentsService.findByUser(nif);
+            return ResponseEntity.ok().body(documents);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

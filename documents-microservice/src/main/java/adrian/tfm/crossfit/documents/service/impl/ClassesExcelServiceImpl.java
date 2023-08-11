@@ -55,6 +55,21 @@ public class ClassesExcelServiceImpl implements ClassesExcelService {
             headerRow.createCell(2).setCellValue("User List");
             headerRow.createCell(3).setCellValue("Exercise List");
 
+            CellStyle style = workbook.createCellStyle();
+            style.setBorderTop(BorderStyle.THIN);
+            style.setBorderBottom(BorderStyle.THIN);
+            style.setBorderLeft(BorderStyle.THIN);
+            style.setBorderRight(BorderStyle.THIN);
+            style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            int approxColumnWidth = 200;
+            int columnWidthUnits = approxColumnWidth * 256 / 7;
+
+            for (int i = 0; i < headerRow.getLastCellNum(); i++) {
+                headerRow.getCell(i).setCellStyle(style);
+                sheet.setColumnWidth(i, columnWidthUnits);
+            }
+
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
             int rowNum = 1;
@@ -64,10 +79,10 @@ public class ClassesExcelServiceImpl implements ClassesExcelService {
                 row.createCell(1).setCellValue(classDto.getTime().format(dateTimeFormatter));
 
                 Cell userListCell = row.createCell(2);
-                userListCell.setCellValue(formatList(classDto.getUserList()));
+                userListCell.setCellValue(ClassDto.getUserStringList(classDto.getUserList()));
 
                 Cell exerciseListCell = row.createCell(3);
-                exerciseListCell.setCellValue(formatList(classDto.getExerciseForClassDtoList()));
+                exerciseListCell.setCellValue(ClassDto.getExerciseStringList(classDto.getExerciseForClassDtoList()));
             }
 
             File folder = new File(documentsGenerationPath);

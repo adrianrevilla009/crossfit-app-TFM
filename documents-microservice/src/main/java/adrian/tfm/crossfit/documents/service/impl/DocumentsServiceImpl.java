@@ -6,12 +6,24 @@ import adrian.tfm.crossfit.documents.repository.DocumentRepository;
 import adrian.tfm.crossfit.documents.service.DocumentsService;
 import adrian.tfm.crossfit.documents.service.ClassesExcelService;
 import adrian.tfm.crossfit.documents.service.ClassesKafkaRequestService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Service
 public class DocumentsServiceImpl implements DocumentsService {
+
+    private final Logger logger = LoggerFactory.getLogger(DocumentsServiceImpl.class);
+
+    @Value("${documents.generation.local-path}")
+    private String documentsStorePath;
 
     private DocumentRepository documentRepository;
     private ClassesExcelService classesExcelService;
@@ -38,11 +50,22 @@ public class DocumentsServiceImpl implements DocumentsService {
     @Override
     public void createFile(String nif, List<ClassDto> classDtoList) throws Exception {
         if (!classDtoList.isEmpty()) {
+            // create excel and save on mongo db
             Document excelFile = this.classesExcelService.createExcel(nif, classDtoList);
-            // this.documentRepository.save(excelFile);
+            // save it into a local persistence unit
+            // TODO this has to be changed to a bucket or something
+            // this.saveDocumentLocally(excelFile);
         } else {
-            // throw or log
+            logger.info("[CREATE EXCEL] Excel not created due to empty data for user");
         }
 
+    }
+
+    private void saveDocumentLocally(Document document) {
+
+    }
+
+    public List<Document> findByUser(String nif) {
+        return this.documentRepository.findByUser(nif);
     }
 }

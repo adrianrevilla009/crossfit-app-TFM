@@ -11,4 +11,6 @@ public interface DocumentsService {
     void createDocument(String nif);
 
     void createFile(String nif, List<ClassDto> classDtoList) throws Exception;
+
+    List<Document> findByUser(String nif);
 }
