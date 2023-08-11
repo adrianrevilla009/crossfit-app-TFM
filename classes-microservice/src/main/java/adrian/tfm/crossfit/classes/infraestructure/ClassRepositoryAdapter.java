@@ -128,4 +128,15 @@ public class ClassRepositoryAdapter implements ClassRepository {
             throw new Exception("No class found");
         }
     }
+
+    @Override
+    public List<ClassDto> getClassesDtoByUser(String nif) {
+        List<ClassEntity> classesByUser = this.classJpaRepository.findByUserNif(nif);
+        List<ClassDto> classDtoList = new ArrayList<>();
+        for (ClassEntity classEntity : classesByUser) {
+            ClassDto classDto = this.classDtoAndEntityMapper.mapFromClassEntityToClassDto(classEntity);
+            classDtoList.add(classDto);
+        }
+        return classDtoList;
+    }
 }

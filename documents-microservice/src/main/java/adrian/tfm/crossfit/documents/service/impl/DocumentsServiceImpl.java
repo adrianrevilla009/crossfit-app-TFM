@@ -22,9 +22,6 @@ public class DocumentsServiceImpl implements DocumentsService {
 
     private final Logger logger = LoggerFactory.getLogger(DocumentsServiceImpl.class);
 
-    @Value("${documents.generation.local-path}")
-    private String documentsStorePath;
-
     private DocumentRepository documentRepository;
     private ClassesExcelService classesExcelService;
 

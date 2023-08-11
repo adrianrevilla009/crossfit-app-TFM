@@ -14,4 +14,6 @@ public interface ClassRepository {
     void removeClass(ClassDto classDto, UserDto userDto) throws Exception;
 
     void changeBookClass(ClassDto classDto, Long id, UserDto userDto) throws Exception;
+
+    List<ClassDto> getClassesDtoByUser(String nif);
 }
