@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="security" />
         <module name="classes-microservice" />
         <module name="common" />
         <module name="documents" />
@@ -16,6 +17,7 @@
       <module name="classes-microservice" target="17" />
       <module name="common" target="17" />
       <module name="documents" target="17" />
+      <module name="security" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -23,6 +25,7 @@
       <module name="classes-microservice" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="documents" options="-parameters" />
+      <module name="security" options="-parameters" />
     </option>
   </component>
 </project>
