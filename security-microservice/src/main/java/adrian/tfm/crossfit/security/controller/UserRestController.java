@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -19,7 +20,7 @@ import java.net.URI;
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserRestController {
     private final UserService userService;
 
@@ -33,21 +34,10 @@ public class UserRestController {
                     content = { @Content(mediaType = "application/json",
                             array = @ArraySchema( schema = @Schema(implementation = UserDTO.class))) })})
     @GetMapping("/")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Page<UserDTO>> getUsers(Pageable pageable) {
         return ResponseEntity.ok(userService.findAll(pageable));
     }
-
-//    @Operation(summary = "Get all reviews by user id")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "reviews from user found",
-//                    content = { @Content(mediaType = "application/json",
-//                            array = @ArraySchema( schema = @Schema(implementation = ReviewDTO.class))) }),
-//            @ApiResponse(responseCode = "404", description = "user not found",
-//                    content = @Content)})
-//    @GetMapping("/{id}/reviews")
-//    public ResponseEntity<Page<ReviewDTO>> getReviewsByUserId(@PathVariable long id) {
-//        return ResponseEntity.ok(userService.findAllByUserId(id));
-//    }
 
     @Operation(summary = "Get a user by its id")
     @ApiResponses(value = {
@@ -57,6 +47,7 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "user not found",
                     content = @Content) })
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserDTO> getUserDetail(@PathVariable long id) {
         return ResponseEntity.ok(userService.findByIdDTO(id));
     }
@@ -67,6 +58,7 @@ public class UserRestController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UserDTO.class)) })})
     @PostMapping("/")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserDTO> createUser(@RequestBody UserCreateDTO userCreateDTO) {
         UserDTO userDTO = userService.save(userCreateDTO);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.id()).toUri();
@@ -81,6 +73,7 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "user not found",
                     content = @Content) })
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserDTO> replaceUser(@RequestBody UserCreateDTO userDTO, @PathVariable long id) {
         return ResponseEntity.ok(userService.replace(userDTO, id));
     }
@@ -95,6 +88,7 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "user not found",
                     content = @Content) })
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserDTO> deleteUser( @PathVariable long id) {
         return ResponseEntity.ok(userService.delete(id));
     }
