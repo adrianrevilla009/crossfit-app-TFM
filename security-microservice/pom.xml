@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>adrian.tfm.crossfit.security</groupId>
-	<artifactId>security-microservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>security</artifactId>
+	<version>1.0.0</version>
 	<name>security-microservice</name>
 	<description>Security microservice for crossfit TFM</description>
 

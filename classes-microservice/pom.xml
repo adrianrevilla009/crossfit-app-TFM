@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>adrian.tfm.crossfit</groupId>
-	<artifactId>classes-microservice</artifactId>
+	<artifactId>classes</artifactId>
 	<version>1.0.0</version>
 	<name>classes</name>
 	<description>Classes CRUD for crossfit</description>
