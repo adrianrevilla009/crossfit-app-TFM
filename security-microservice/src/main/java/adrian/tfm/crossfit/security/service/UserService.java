@@ -3,13 +3,11 @@ package adrian.tfm.crossfit.security.service;
 import adrian.tfm.crossfit.security.dto.UserCreateDTO;
 import adrian.tfm.crossfit.security.dto.UserDTO;
 import adrian.tfm.crossfit.security.mapper.UserMapper;
-import adrian.tfm.crossfit.security.model.User;
+import adrian.tfm.crossfit.security.models.User;
 import adrian.tfm.crossfit.security.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -29,11 +27,6 @@ public class UserService {
     public Page<UserDTO> findAll(Pageable pageable) {
         return userRepository.findAll(pageable).map(userMapper::toDTO);
     }
-
-//    public Page<ReviewDTO> findAllByUserId(long id) {
-//        List<Review> reviews = userRepository.findById(id).orElseThrow().getReviews();
-//        return new PageImpl<>(reviewMapper.toDTOs(reviews));
-//    }
 
     public UserDTO findByIdDTO(long id) {
         return userMapper.toDTO(userRepository.findById(id).orElseThrow());

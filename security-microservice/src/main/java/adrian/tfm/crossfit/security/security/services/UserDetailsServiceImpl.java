@@ -1,13 +1,14 @@
 package adrian.tfm.crossfit.security.security.services;
 
-import adrian.tfm.crossfit.security.model.User;
-import adrian.tfm.crossfit.security.repository.UserRepository;
+import adrian.tfm.crossfit.security.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import adrian.tfm.crossfit.security.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -20,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     User user = userRepository.findByUsername(username)
         .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
-    return UserDetailsImplementation.build(user);
+    return UserDetailsImpl.build(user);
   }
 
 }
