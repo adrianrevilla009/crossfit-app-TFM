@@ -9,6 +9,7 @@ import adrian.tfm.crossfit.security.models.ERole;
 import adrian.tfm.crossfit.security.models.Role;
 import adrian.tfm.crossfit.security.models.User;
 import adrian.tfm.crossfit.security.security.services.UserDetailsImpl;
+import adrian.tfm.crossfit.security.service.RedisService;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,9 @@ public class AuthController {
   @Autowired
   JwtUtils jwtUtils;
 
+  @Autowired
+  RedisService redisService;
+
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -65,11 +69,29 @@ public class AuthController {
         .map(item -> item.getAuthority())
         .collect(Collectors.toList());
 
+    redisService.saveData(userDetails.getEmail(), jwt);
+
     return ResponseEntity.ok(new JwtResponse(jwt, 
                          userDetails.getId(), 
                          userDetails.getUsername(), 
                          userDetails.getEmail(), 
                          roles));
+  }
+
+  @PostMapping("/logout")
+  public ResponseEntity<String> logout(@RequestBody String userEmail) {
+    // if (jwtUtils.validateJwtToken(token)) {
+    //   String username = jwtUtils.getUserNameFromJwtToken(token);
+    //  String userEmail = String.valueOf(userRepository.findByUsername(username));
+
+      SecurityContextHolder.clearContext();
+
+      redisService.removeData(userEmail);
+
+      return ResponseEntity.ok("Logout successful");
+    // } else {
+    //   return ResponseEntity.badRequest().body("Invalid token for logout");
+    // }
   }
 
   @PostMapping("/signup")
