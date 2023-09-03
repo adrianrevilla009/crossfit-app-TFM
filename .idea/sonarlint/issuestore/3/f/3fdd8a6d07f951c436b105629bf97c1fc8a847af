@@ -1,0 +1,5 @@
+
+k
+java:S1206_"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ýข๊อýÿÿÿÿ
+h
+java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ชจน

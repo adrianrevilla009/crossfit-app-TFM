@@ -1,32 +1,26 @@
 package adrian.tfm.crossfit.security.service;
 
+import adrian.tfm.crossfit.security.models.Session;
+import adrian.tfm.crossfit.security.repository.SessionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RedisService {
 
-    private final RedisTemplate<String, Object> redisTemplate;
+    @Autowired
+    SessionRepository sessionRepository;
 
-    public RedisService(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
+    public void saveData(String email, String token) {
+        sessionRepository.save(new Session(email, token));
     }
 
-    public void saveData(String key, Object value) {
-        String finalKey = "user:" + key;
-        redisTemplate.opsForValue().set(finalKey, value);
+    public Session getData(String email) {
+        return sessionRepository.findById(email).orElse(null);
     }
 
-    public Object getData(String key) {
-        String finalKey = "user:" + key;
-        return redisTemplate.opsForValue().get(finalKey);
-    }
-
-    public void removeData(String key) {
-        Object obj = this.getData(key);
-        if (obj != null) {
-            String finalKey = "user:" + key;
-            redisTemplate.delete(finalKey);
-        }
+    public void removeData(String email) {
+        sessionRepository.deleteById(email);
     }
 }
