@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import adrian.tfm.crossfit.security.models.ERole;
 import adrian.tfm.crossfit.security.models.Role;
 import adrian.tfm.crossfit.security.models.User;
+import adrian.tfm.crossfit.security.payload.request.LogoutRequest;
 import adrian.tfm.crossfit.security.security.services.UserDetailsImpl;
 import adrian.tfm.crossfit.security.service.RedisService;
 import jakarta.validation.Valid;
@@ -79,14 +80,14 @@ public class AuthController {
   }
 
   @PostMapping("/logout")
-  public ResponseEntity<String> logout(@RequestBody String userEmail) {
+  public ResponseEntity<String> logout(@RequestBody LogoutRequest logoutRequest) {
     // if (jwtUtils.validateJwtToken(token)) {
     //   String username = jwtUtils.getUserNameFromJwtToken(token);
     //  String userEmail = String.valueOf(userRepository.findByUsername(username));
 
       SecurityContextHolder.clearContext();
 
-      redisService.removeData(userEmail);
+      redisService.removeData(logoutRequest.getEmail());
 
       return ResponseEntity.ok("Logout successful");
     // } else {

@@ -19,8 +19,6 @@ lapi-gateway-microservice/src/main/java/adrian/tfm/crossfit/apigateway/security/
 Qsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/models/Role.java,8\8\8870284fafb9a427e906448a406102ac47846654
 î
 dsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/security/jwt/AuthEntryPointJwt.java,c\0\c03728b2d1fb4af8d8570361c058d20e1367399d
-î
-dsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/controllers/UserRestController.java,8\c\8c6817139e2a992def0f90b3e1558dab3022d721
 í
 bsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/security/jwt/AuthTokenFilter.java,6\5\65dbc32df8cbf5092dd415d75c1dd2268b88127c
 Å
@@ -31,7 +29,5 @@ gsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/security/servi
 [security-microservice/src/main/java/adrian/tfm/crossfit/security/security/jwt/JwtUtils.java,8\8\886019acd70ed0aabc79b4714a516cbb1f60586e
 í
 bsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/payload/request/LoginRequest.java,e\0\e0de686c391e5189b08e9c7e5e10fbeb4334d029
-ì
-csecurity-microservice/src/main/java/adrian/tfm/crossfit/security/payload/request/SignupRequest.java,8\6\86e229302f143472cb04427f597a852e0c014367
 o
 ?security-microservice/src/main/resources/application.properties,7\3\73bb55458da6a33cfeaeb2a52771861c8df7ccd7
