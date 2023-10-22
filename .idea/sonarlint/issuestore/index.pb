@@ -1,8 +1,6 @@
 
 ›
 kclasses-microservice/src/main/java/adrian/tfm/crossfit/classes/domain/mapper/ClassResponseAndDtoMapper.java,f\a\fa35c86b186065632a1f5d755158ffaf4f065133
-L
-classes-microservice/pom.xml,4\b\4b95ff046e526e2ca552a32862f44f939bca6c26
 N
 documents-microservice/pom.xml,8\2\82f73a222c1b7951e33a803c6d633f3015a394ee
 P
@@ -23,10 +21,6 @@ napi-gateway-microservice/src/main/java/adrian/tfm/crossfit/apigateway/documents
 japi-gateway-microservice/src/main/java/adrian/tfm/crossfit/apigateway/classes/ClassesApiConfiguration.java,7\c\7c50c3c93e790fedda44d028f08ea6846cb32334
 œ
 lapi-gateway-microservice/src/main/java/adrian/tfm/crossfit/apigateway/security/SecurityApiConfiguration.java,4\b\4beaf9c41d02731fa31f5decb50c80e65409b21f
-‹
-[security-microservice/src/main/java/adrian/tfm/crossfit/security/security/jwt/JwtUtils.java,8\8\886019acd70ed0aabc79b4714a516cbb1f60586e
-’
-bsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/security/jwt/AuthTokenFilter.java,6\5\65dbc32df8cbf5092dd415d75c1dd2268b88127c
 ’
 bsecurity-microservice/src/main/java/adrian/tfm/crossfit/security/payload/request/LoginRequest.java,e\0\e0de686c391e5189b08e9c7e5e10fbeb4334d029
 o

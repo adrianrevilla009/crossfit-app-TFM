@@ -1,6 +1,7 @@
-package adrian.tfm.crossfit.security.dao;
+package adrian.tfm.crossfit.common.dao;
 
-import adrian.tfm.crossfit.security.models.Session;
+
+import adrian.tfm.crossfit.common.models.Session;
 
 import java.util.Map;
 

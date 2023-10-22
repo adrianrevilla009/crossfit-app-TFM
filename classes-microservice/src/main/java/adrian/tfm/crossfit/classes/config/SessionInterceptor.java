@@ -1,0 +1,48 @@
+package adrian.tfm.crossfit.classes.config;
+
+import adrian.tfm.crossfit.common.dao.ISessionDao;
+import adrian.tfm.crossfit.common.models.Session;
+import adrian.tfm.crossfit.common.security.JwtUtils;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import java.util.Map;
+
+@Component
+public class SessionInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    ISessionDao sessionDao;
+
+    public SessionInterceptor(ISessionDao sessionDao) {
+        this.sessionDao = sessionDao;
+    }
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+
+        String token;
+        try {
+            token = JwtUtils.parseJwt(request);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+
+        if (token != null) {
+            Map<Integer, Session> all = this.sessionDao.getAllSession();
+            for (Map.Entry<Integer, Session> entry : all.entrySet()) {
+                if (entry.getValue().getToken().equals(token)) {
+                    return true; // true if continue with request
+                } else {
+                    throw new Exception("Not matching tokens"); // false if token is another one
+                }
+            }
+        }
+
+        throw new Exception("Token is not present"); // false if token not in redis
+    }
+}

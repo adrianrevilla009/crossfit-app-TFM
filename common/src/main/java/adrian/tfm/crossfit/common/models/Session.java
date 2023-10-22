@@ -1,7 +1,4 @@
-package adrian.tfm.crossfit.security.models;
-
-import jakarta.persistence.Id;
-import org.springframework.data.redis.core.RedisHash;
+package adrian.tfm.crossfit.common.models;
 
 import java.io.Serializable;
 

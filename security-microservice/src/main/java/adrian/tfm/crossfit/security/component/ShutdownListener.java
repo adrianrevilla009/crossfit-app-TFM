@@ -1,6 +1,6 @@
 package adrian.tfm.crossfit.security.component;
 
-import adrian.tfm.crossfit.security.dao.ISessionDao;
+import adrian.tfm.crossfit.common.dao.ISessionDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

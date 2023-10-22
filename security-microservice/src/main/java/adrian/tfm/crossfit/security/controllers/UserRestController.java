@@ -3,6 +3,7 @@ package adrian.tfm.crossfit.security.controllers;
 import adrian.tfm.crossfit.security.dto.UserCreateDTO;
 import adrian.tfm.crossfit.security.dto.UserDTO;
 import adrian.tfm.crossfit.security.service.UserService;
+import adrian.tfm.crossfit.security.service.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

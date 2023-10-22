@@ -12,6 +12,7 @@ import adrian.tfm.crossfit.classes.infraestructure.mapper.UserDtoAndEntityMapper
 import adrian.tfm.crossfit.classes.infraestructure.repository.ClassJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ExerciseJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.UserJpaRepository;
+import adrian.tfm.crossfit.common.dao.SessionDaoImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.dozer.DozerBeanMapper;
@@ -19,11 +20,13 @@ import org.dozer.Mapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.kafka.annotation.EnableKafka;
 
 import java.util.Arrays;
 @EnableKafka
 @SpringBootApplication
+@ComponentScan(basePackages = "adrian.tfm.crossfit.classes")
 public class ClassesApplication {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package adrian.tfm.crossfit.security.config;
+package adrian.tfm.crossfit.classes.config;
 
 import adrian.tfm.crossfit.common.dao.ISessionDao;
 import adrian.tfm.crossfit.common.dao.SessionDaoImpl;

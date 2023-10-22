@@ -1,6 +1,6 @@
-package adrian.tfm.crossfit.security.dao;
+package adrian.tfm.crossfit.common.dao;
 
-import adrian.tfm.crossfit.security.models.Session;
+import adrian.tfm.crossfit.common.models.Session;
 import jakarta.annotation.Resource;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.stereotype.Repository;
