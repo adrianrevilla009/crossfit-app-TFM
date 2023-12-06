@@ -22,7 +22,7 @@ public class ClassUseCaseImpl implements ClassUseCase{
     }
 
     @Override
-    public List<ClassExerciseUserDto> getClassesByUser(String nif) {
+    public List<ClassDto> getClassesByUser(String nif) {
         return this.classRepository.getClassesByUser(nif);
     }
 

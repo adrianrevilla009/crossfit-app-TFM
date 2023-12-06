@@ -64,9 +64,14 @@ public class ClassRepositoryAdapter implements ClassRepository {
     }
 
     @Override
-    public List<ClassExerciseUserDto> getClassesByUser(String nif) {
-        List<ClassExerciseUserDto> classesByUser = this.classDao.getClassesByUser(nif);
-        return classesByUser;
+    public List<ClassDto> getClassesByUser(String nif) {
+        List<ClassEntity> classEntityList = this.classJpaRepository.findByUserNif(nif);
+        List<ClassDto> classDtoList = new ArrayList<>();
+        for (ClassEntity classEntity : classEntityList) {
+            ClassDto classDto = this.classDtoAndEntityMapper.mapFromClassEntityToClassDto(classEntity);
+            classDtoList.add(classDto);
+        }
+        return classDtoList;
     }
 
     @Override

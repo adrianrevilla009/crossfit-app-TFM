@@ -8,7 +8,7 @@ import java.util.List;
 public interface ClassUseCase {
     List<ClassDto> getAllClasses();
 
-    List<ClassExerciseUserDto> getClassesByUser(String nif);
+    List<ClassDto> getClassesByUser(String nif);
 
     void bookClass(ClassDto classDto, String nif) throws Exception;
 

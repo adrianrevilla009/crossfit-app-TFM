@@ -10,8 +10,11 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +27,9 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @RestController
 @RequestMapping("/api/user")
 public class UserRestController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
+
     private final UserService userService;
 
     public UserRestController(UserService userService) {
@@ -37,7 +43,8 @@ public class UserRestController {
                             array = @ArraySchema( schema = @Schema(implementation = UserDTO.class))) })})
     @GetMapping("/")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<Page<UserDTO>> getUsers(Pageable pageable) {
+    public ResponseEntity<Page<?>> getUsers(Pageable pageable) {
+        logger.info("### getUsers ###");
         return ResponseEntity.ok(userService.findAll(pageable));
     }
 
@@ -50,7 +57,8 @@ public class UserRestController {
                     content = @Content) })
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> getUserDetail(@PathVariable long id) {
+    public ResponseEntity<?> getUserDetail(@PathVariable long id) {
+        logger.info("### getUserDetail ###");
         return ResponseEntity.ok(userService.findByIdDTO(id));
     }
 
@@ -61,10 +69,15 @@ public class UserRestController {
                             schema = @Schema(implementation = UserDTO.class)) })})
     @PostMapping("/")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserCreateDTO userCreateDTO) {
-        UserDTO userDTO = userService.save(userCreateDTO);
-        URI location = fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.id()).toUri();
-        return ResponseEntity.created(location).body(userDTO);
+    public ResponseEntity<?> createUser(@RequestBody UserCreateDTO userCreateDTO) {
+        logger.info("### createUser ###");
+        try {
+            UserDTO userDTO = userService.save(userCreateDTO);
+            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.id()).toUri();
+            return ResponseEntity.created(location).body(userDTO);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @Operation(summary = "Update a user")
@@ -76,8 +89,13 @@ public class UserRestController {
                     content = @Content) })
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> replaceUser(@RequestBody UserCreateDTO userDTO, @PathVariable long id) {
-        return ResponseEntity.ok(userService.replace(userDTO, id));
+    public ResponseEntity<?> replaceUser(@RequestBody UserCreateDTO userDTO, @PathVariable long id) {
+        logger.info("### replaceUser ###");
+        try {
+            return ResponseEntity.ok(userService.replace(userDTO, id));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @Operation(summary = "Delete a user")
@@ -91,8 +109,13 @@ public class UserRestController {
                     content = @Content) })
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> deleteUser( @PathVariable long id) {
-        return ResponseEntity.ok(userService.delete(id));
+    public ResponseEntity<?> deleteUser( @PathVariable long id) {
+        logger.info("### deleteUser ###");
+        try {
+            return ResponseEntity.ok(userService.delete(id));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
 }

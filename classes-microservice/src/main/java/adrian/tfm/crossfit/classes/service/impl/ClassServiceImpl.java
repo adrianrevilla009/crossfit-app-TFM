@@ -52,12 +52,12 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public List<ClassExerciseUserResponse> getClassesByUser(String nif) {
-        List<ClassExerciseUserDto> classesByUser = this.classUseCase.getClassesByUser(nif);
+    public List<ClassResponse> getClassesByUser(String nif) {
+        List<ClassDto> classesByUser = this.classUseCase.getClassesByUser(nif);
 
-        List<ClassExerciseUserResponse> classResponseList = new ArrayList<>();
-        for (ClassExerciseUserDto classByUserDto : classesByUser) {
-            classResponseList.add(this.classExerciseUserResponseAndDtoMapper.fromClassDtoToResponse(classByUserDto));
+        List<ClassResponse> classResponseList = new ArrayList<>();
+        for (ClassDto classByUserDto : classesByUser) {
+            classResponseList.add(this.classResponseAndDtoMapper.fromClassDtoToResponse(classByUserDto));
         }
         return classResponseList;
     }

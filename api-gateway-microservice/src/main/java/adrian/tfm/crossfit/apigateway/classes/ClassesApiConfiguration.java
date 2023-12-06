@@ -1,5 +1,7 @@
 package adrian.tfm.crossfit.apigateway.classes;
 
+import adrian.tfm.crossfit.apigateway.config.RequestLoggingFilter;
+import adrian.tfm.crossfit.apigateway.config.ResponseLoggingFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
@@ -31,7 +33,9 @@ public class ClassesApiConfiguration {
                                         LOCATION_HEADER,
                                         null,
                                         "http|https")
-                                .rewriteResponseHeader(LOCATION_HEADER, backendUri.getPath(), ""))
+                                .rewriteResponseHeader(LOCATION_HEADER, backendUri.getPath(), "")
+                                .filter(new RequestLoggingFilter())
+                                .filter(new ResponseLoggingFilter()))
                         .uri(this.classesUrl))
                 .build();
     }
