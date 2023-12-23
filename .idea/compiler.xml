@@ -2,37 +2,23 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
-        <module name="classes-microservice" />
-        <module name="common" />
-        <module name="documents" />
-        <module name="security-microservice" />
+        <module name="classes" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api-gateway" target="11" />
-      <module name="classes-microservice" target="17" />
-      <module name="common" target="17" />
-      <module name="documents" target="17" />
-      <module name="security" target="17" />
-      <module name="security-microservice" target="17" />
-      <module name="spring-boot-jwt-implementation" target="11" />
+      <module name="classes" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
-      <module name="classes-microservice" options="-parameters" />
-      <module name="common" options="-parameters" />
-      <module name="documents" options="-parameters" />
-      <module name="security" options="-parameters" />
-      <module name="security-microservice" options="-parameters" />
-      <module name="spring-boot-jwt-implementation" options="-parameters" />
+      <module name="classes" options="-parameters" />
     </option>
   </component>
 </project>

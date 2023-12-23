@@ -12,7 +12,6 @@ import adrian.tfm.crossfit.classes.infraestructure.mapper.UserDtoAndEntityMapper
 import adrian.tfm.crossfit.classes.infraestructure.repository.ClassJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ExerciseJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.repository.UserJpaRepository;
-import adrian.tfm.crossfit.common.dao.SessionDaoImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.dozer.DozerBeanMapper;

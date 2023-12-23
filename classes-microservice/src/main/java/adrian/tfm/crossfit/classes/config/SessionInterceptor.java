@@ -1,8 +1,5 @@
 package adrian.tfm.crossfit.classes.config;
 
-import adrian.tfm.crossfit.common.dao.ISessionDao;
-import adrian.tfm.crossfit.common.models.Session;
-import adrian.tfm.crossfit.common.security.JwtUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +12,9 @@ import java.util.Map;
 public class SessionInterceptor implements HandlerInterceptor {
 
     @Autowired
-    ISessionDao sessionDao;
+    adrian.tfm.library.common.dao.ISessionDao sessionDao;
 
-    public SessionInterceptor(ISessionDao sessionDao) {
+    public SessionInterceptor(adrian.tfm.library.common.dao.ISessionDao sessionDao) {
         this.sessionDao = sessionDao;
     }
 
@@ -27,14 +24,14 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         String token;
         try {
-            token = JwtUtils.parseJwt(request);
+            token = adrian.tfm.library.common.security.JwtUtils.parseJwt(request);
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
 
         if (token != null) {
-            Map<Integer, Session> all = this.sessionDao.getAllSession();
-            for (Map.Entry<Integer, Session> entry : all.entrySet()) {
+            Map<Integer, adrian.tfm.library.common.models.Session> all = this.sessionDao.getAllSession();
+            for (Map.Entry<Integer, adrian.tfm.library.common.models.Session> entry : all.entrySet()) {
                 if (entry.getValue().getToken().equals(token)) {
                     return true; // true if continue with request
                 } else {

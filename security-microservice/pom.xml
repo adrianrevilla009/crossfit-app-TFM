@@ -129,10 +129,9 @@
 		</dependency>
 		<!-- Common module -->
 		<dependency>
-			<groupId>adrian.tfm.crossfit</groupId>
+			<groupId>adrian.tfm.library</groupId>
 			<artifactId>common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
+			<version>1.0.0</version>
 		</dependency>
 		<!-- Logger -->
 		<dependency>

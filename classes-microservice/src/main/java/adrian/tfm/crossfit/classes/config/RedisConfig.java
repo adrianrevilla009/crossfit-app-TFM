@@ -1,8 +1,5 @@
 package adrian.tfm.crossfit.classes.config;
 
-import adrian.tfm.crossfit.common.dao.ISessionDao;
-import adrian.tfm.crossfit.common.dao.SessionDaoImpl;
-import adrian.tfm.crossfit.common.models.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -20,14 +17,14 @@ public class RedisConfig {
 
     //Creating RedisTemplate for Entity 'Session'
     @Bean
-    public RedisTemplate<String, Session> redisTemplate(){
-        RedisTemplate<String, Session> empTemplate = new RedisTemplate<>();
+    public RedisTemplate<String, adrian.tfm.library.common.models.Session> redisTemplate(){
+        RedisTemplate<String, adrian.tfm.library.common.models.Session> empTemplate = new RedisTemplate<>();
         empTemplate.setConnectionFactory(redisConnectionFactory());
         return empTemplate;
     }
 
     @Bean
-    public ISessionDao sessionDaoRepository() {
-        return new SessionDaoImpl();
+    public adrian.tfm.library.common.dao.ISessionDao sessionDaoRepository() {
+        return new adrian.tfm.library.common.dao.SessionDaoImpl();
     }
 }

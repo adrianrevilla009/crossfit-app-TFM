@@ -72,12 +72,12 @@
 			<version>2.12.4</version>
 		</dependency>
 		<!-- Common module -->
-        <dependency>
-            <groupId>adrian.tfm.crossfit</groupId>
-            <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+		<dependency>
+			<groupId>adrian.tfm.library</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.0</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- Redis -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -94,6 +94,16 @@
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
     </dependencies>
+
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub Adrian Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/adrianrevilla009/common-TFM</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
