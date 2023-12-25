@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>es.codeurjc.shop</groupId>
-	<artifactId>api-gateway</artifactId>
+	<artifactId>api-gateway-microservice</artifactId>
 	<version>1.0.0</version>
 	<name>api-gateway-microservice</name>
 	<description>Api Gateway for Crossfit TFM</description>

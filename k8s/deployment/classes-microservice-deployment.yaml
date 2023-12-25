@@ -1,0 +1,51 @@
+# classes-microservice-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: classes-microservice
+  namespace: development
+  labels:
+    app: classes-microservice
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: classes-microservice
+  template:
+    metadata:
+      labels:
+        app: classes-microservice
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: classes-microservice
+          image: docker.io/adrian2606/classes-microservice:v3
+          resources:
+            requests:
+              cpu: "100m"
+          imagePullPolicy: IfNotPresent #Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql:3306/classes"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "password"
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "create-drop"
+            - name: SPRING_JPA_SHOW_SQL
+              value: "true"
+            - name: SPRING_JPA_HIBERNATE_DIALECT
+              value: "org.hibernate.dialect.MySQLDialect"
+            - name: SERVER_PORT
+              value: "8080"
+            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka-service:9092"
+            - name: SPRING_REDIS_HOST
+              value: "redis-cache"
+            - name: SPRING_REDIS_PORT
+              value: "6379"

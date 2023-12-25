@@ -1,7 +1,6 @@
 package adrian.tfm.crossfit.documents.service.impl;
 
-import adrian.tfm.crossfit.common.dto.ClassesRequestMessageDto;
-import adrian.tfm.crossfit.common.dto.ClassesResponseMessageDto;
+import adrian.tfm.crossfit.documents.commons.dto.ClassesRequestMessageDto;
 import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.service.ClassesKafkaRequestService;
 import adrian.tfm.crossfit.documents.service.DocumentsService;

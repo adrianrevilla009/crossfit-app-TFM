@@ -1,0 +1,51 @@
+# security-microservice-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: security-microservice
+  namespace: development
+  labels:
+    app: security-microservice
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: security-microservice
+  template:
+    metadata:
+      labels:
+        app: security-microservice
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: security-microservice
+          image: docker.io/adrian2606/security-microservice:v3
+          resources:
+            requests:
+              cpu: "100m"
+          imagePullPolicy: IfNotPresent #Always
+          ports:
+            - containerPort: 8082
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql-db-security:3306/security?allowPublicKeyRetrieval=true&useSSL=false"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "password"
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+              value: "org.hibernate.dialect.MySQLDialect"
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "create-drop"
+            - name: APP_JWT_SECRET
+              value: "======================Adrian=Spring==========================="
+            - name: APP_JWT_EXPIRATION_MS
+              value: "86400000"
+            - name: SERVER_PORT
+              value: "8082"
+            - name: SPRING_REDIS_HOST
+              value: "redis-cache"
+            - name: SPRING_REDIS_PORT
+              value: "6379"

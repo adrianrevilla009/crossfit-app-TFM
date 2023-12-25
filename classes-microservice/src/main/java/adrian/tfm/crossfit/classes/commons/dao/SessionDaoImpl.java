@@ -2,12 +2,14 @@ package adrian.tfm.crossfit.classes.commons.dao;
 
 import adrian.tfm.crossfit.classes.commons.models.Session;
 import jakarta.annotation.Resource;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
 @Repository
+@Primary
 public class SessionDaoImpl implements ISessionDao {
 
     private final String hashReference= "Session";

@@ -6,6 +6,7 @@ import adrian.tfm.crossfit.classes.commons.security.JwtUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -15,6 +16,7 @@ import java.util.Map;
 public class SessionInterceptor implements HandlerInterceptor {
 
     @Autowired
+    @Qualifier("sessionDaoImpl")
     ISessionDao sessionDao;
 
     public SessionInterceptor(ISessionDao sessionDao) {

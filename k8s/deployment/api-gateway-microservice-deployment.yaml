@@ -1,0 +1,40 @@
+# api-gateway-microservice-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway-microservice
+  namespace: development
+  labels:
+    app: api-gateway-microservice
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway-microservice
+  template:
+    metadata:
+      labels:
+        app: api-gateway-microservice
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: api-gateway-microservice
+          image: docker.io/adrian2606/api-gateway-microservice:v3
+          resources:
+            requests:
+              cpu: "100m"
+          imagePullPolicy: IfNotPresent #Always
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SERVICE_CLASSES
+              value: "http://service-classes-service:8080"
+            - name: SERVICE_DOCUMENTS
+              value: "http://service-documents-service:8081"
+            - name: SERVICE_SECURITY
+              value: "http://service-security-service:8082"
+            - name: SERVER_PORT
+              value: "8083"
+            # TODO ajustar LOGGING_LEVEL
