@@ -127,12 +127,12 @@
 			<groupId>io.lettuce</groupId>
 			<artifactId>lettuce-core</artifactId>
 		</dependency>
-		<!-- Common module -->
+		<!-- Common module
 		<dependency>
 			<groupId>adrian.tfm.library</groupId>
 			<artifactId>common</artifactId>
 			<version>1.0.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- Logger -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

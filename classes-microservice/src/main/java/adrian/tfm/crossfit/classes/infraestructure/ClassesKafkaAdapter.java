@@ -1,5 +1,7 @@
 package adrian.tfm.crossfit.classes.infraestructure;
 
+import adrian.tfm.crossfit.classes.commons.dto.ClassesRequestMessageDto;
+import adrian.tfm.crossfit.classes.commons.dto.ClassesResponseMessageDto;
 import adrian.tfm.crossfit.classes.domain.port.ClassDto;
 import adrian.tfm.crossfit.classes.domain.port.ClassesKafka;
 import adrian.tfm.crossfit.classes.infraestructure.dao.ClassDaoJpaRepository;
@@ -46,7 +48,7 @@ public class ClassesKafkaAdapter implements ClassesKafka {
 
     @Override
     @KafkaListener(topics = "get-classes-topic", groupId = "classes-group")
-    public void receiveGetClassesByNifMessage(Classesreq classesRequestMessageDto) throws Exception {
+    public void receiveGetClassesByNifMessage(ClassesRequestMessageDto classesRequestMessageDto) throws Exception {
         logger.info("Task status is updated : " + classesRequestMessageDto.getNif());
 
         List<ClassEntity> classEntityList = this.classJpaRepository.findByUserNif(classesRequestMessageDto.getNif());
@@ -67,7 +69,7 @@ public class ClassesKafkaAdapter implements ClassesKafka {
             throw new Exception("[ERROR] serializing values on message send on kafka");
         }
 
-        adrian.tfm.library.common.dto.ClassesResponseMessageDto classesResponseMessageDto = new adrian.tfm.library.common.dto.ClassesResponseMessageDto(jsonMessage, nif);
+        ClassesResponseMessageDto classesResponseMessageDto = new ClassesResponseMessageDto(jsonMessage, nif);
 
         try {
             jsonMessage = objectMapper.writeValueAsString(classesResponseMessageDto);

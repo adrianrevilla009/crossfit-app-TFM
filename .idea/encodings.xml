@@ -5,5 +5,9 @@
     <file url="file://$PROJECT_DIR$/api-gateway-microservice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/classes-microservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/classes-microservice/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/documents-microservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/documents-microservice/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security-microservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security-microservice/src/main/resources" charset="UTF-8" />
   </component>
 </project>

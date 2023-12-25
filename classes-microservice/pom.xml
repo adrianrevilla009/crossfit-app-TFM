@@ -71,13 +71,13 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.12.4</version>
 		</dependency>
-		<!-- Common module -->
+		<!-- Common module
 		<dependency>
-			<groupId>adrian.tfm.library</groupId>
-			<artifactId>common</artifactId>
-			<version>1.0.0</version>
+			<groupId>library.common.adrian</groupId>
+			<artifactId>tfm</artifactId>
+			<version>1.0.1</version>
 			<scope>compile</scope>
-		</dependency>
+		</dependency> -->
 		<!-- Redis -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>

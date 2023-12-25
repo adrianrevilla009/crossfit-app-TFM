@@ -1,11 +1,11 @@
 package adrian.tfm.crossfit.classes.domain.port;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import adrian.tfm.crossfit.classes.commons.dto.ClassesRequestMessageDto;
 
 import java.util.List;
 
 public interface ClassesKafka {
-    void receiveGetClassesByNifMessage(adrian.tfm.library.common.dto.ClassesRequestMessageDto classesRequestMessageDto) throws Exception;
+    void receiveGetClassesByNifMessage(ClassesRequestMessageDto classesRequestMessageDto) throws Exception;
 
     void sendGetClassesByNifMessage(String topicName, List<ClassDto> classDtoList, String nif) throws Exception;
 }

@@ -1,8 +1,8 @@
 package adrian.tfm.crossfit.security.config;
 
-import adrian.tfm.crossfit.common.dao.ISessionDao;
-import adrian.tfm.crossfit.common.dao.SessionDaoImpl;
-import adrian.tfm.crossfit.common.models.Session;
+import adrian.tfm.crossfit.security.commons.dao.ISessionDao;
+import adrian.tfm.crossfit.security.commons.dao.SessionDaoImpl;
+import adrian.tfm.crossfit.security.commons.models.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

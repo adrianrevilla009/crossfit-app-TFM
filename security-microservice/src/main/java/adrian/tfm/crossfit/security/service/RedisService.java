@@ -1,6 +1,7 @@
 package adrian.tfm.crossfit.security.service;
 
-import adrian.tfm.crossfit.common.models.Session;
+
+import adrian.tfm.crossfit.security.commons.models.Session;
 
 public interface RedisService {
     void saveData(String email, String token);
