@@ -109,6 +109,22 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.35.0</version> <!-- Usa la última versión disponible -->
+				<configuration>
+					<images>
+						<image>
+							<name>adrian2606/common</name>
+							<alias>common</alias>
+							<run>
+								<namingStrategy>alias</namingStrategy>
+							</run>
+						</image>
+					</images>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

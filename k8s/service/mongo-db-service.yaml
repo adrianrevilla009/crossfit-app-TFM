@@ -1,0 +1,13 @@
+# mongo-db-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-db
+  namespace: development
+spec:
+  selector:
+    app: mongo-db
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
