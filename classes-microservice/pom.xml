@@ -95,16 +95,6 @@
 		</dependency>
     </dependencies>
 
-	<repositories>
-		<repository>
-			<id>github</id>
-			<name>GitHub Adrian Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/adrianrevilla009/common-TFM</url>
-			<releases><enabled>true</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-		</repository>
-	</repositories>
-
 	<build>
 		<plugins>
 			<plugin>

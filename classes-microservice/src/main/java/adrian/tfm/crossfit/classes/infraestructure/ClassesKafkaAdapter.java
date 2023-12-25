@@ -46,7 +46,7 @@ public class ClassesKafkaAdapter implements ClassesKafka {
 
     @Override
     @KafkaListener(topics = "get-classes-topic", groupId = "classes-group")
-    public void receiveGetClassesByNifMessage(adrian.tfm.library.common.dto.ClassesRequestMessageDto classesRequestMessageDto) throws Exception {
+    public void receiveGetClassesByNifMessage(Classesreq classesRequestMessageDto) throws Exception {
         logger.info("Task status is updated : " + classesRequestMessageDto.getNif());
 
         List<ClassEntity> classEntityList = this.classJpaRepository.findByUserNif(classesRequestMessageDto.getNif());
