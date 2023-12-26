@@ -21,7 +21,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: documents-microservice
-          image: docker.io/adrian2606/documents-microservice:v3
+          image: docker.io/adrian2606/documents-microservice:v4
           resources:
             requests:
               cpu: "100m"
@@ -55,3 +55,7 @@ spec:
               value: "documents-microservice/src/main/resources/static/"
             - name: DOCUMENTS_GENERATION_NAME
               value: "classes-excel.xlsx"
+            - name: SPRING_REDIS_HOST
+              value: "redis-cache"
+            - name: SPRING_REDIS_PORT
+              value: "6379"

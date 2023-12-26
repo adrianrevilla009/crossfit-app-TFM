@@ -21,7 +21,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: security-microservice
-          image: docker.io/adrian2606/security-microservice:v3
+          image: docker.io/adrian2606/security-microservice:v6
           resources:
             requests:
               cpu: "100m"

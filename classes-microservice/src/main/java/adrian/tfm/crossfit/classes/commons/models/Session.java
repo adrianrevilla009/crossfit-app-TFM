@@ -1,7 +1,10 @@
 package adrian.tfm.crossfit.classes.commons.models;
 
+import org.springframework.data.redis.core.RedisHash;
+
 import java.io.Serializable;
 
+@RedisHash("Session")
 public class Session implements Serializable {
 
     private static final long serialVersionUID = -7817224776021728682L;

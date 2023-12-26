@@ -5,19 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/78504cf097c2d739925a4f7cd8170e59d9639319" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c19e8c318ea870630c0d4dae1a5ef389dc73aa77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/2/e2d4a05735dc602ea171b74752d3d4256754701b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/8/78504cf097c2d739925a4f7cd8170e59d9639319" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/1/c19e8c318ea870630c0d4dae1a5ef389dc73aa77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/2/e2d4a05735dc602ea171b74752d3d4256754701b" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/deployment/api-gateway-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/deployment/api-gateway-microservice-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/service/api-gateway-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/api-gateway-microservice-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/service/classes-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/classes-microservice-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/service/mysql-db-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/mysql-db-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/service/redis-cache-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/redis-cache-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/models/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/models/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/classes-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/deployment/classes-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/documents-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/deployment/documents-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/security-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/deployment/security-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/SecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/SecurityApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/models/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/models/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,9 +118,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SecurityApplication" />
-        <item itemvalue="Application.ApiGatewayApplication" />
-        <item itemvalue="Application.DocumentsApplication" />
         <item itemvalue="Application.ClassesApplication" />
+        <item itemvalue="Application.DocumentsApplication" />
+        <item itemvalue="Application.ApiGatewayApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -145,5 +145,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

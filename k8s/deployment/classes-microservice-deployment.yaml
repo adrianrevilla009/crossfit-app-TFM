@@ -21,7 +21,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: classes-microservice
-          image: docker.io/adrian2606/classes-microservice:v3
+          image: docker.io/adrian2606/classes-microservice:v4
           resources:
             requests:
               cpu: "100m"

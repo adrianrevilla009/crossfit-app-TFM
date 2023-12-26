@@ -5,6 +5,8 @@ import adrian.tfm.crossfit.classes.commons.models.Session;
 import adrian.tfm.crossfit.classes.commons.security.JwtUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,8 @@ import java.util.Map;
 
 @Component
 public class SessionInterceptor implements HandlerInterceptor {
+
+    private static final Logger logger = LoggerFactory.getLogger(SessionInterceptor.class);
 
     @Autowired
     @Qualifier("sessionDaoImpl")
@@ -33,6 +37,9 @@ public class SessionInterceptor implements HandlerInterceptor {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+
+        logger.info(sessionDao.toString());
+        logger.info(token);
 
         if (token != null) {
             Map<Integer, Session> all = this.sessionDao.getAllSession();
