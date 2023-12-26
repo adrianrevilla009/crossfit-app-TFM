@@ -14,4 +14,4 @@ spec:
       name: mysql-port
   selector:
     app: mysql
-  type: NodePort
+  type: ClusterIP

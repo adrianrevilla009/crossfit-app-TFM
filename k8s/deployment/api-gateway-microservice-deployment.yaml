@@ -30,11 +30,11 @@ spec:
             - containerPort: 8083
           env:
             - name: SERVICE_CLASSES
-              value: "http://service-classes-service:8080"
+              value: "http://classes-microservice:8080"
             - name: SERVICE_DOCUMENTS
-              value: "http://service-documents-service:8081"
+              value: "http://documents-microservice:8081"
             - name: SERVICE_SECURITY
-              value: "http://service-security-service:8082"
+              value: "http://security-microservice:8082"
             - name: SERVER_PORT
               value: "8083"
             # TODO ajustar LOGGING_LEVEL

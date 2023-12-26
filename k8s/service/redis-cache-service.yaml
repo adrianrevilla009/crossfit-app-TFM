@@ -4,10 +4,14 @@ kind: Service
 metadata:
   name: redis-cache
   namespace: development
+  labels:
+    app: redis-cache
 spec:
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP
+      name: redis-cache-port
   selector:
     app: redis-cache
-  ports:
-    - protocol: TCP
-      port: 6379
-      targetPort: 6379
+  type: ClusterIP

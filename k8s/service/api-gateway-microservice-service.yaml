@@ -7,8 +7,8 @@ metadata:
     app: api-gateway-microservice
 spec:
   ports:
-    - port: 8082
-      targetPort: 8082
+    - port: 8083
+      targetPort: 8083
       protocol: TCP
       name: api-gateway-microservice-port
   selector:

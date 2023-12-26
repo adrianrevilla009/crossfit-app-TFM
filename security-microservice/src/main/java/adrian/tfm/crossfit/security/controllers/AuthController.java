@@ -35,6 +35,7 @@ public class AuthController {
       JwtResponse jwtResponse = this.authService.authenticateUser(loginRequest);
       return ResponseEntity.ok(jwtResponse);
     } catch (Exception e) {
+      logger.error(String.valueOf(e.getStackTrace()));
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
   }
@@ -46,6 +47,7 @@ public class AuthController {
         this.authService.logout(logoutRequest);
         return ResponseEntity.ok("Logout successful");
       } catch (Exception e) {
+        logger.error(String.valueOf(e.getStackTrace()));
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
       }
   }
@@ -57,6 +59,7 @@ public class AuthController {
       MessageResponse messageResponse = this.authService.registerUser(signUpRequest);
       return ResponseEntity.ok(messageResponse);
     } catch (Exception e) {
+      logger.error(String.valueOf(e.getStackTrace()));
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
   }

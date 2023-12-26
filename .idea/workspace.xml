@@ -5,85 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dao/ISessionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dao/SessionDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dto/ClassesRequestMessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dto/ClassesResponseMessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/models/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/security/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/deployment/api-gateway-microservice-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/deployment/classes-microservice-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/deployment/documents-microservice-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/deployment/security-microservice-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/service/api-gateway-microservice-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/service/classes-microservice-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/service/documents-microservice-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/service/security-microservice-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__adrian_tfm_crossfit_common_0_0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_94_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_5_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_annotations_api_10_1_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_3_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_3_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_6_0_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_6_0_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/069f492e79ff336a3d9eb74c0f4a2381104ab259" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/8/08142e985c65daed60e49653a94e4663120d06ba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/1208a00e7b0bbe88511bf41ba6470f896eff1b6d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/a/1ac431a9e71dfd63e48c9666e0a0e2ca6e25185e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e5b04515f79f51468356a4703b4125c07b4b51a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2bfe622309345a5f5dd7a67ae5f766ad676fcdb9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/6/36bb49d0c642c85bf7ab4651bbcf555dd913812f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/d/3dae7f964c5d5dcd8e6046c893ebb4264a72ea03" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4e9aa876d78c21a889fc8a0deb86d0c0d9202a00" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/0/707caffe26bcb7595e75fc5e96c93f87b1220a52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/1/712e2a363eda534f0894b62116e3279a97bf2c5c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/2/82f73a222c1b7951e33a803c6d633f3015a394ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/845a32f0764fe44e1eaa5ae24a5f2467061eaba6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c171a6db69f5f633f818a9ca8de69767081b8864" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/6/c6e2bda7e958ae03ed30f6545d5a8dd79d4f0680" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/0/d08fb594a313a27f3b649720a414bb4c1114407b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e330061942171f0472b0d03a1fb1b9d13c99e221" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec04234171ff94209827f6afa0026d1311e13249" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/6/069f492e79ff336a3d9eb74c0f4a2381104ab259" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/8/08142e985c65daed60e49653a94e4663120d06ba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/2/1208a00e7b0bbe88511bf41ba6470f896eff1b6d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/a/1ac431a9e71dfd63e48c9666e0a0e2ca6e25185e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/e/1e5b04515f79f51468356a4703b4125c07b4b51a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/b/2bfe622309345a5f5dd7a67ae5f766ad676fcdb9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/6/36bb49d0c642c85bf7ab4651bbcf555dd913812f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/d/3dae7f964c5d5dcd8e6046c893ebb4264a72ea03" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/e/4e9aa876d78c21a889fc8a0deb86d0c0d9202a00" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/0/707caffe26bcb7595e75fc5e96c93f87b1220a52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/1/712e2a363eda534f0894b62116e3279a97bf2c5c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/2/82f73a222c1b7951e33a803c6d633f3015a394ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/4/845a32f0764fe44e1eaa5ae24a5f2467061eaba6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/1/c171a6db69f5f633f818a9ca8de69767081b8864" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/6/c6e2bda7e958ae03ed30f6545d5a8dd79d4f0680" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/0/d08fb594a313a27f3b649720a414bb4c1114407b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/3/e330061942171f0472b0d03a1fb1b9d13c99e221" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/c/ec04234171ff94209827f6afa0026d1311e13249" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/78504cf097c2d739925a4f7cd8170e59d9639319" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c19e8c318ea870630c0d4dae1a5ef389dc73aa77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/2/e2d4a05735dc602ea171b74752d3d4256754701b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/8/78504cf097c2d739925a4f7cd8170e59d9639319" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/1/c19e8c318ea870630c0d4dae1a5ef389dc73aa77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/2/e2d4a05735dc602ea171b74752d3d4256754701b" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/dao/SessionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/dao/SessionDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/ClassesKafkaRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/ClassesKafkaRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/ClassesKafkaResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/ClassesKafkaResponseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaRequestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaResponseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaResponseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/documents.Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/security.Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/dao/SessionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/dao/SessionDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/component/ShutdownListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/component/ShutdownListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/api-gateway-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/deployment/api-gateway-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/api-gateway-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/api-gateway-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/classes-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/classes-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/mysql-db-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/mysql-db-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/redis-cache-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/service/redis-cache-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +62,7 @@
       <recent name="adrian.tfm.crossfit.documents.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApiGatewayApplication">
+  <component name="RunManager" selected="Application.SecurityApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="adrian.tfm.crossfit.apigateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -184,9 +117,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SecurityApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.DocumentsApplication" />
-        <item itemvalue="Application.SecurityApplication" />
         <item itemvalue="Application.ClassesApplication" />
       </list>
     </recent_temporary>

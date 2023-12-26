@@ -43,9 +43,14 @@ public class UserRestController {
                             array = @ArraySchema( schema = @Schema(implementation = UserDTO.class))) })})
     @GetMapping("/")
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<Page<?>> getUsers(Pageable pageable) {
+    public ResponseEntity<?> getUsers(Pageable pageable) {
         logger.info("### getUsers ###");
-        return ResponseEntity.ok(userService.findAll(pageable));
+        try {
+            return ResponseEntity.ok(userService.findAll(pageable));
+        } catch (Exception e) {
+            logger.error(String.valueOf(e.getStackTrace()));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @Operation(summary = "Get a user by its id")
@@ -59,7 +64,12 @@ public class UserRestController {
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> getUserDetail(@PathVariable long id) {
         logger.info("### getUserDetail ###");
-        return ResponseEntity.ok(userService.findByIdDTO(id));
+        try {
+            return ResponseEntity.ok(userService.findByIdDTO(id));
+        } catch (Exception e) {
+            logger.error(String.valueOf(e.getStackTrace()));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @Operation(summary = "Create new user")
@@ -76,6 +86,7 @@ public class UserRestController {
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.id()).toUri();
             return ResponseEntity.created(location).body(userDTO);
         } catch (Exception e) {
+            logger.error(String.valueOf(e.getStackTrace()));
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
@@ -94,6 +105,7 @@ public class UserRestController {
         try {
             return ResponseEntity.ok(userService.replace(userDTO, id));
         } catch (Exception e) {
+            logger.error(String.valueOf(e.getStackTrace()));
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
@@ -114,6 +126,7 @@ public class UserRestController {
         try {
             return ResponseEntity.ok(userService.delete(id));
         } catch (Exception e) {
+            logger.error(String.valueOf(e.getStackTrace()));
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
