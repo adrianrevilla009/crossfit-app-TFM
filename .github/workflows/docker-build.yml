@@ -25,9 +25,11 @@ jobs:
       - name: Build and Push Docker Images
         run: |
           for service in api-gateway-microservice classes-microservice documents-microservice security-microservice; do
-            cd $service
-            docker buildx create --use
-            docker buildx inspect --bootstrap
-            docker buildx build -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest --push .
-            cd ..
+            for module in api-gateway-microservice classes-microservice documents-microservice security-microservice; do
+              cd $module
+              docker buildx create --use
+              docker buildx inspect --bootstrap
+              docker buildx build -t ***/$module:latest --push .
+              cd ..
+            done
           done
