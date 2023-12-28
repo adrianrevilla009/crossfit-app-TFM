@@ -1,0 +1,13 @@
+# mysql-db-security-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-db-security
+  namespace: development
+spec:
+  selector:
+    app: mysql-db-security
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306

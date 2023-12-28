@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: documents-microservice
+  namespace: development
+  labels:
+    app: documents-microservice
+spec:
+  ports:
+    - port: 8081
+      targetPort: 8081
+      protocol: TCP
+      name: documents-microservice-port
+  selector:
+    app: documents-microservice
+  type: ClusterIP

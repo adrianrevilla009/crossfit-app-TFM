@@ -1,0 +1,61 @@
+# documents-microservice-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: documents-microservice
+  namespace: development
+  labels:
+    app: documents-microservice
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: documents-microservice
+  template:
+    metadata:
+      labels:
+        app: documents-microservice
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: documents-microservice
+          image: docker.io/adrian2606/documents-microservice:v4
+          resources:
+            requests:
+              cpu: "100m"
+          imagePullPolicy: IfNotPresent #Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_DATA_MONGODB_HOST
+              value: "mongo-db"
+            - name: SPRING_DATA_MONGODB_PORT
+              value: "27017"
+            - name: SPRING_DATA_MONGODB_DATABASE
+              value: "documents"
+            - name: SPRING_DATA_MONGODB_USERNAME
+              value: "adrian"
+            - name: SPRING_DATA_MONGODB_PASSWORD
+              value: "password"
+            - name: SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE
+              value: "admin"
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: "create-drop"
+            - name: SPRING_JPA_SHOW_SQL
+              value: "true"
+            - name: SPRING_AUTOCONFIGURE_EXCLUDE
+              value: "org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"
+            - name: SERVER_PORT
+              value: "8081"
+            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka-service:9092"
+            - name: DOCUMENTS_GENERATION_PATH
+              value: "documents-microservice/src/main/resources/static/"
+            - name: DOCUMENTS_GENERATION_NAME
+              value: "classes-excel.xlsx"
+            - name: SPRING_REDIS_HOST
+              value: "redis-cache"
+            - name: SPRING_REDIS_PORT
+              value: "6379"

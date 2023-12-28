@@ -1,0 +1,17 @@
+# mysql-db-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: development
+  labels:
+    app: mysql
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+      protocol: TCP
+      name: mysql-port
+  selector:
+    app: mysql
+  type: ClusterIP
