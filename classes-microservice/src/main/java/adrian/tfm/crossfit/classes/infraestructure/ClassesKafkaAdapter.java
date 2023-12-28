@@ -1,7 +1,5 @@
 package adrian.tfm.crossfit.classes.infraestructure;
 
-import adrian.tfm.crossfit.classes.commons.dto.ClassesRequestMessageDto;
-import adrian.tfm.crossfit.classes.commons.dto.ClassesResponseMessageDto;
 import adrian.tfm.crossfit.classes.domain.port.ClassDto;
 import adrian.tfm.crossfit.classes.domain.port.ClassesKafka;
 import adrian.tfm.crossfit.classes.infraestructure.dao.ClassDaoJpaRepository;

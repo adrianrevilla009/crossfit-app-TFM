@@ -74,6 +74,12 @@
 			<groupId>io.lettuce</groupId>
 			<artifactId>lettuce-core</artifactId>
 		</dependency>
+		<!-- Commons own library -->
+		<dependency>
+			<groupId>library.common.adrian</groupId>
+			<artifactId>tfm</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -93,6 +93,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
+		<!-- Commons own library -->
+		<dependency>
+			<groupId>library.common.adrian</groupId>
+			<artifactId>tfm</artifactId>
+			<version>1.0.1</version>
+		</dependency>
     </dependencies>
 
 	<build>

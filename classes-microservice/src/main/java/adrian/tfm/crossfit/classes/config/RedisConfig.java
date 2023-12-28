@@ -1,8 +1,7 @@
 package adrian.tfm.crossfit.classes.config;
 
-import adrian.tfm.crossfit.classes.commons.dao.ISessionDao;
-import adrian.tfm.crossfit.classes.commons.dao.SessionDaoImpl;
-import adrian.tfm.crossfit.classes.commons.models.Session;
+import library.common.adrian.tfm.models.Session;
+import library.common.adrian.tfm.dao.ISessionDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
