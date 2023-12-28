@@ -27,7 +27,11 @@ jobs:
           services=("api-gateway-microservice" "classes-microservice" "documents-microservice" "security-microservice")
 
           for service in "${services[@]}"; do
+            echo "Current directory: $(pwd)"
+            ls -la
             cd $service
+            echo "Changed to directory: $(pwd)"
+            ls -la
             docker buildx create --use
             docker buildx inspect --bootstrap
             docker buildx build -t ***/$service:latest --push .
