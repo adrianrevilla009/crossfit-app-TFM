@@ -24,7 +24,7 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          for service in microservice1 microservice2 microservice3; do
+          for service in api-gateway-microservice classes-microservice documents-microservice security-microservice; do
             cd $service
             docker buildx create --use
             docker buildx inspect --bootstrap
