@@ -2,32 +2,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: classes-microservice
+  name: {{ .Values.classes-microservice.name }}
   namespace: development
   labels:
-    app: classes-microservice
+    app: {{ .Values.classes-microservice.name }}
 spec:
   strategy:
     type: Recreate
   replicas: 1
   selector:
     matchLabels:
-      app: classes-microservice
+      app: {{ .Values.classes-microservice.name }}
   template:
     metadata:
       labels:
-        app: classes-microservice
+        app: {{ .Values.classes-microservice.name }}
     spec:
       restartPolicy: Always
       containers:
-        - name: classes-microservice
-          image: docker.io/adrian2606/classes-microservice:v4
+        - name: {{ .Values.classes-microservice.name }}
+          image: docker.io/{{ .Values.docker-hub.user }}/{{ .Values.classes-microservice.name }}:{{ .Values.classes-microservice.version }}
           resources:
             requests:
               cpu: "100m"
           imagePullPolicy: IfNotPresent #Always
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.classes-microservice.port }}
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql:3306/classes"
@@ -42,7 +42,7 @@ spec:
             - name: SPRING_JPA_HIBERNATE_DIALECT
               value: "org.hibernate.dialect.MySQLDialect"
             - name: SERVER_PORT
-              value: "8080"
+              value: {{ .Values.classes-microservice.port }}
             - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
               value: "kafka-service:9092"
             - name: SPRING_REDIS_HOST

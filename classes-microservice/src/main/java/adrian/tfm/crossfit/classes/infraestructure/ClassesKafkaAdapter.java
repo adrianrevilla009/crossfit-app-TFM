@@ -6,6 +6,8 @@ import adrian.tfm.crossfit.classes.infraestructure.dao.ClassDaoJpaRepository;
 import adrian.tfm.crossfit.classes.infraestructure.mapper.ClassDtoAndEntityMapper;
 import adrian.tfm.crossfit.classes.infraestructure.model.ClassEntity;
 import adrian.tfm.crossfit.classes.infraestructure.repository.ClassJpaRepository;
+import adrian.tfm.library.common.dto.ClassesRequestMessageDto;
+import adrian.tfm.library.common.dto.ClassesResponseMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.java.Log;

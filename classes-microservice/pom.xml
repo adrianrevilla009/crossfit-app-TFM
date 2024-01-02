@@ -71,13 +71,12 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.12.4</version>
 		</dependency>
-		<!-- Common module
+		<!-- Commons own library -->
 		<dependency>
-			<groupId>library.common.adrian</groupId>
-			<artifactId>tfm</artifactId>
-			<version>1.0.1</version>
-			<scope>compile</scope>
-		</dependency> -->
+			<groupId>adrian.tfm.library</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- Redis -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -92,12 +91,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
-		</dependency>
-		<!-- Commons own library -->
-		<dependency>
-			<groupId>library.common.adrian</groupId>
-			<artifactId>tfm</artifactId>
-			<version>1.0.1</version>
 		</dependency>
     </dependencies>
 

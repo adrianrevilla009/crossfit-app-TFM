@@ -1,9 +1,9 @@
 package adrian.tfm.crossfit.documents.service.impl;
 
-import adrian.tfm.crossfit.documents.commons.dto.ClassesResponseMessageDto;
 import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.service.ClassesKafkaResponseService;
 import adrian.tfm.crossfit.documents.service.DocumentsService;
+import adrian.tfm.library.common.dto.ClassesResponseMessageDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

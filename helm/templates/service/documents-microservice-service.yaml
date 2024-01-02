@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.documents-microservice.name }}
+  namespace: development
+  labels:
+    app: {{ .Values.documents-microservice.name }}
+spec:
+  ports:
+    - port: {{ .Values.documents-microservice.port }}
+      targetPort: {{ .Values.documents-microservice.port }}
+      protocol: TCP
+      name: {{ .Values.documents-microservice.name }}-port
+  selector:
+    app: {{ .Values.documents-microservice.name }}
+  type: ClusterIP

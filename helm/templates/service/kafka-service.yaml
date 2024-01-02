@@ -1,0 +1,13 @@
+# kafka-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.kafka-service.service }}
+  namespace: development
+spec:
+  selector:
+    app: {{ .Values.kafka-service.name }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.kafka-service.port }}
+      targetPort: {{ .Values.kafka-service.port }}

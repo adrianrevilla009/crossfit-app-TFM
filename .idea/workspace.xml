@@ -5,35 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway-microservice/target/api-gateway-microservice-1.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway-microservice/target/api-gateway-microservice-1.0.0.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway-microservice/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway-microservice/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway-microservice/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/infraestructure/dao/SessionDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/utils/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/repository/SessionDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/Chart.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/values.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/repository/SessionDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/dao/ISessionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/dao/SessionDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/dto/ClassesRequestMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/dto/ClassesResponseMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/models/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/commons/security/JwtUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/domain/port/ClassesKafka.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/domain/port/ClassesKafka.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/infraestructure/ClassesKafkaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/infraestructure/ClassesKafkaAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/src/test/java/adrian/tfm/crossfit/classes/ClassesApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/documents-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dao/ISessionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dao/SessionDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dto/ClassesRequestMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/dto/ClassesResponseMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/models/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/commons/security/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaRequestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaResponseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesKafkaResponseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/api-gateway-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/api-gateway-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/classes-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/classes-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/documents-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/documents-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/kafka-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/kafka-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/mongo-db-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/mongo-db-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/mysql-db-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/mysql-db-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/mysql-db-security-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/mysql-db-security-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/redis-cache-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/redis-cache-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/security-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/security-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment/zookeeper-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/zookeeper-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/namespace/namespace-development.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/namespace/namespace-development.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/api-gateway-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/api-gateway-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/classes-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/classes-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/documents-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/documents-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/kafka-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/kafka-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/mongo-db-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/mongo-db-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/mysql-db-security-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/mysql-db-security-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/mysql-db-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/mysql-db-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/redis-cache-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/redis-cache-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/security-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/security-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service/zookeeper-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/zookeeper-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/dao/ISessionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/dao/SessionDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/dto/ClassesRequestMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/dto/ClassesResponseMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/models/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/commons/security/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/component/ShutdownListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/component/ShutdownListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/src/main/java/adrian/tfm/crossfit/security/service/RedisServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,14 +75,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Proyects/master/TFM/crossfit-app-TFM/k8s/service&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Proyects/master/TFM/common-TFM"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\k8s\service" />
@@ -74,17 +91,25 @@
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\security-microservice\src\main\java\adrian\tfm\crossfit\security" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\classes-microservice\src\main\java\adrian\tfm\crossfit\classes\commons" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\templates" />
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="adrian.tfm.crossfit.classes.utils" />
+      <recent name="adrian.tfm.crossfit.security.repository" />
+      <recent name="adrian.tfm.crossfit.documents.repository" />
+      <recent name="adrian.tfm.crossfit.classes.infraestructure.dao" />
       <recent name="adrian.tfm.crossfit.documents.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SecurityApplication">
-    <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="adrian.tfm.crossfit.apigateway.ApiGatewayApplication" />
-      <module name="api-gateway" />
+  <component name="RunManager" selected="Application.DocumentsApplication">
+    <configuration name="ClassesApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adrian.tfm.crossfit.classes.ClassesApplication" />
+      <module name="classes-microservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="adrian.tfm.crossfit.apigateway.*" />
+          <option name="PATTERN" value="adrian.tfm.crossfit.classes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,6 +143,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SecurityApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adrian.tfm.crossfit.security.SecurityApplication" />
+      <module name="security-microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="adrian.tfm.crossfit.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SecurityApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="adrian.tfm.crossfit.security.SecurityApplication" />
       <module name="security" />
@@ -133,10 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DocumentsApplication" />
+        <item itemvalue="Application.ClassesApplication (1)" />
+        <item itemvalue="Application.SecurityApplication (1)" />
         <item itemvalue="Application.SecurityApplication" />
         <item itemvalue="Application.ClassesApplication" />
-        <item itemvalue="Application.DocumentsApplication" />
-        <item itemvalue="Application.ApiGatewayApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -161,16 +200,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/classes-microservice/src/main/java/adrian/tfm/crossfit/classes/config/SessionInterceptor.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

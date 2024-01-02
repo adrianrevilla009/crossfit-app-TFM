@@ -3,10 +3,10 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/security-microservice/pom.xml" />
         <option value="$PROJECT_DIR$/documents-microservice/pom.xml" />
         <option value="$PROJECT_DIR$/api-gateway-microservice/pom.xml" />
         <option value="$PROJECT_DIR$/classes-microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/security-microservice/pom.xml" />
       </list>
     </option>
   </component>

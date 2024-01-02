@@ -1,9 +1,9 @@
 package adrian.tfm.crossfit.documents.service.impl;
 
-import adrian.tfm.crossfit.documents.commons.dto.ClassesRequestMessageDto;
 import adrian.tfm.crossfit.documents.dto.ClassDto;
 import adrian.tfm.crossfit.documents.service.ClassesKafkaRequestService;
 import adrian.tfm.crossfit.documents.service.DocumentsService;
+import adrian.tfm.library.common.dto.ClassesRequestMessageDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.java.Log;

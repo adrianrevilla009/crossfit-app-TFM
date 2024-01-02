@@ -4,9 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/api-gateway-microservice/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway-microservice/api-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/classes-microservice/classes.iml" filepath="$PROJECT_DIR$/classes-microservice/classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/classes-microservice/classes-microservice.iml" filepath="$PROJECT_DIR$/classes-microservice/classes-microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/crossfit-app-TFM.iml" filepath="$PROJECT_DIR$/.idea/crossfit-app-TFM.iml" />
       <module fileurl="file://$PROJECT_DIR$/documents-microservice/documents-microservice.iml" filepath="$PROJECT_DIR$/documents-microservice/documents-microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/security-microservice/security.iml" filepath="$PROJECT_DIR$/security-microservice/security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-microservice/security-microservice.iml" filepath="$PROJECT_DIR$/security-microservice/security-microservice.iml" />
     </modules>
   </component>
 </project>

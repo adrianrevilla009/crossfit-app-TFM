@@ -1,8 +1,8 @@
 package adrian.tfm.crossfit.classes.config;
 
-import adrian.tfm.crossfit.classes.commons.dao.ISessionDao;
-import adrian.tfm.crossfit.classes.commons.models.Session;
-import adrian.tfm.crossfit.classes.commons.security.JwtUtils;
+import adrian.tfm.crossfit.classes.utils.JwtUtils;
+import adrian.tfm.library.common.dao.ISessionDao;
+import adrian.tfm.library.common.models.Session;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -23,7 +23,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Qualifier("sessionDaoImpl")
     ISessionDao sessionDao;
 
-    public SessionInterceptor(ISessionDao sessionDao) {
+    public SessionInterceptor(@Qualifier("sessionDaoImpl") ISessionDao sessionDao) {
         this.sessionDao = sessionDao;
     }
 

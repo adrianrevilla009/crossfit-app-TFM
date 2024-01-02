@@ -1,6 +1,6 @@
 package adrian.tfm.crossfit.classes.domain.port;
 
-import adrian.tfm.crossfit.classes.commons.dto.ClassesRequestMessageDto;
+import adrian.tfm.library.common.dto.ClassesRequestMessageDto;
 
 import java.util.List;
 

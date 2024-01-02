@@ -76,9 +76,9 @@
 		</dependency>
 		<!-- Commons own library -->
 		<dependency>
-			<groupId>library.common.adrian</groupId>
-			<artifactId>tfm</artifactId>
-			<version>1.0.1</version>
+			<groupId>adrian.tfm.library</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

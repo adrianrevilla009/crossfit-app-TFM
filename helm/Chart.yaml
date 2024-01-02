@@ -1,0 +1,4 @@
+apiVersion: v2
+name: crossfit-app-TFM
+description: Crossfit app TFM Chart
+version: 1.0.0
