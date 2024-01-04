@@ -2,25 +2,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zookeeper-deployment
+  name: {{ .Values.zookeeper-service.name }}
   labels:
-    app: zookeeper
+    app: {{ .Values.zookeeper-service.name }}
   namespace: development
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zookeeper
+      app: {{ .Values.zookeeper-service.name }}
   template:
     metadata:
       labels:
-        app: zookeeper
+        app: {{ .Values.zookeeper-service.name }}
     spec:
       containers:
-        - name: zookeeper
+        - name: {{ .Values.zookeeper-service.name }}
           image: confluentinc/cp-zookeeper:7.0.1
           ports:
-            - containerPort: 2181
+            - containerPort: {{ .Values.zookeeper-service.port }}
           env:
             - name: ZOOKEEPER_CLIENT_PORT
               value: "2181"

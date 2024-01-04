@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-db-security
+  name: {{ .Values.mysql-db-security-service.name }}
   namespace: development
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql-db-security
+      app: {{ .Values.mysql-db-security-service.name }}
   template:
     metadata:
       labels:
-        app: mysql-db-security
+        app: {{ .Values.mysql-db-security-service.name }}
     spec:
       containers:
-        - name: mysql-db-security
+        - name: {{ .Values.mysql-db-security-service.name }}
           image: mysql:8.0
           ports:
-            - containerPort: 3306
+            - containerPort: {{ .Values.mysql-db-security-service.port }}
           env:
             - name: MYSQL_DATABASE
               value: security

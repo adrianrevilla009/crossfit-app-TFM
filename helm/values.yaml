@@ -3,20 +3,35 @@ docker-hub:
 api-gateway-microservice:
   name: api-gateway-microservice
   port: 8083
-  version: v3
+  version: latest
 classes-microservice:
   name: classes-microservice
   port: 8080
-  version: v4
+  version: latest
 documents-microservice:
   name: documents-microservice
   port: 8081
-  version: v4
+  version: latest
 security-microservice:
   name: security-microservice
   port: 8082
-  version: v6
+  version: latest
 kafka-service:
   name: kafka
   service: kafka-service
   port: 9092
+mongo-db-service:
+  name: mongo-db
+  port: 27017
+mysql-db-service:
+  name: mysql
+  port: 3306
+mysql-db-security-service:
+  name: mysql-db-security
+  port: 3306
+redis-cache-service:
+  name: redis-cache
+  port: 6379
+zookeeper-service:
+  name: zookeeper
+  port: 2181

@@ -2,6 +2,7 @@ FROM maven:3.9.0-eclipse-temurin-17 as builder
 WORKDIR /crossfit-app-TFM/classes-microservice
 COPY /src /crossfit-app-TFM/classes-microservice/src
 COPY pom.xml /crossfit-app-TFM/classes-microservice
+# this is needed to downloas own library dependency
 COPY settings.xml /root/.m2/settings.xml
 RUN mvn -B clean package -DskipTests
 

@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongo-db
+  name: {{ .Values.mongo-db-service.name }}
   namespace: development
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo-db
+      app: {{ .Values.mongo-db-service.name }}
   template:
     metadata:
       labels:
-        app: mongo-db
+        app: {{ .Values.mongo-db-service.name }}
     spec:
       containers:
-        - name: mongo-db
+        - name: {{ .Values.mongo-db-service.name }}
           image: mongo:latest
           ports:
-            - containerPort: 27017
+            - containerPort: {{ .Values.mongo-db-service.port }}
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
               value: adrian

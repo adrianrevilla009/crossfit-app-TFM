@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: {{ .Values.mysql-db-service.name }}
   namespace: development
   labels:
     app: library
@@ -11,21 +11,21 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: mysql
+      app: {{ .Values.mysql-db-service.name }}
   replicas: 1
   template:
     metadata:
       labels:
-        app: mysql
+        app: {{ .Values.mysql-db-service.name }}
     spec:
       restartPolicy: Always
       containers:
-        - name: mysql
-          image: mysql:8.0
+        - name: {{ .Values.mysql-db-service.name }}
+          image: {{ .Values.mysql-db-service.name }}:8.0
           env:
             - name: MYSQL_DATABASE
               value: classes
             - name: MYSQL_ROOT_PASSWORD
               value: password
           ports:
-            - containerPort: 3306
+            - containerPort: {{ .Values.mysql-db-service.port }}
