@@ -2,32 +2,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.security-microservice.name }}
-  namespace: development
+  name: {{ .Values.security.microservice.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.security-microservice.name }}
+    app: {{ .Values.security.microservice.name }}
 spec:
   strategy:
     type: Recreate
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.security-microservice.name }}
+      app: {{ .Values.security.microservice.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.security-microservice.name }}
+        app: {{ .Values.security.microservice.name }}
     spec:
       restartPolicy: Always
       containers:
-        - name: {{ .Values.security-microservice.name }}
-          image: docker.io/{{ .Values.docker-hub.user }}/{{ .Values.security-microservice.name }}:{{ .Values.security-microservice.version }}
+        - name: {{ .Values.security.microservice.name }}
+          image: docker.io/{{ .Values.dockerhub.user }}/{{ .Values.security.microservice.name }}:{{ .Values.security.microservice.version }}
           resources:
             requests:
               cpu: "100m"
           imagePullPolicy: IfNotPresent #Always
           ports:
-            - containerPort: {{ .Values.security-microservice.port }}
+            - containerPort: {{ .Values.security.microservice.port }}
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:mysql://mysql-db-security:3306/security?allowPublicKeyRetrieval=true&useSSL=false"
@@ -44,7 +44,7 @@ spec:
             - name: APP_JWT_EXPIRATION_MS
               value: "86400000"
             - name: SERVER_PORT
-              value: {{ .Values.security-microservice.port }}
+              value: "8082"
             - name: SPRING_REDIS_HOST
               value: "redis-cache"
             - name: SPRING_REDIS_PORT

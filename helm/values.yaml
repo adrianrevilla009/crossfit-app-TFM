@@ -1,37 +1,55 @@
-docker-hub:
-  user: adrian2606
-api-gateway-microservice:
-  name: api-gateway-microservice
-  port: 8083
-  version: latest
-classes-microservice:
-  name: classes-microservice
-  port: 8080
-  version: latest
-documents-microservice:
-  name: documents-microservice
-  port: 8081
-  version: latest
-security-microservice:
-  name: security-microservice
-  port: 8082
-  version: latest
-kafka-service:
-  name: kafka
-  service: kafka-service
-  port: 9092
-mongo-db-service:
-  name: mongo-db
-  port: 27017
-mysql-db-service:
-  name: mysql
-  port: 3306
-mysql-db-security-service:
-  name: mysql-db-security
-  port: 3306
-redis-cache-service:
-  name: redis-cache
-  port: 6379
-zookeeper-service:
-  name: zookeeper
-  port: 2181
+namespace:
+  name: development
+dockerhub:
+    user: adrian2606
+apigateway:
+    microservice:
+      name: api-gateway-microservice
+      port: 8083
+      version: latest
+classes:
+  microservice:
+    name: classes-microservice
+    port: 8080
+    version: latest
+documents:
+  microservice:
+    name: documents-microservice
+    port: 8081
+    version: latest
+security:
+  microservice:
+    name: security-microservice
+    port: 8082
+    version: latest
+kafka:
+  service:
+    name: kafka
+    service: kafka-service
+    port: 9092
+    image: confluentinc/cp-kafka:7.0.1
+mongodb:
+  service:
+    name: mongo-db
+    port: 27017
+    image: mongo:latest
+mysqldb:
+    service:
+      name: mysql
+      port: 3306
+      image: mysql:8.0
+    security:
+      service:
+        name: mysql-db-security
+        port: 3306
+        image: mysql:8.0
+rediscache:
+    service:
+      name: redis-cache
+      port: 6379
+      image: redis
+zookeeper:
+  service:
+    name: zookeeper
+    port: 2181
+    image: confluentinc/cp-zookeeper:7.0.1

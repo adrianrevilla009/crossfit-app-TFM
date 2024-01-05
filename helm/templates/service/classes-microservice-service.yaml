@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.classes-microservice.name }}
-  namespace: development
+  name: {{ .Values.classes.microservice.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.classes-microservice.name }}
+    app: {{ .Values.classes.microservice.name }}
 spec:
   ports:
-    - port: {{ .Values.classes-microservice.port }}
-      targetPort: {{ .Values.classes-microservice.port }}
+    - port: {{ .Values.classes.microservice.port }}
+      targetPort: {{ .Values.classes.microservice.port }}
       protocol: TCP
-      name: {{ .Values.classes-microservice.name }}-port
+      name: {{ .Values.classes.microservice.name }}-port
   selector:
-    app: {{ .Values.classes-microservice.name }}
+    app: {{ .Values.classes.microservice.name }}
   type: ClusterIP

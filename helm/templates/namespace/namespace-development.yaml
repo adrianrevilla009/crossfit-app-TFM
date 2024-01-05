@@ -1,5 +1,5 @@
 # namespace-development.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: development
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: {{ .Values.namespace.name }}

@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.redis-cache-service.name }}
-  namespace: development
+  name: {{ .Values.rediscache.service.name }}
+  namespace: {{ .Values.namespace.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.redis-cache-service.name }}
+      app: {{ .Values.rediscache.service.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.redis-cache-service.name }}
+        app: {{ .Values.rediscache.service.name }}
     spec:
       containers:
-        - name: {{ .Values.redis-cache-service.name }}
-          image: redis
+        - name: {{ .Values.rediscache.service.name }}
+          image: {{ .Values.rediscache.service.image }}
           ports:
-            - containerPort: {{ .Values.redis-cache-service.port }}
+            - containerPort: {{ .Values.rediscache.service.port }}

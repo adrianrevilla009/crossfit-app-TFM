@@ -2,16 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.redis-cache-service.name }}
-  namespace: development
+  name: {{ .Values.rediscache.service.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.redis-cache-service.name }}
+    app: {{ .Values.rediscache.service.name }}
 spec:
   ports:
-    - port: {{ .Values.redis-cache-service.port }}
-      targetPort: {{ .Values.redis-cache-service.port }}
+    - port: {{ .Values.rediscache.service.port }}
+      targetPort: {{ .Values.rediscache.service.port }}
       protocol: TCP
-      name: {{ .Values.redis-cache-service.name }}-port
+      name: {{ .Values.rediscache.service.name }}-port
   selector:
-    app: {{ .Values.redis-cache-service.name }}
+    app: {{ .Values.rediscache.service.name }}
   type: ClusterIP

@@ -2,32 +2,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.api-gateway-microservice.name }}
-  namespace: development
+  name: {{ .Values.apigateway.microservice.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.api-gateway-microservice.name }}
+    app: {{ .Values.apigateway.microservice.name }}
 spec:
   strategy:
     type: Recreate
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.api-gateway-microservice.name }}
+      app: {{ .Values.apigateway.microservice.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.api-gateway-microservice.name }}
+        app: {{ .Values.apigateway.microservice.name }}
     spec:
       restartPolicy: Always
       containers:
-        - name: {{ .Values.api-gateway-microservice.name }}
-          image: docker.io/{{ .Values.docker.user }}/{{ .Values.api-gateway-microservice.name }}:{{ .Values.api-gateway-microservice.version }}
+        - name: {{ .Values.apigateway.microservice.name }}
+          image: docker.io/{{ .Values.dockerhub.user }}/{{ .Values.apigateway.microservice.name }}:{{ .Values.apigateway.microservice.version }}
           resources:
             requests:
               cpu: "100m"
           imagePullPolicy: IfNotPresent #Always
           ports:
-            - containerPort: {{ .Values.api-gateway-microservice.port }}
+            - containerPort: {{ .Values.apigateway.microservice.port }}
           env:
             - name: SERVICE_CLASSES
               value: "http://classes-microservice:8080"
@@ -36,5 +36,5 @@ spec:
             - name: SERVICE_SECURITY
               value: "http://security-microservice:8082"
             - name: SERVER_PORT
-              value: {{ .Values.api-gateway-microservice.port }}
+              value: "8083"
             # TODO ajustar LOGGING_LEVEL

@@ -6,20 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/dockerfile.Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/dockerfile.Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/dockerfile.Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/dockerfile.Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/deployment/api-gateway-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/api-gateway-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/deployment/classes-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/classes-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/deployment/documents-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/documents-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/deployment/kafka-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/kafka-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/deployment/mongo-db-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/mongo-db-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/deployment/mysql-db-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/mysql-db-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/deployment/mysql-db-security-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/mysql-db-security-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/deployment/redis-cache-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/redis-cache-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/deployment/security-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/security-microservice-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/deployment/zookeeper-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/deployment/zookeeper-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/namespace/namespace-development.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/namespace/namespace-development.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/service/api-gateway-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/api-gateway-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/service/classes-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/classes-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/service/documents-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/documents-microservice-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/service/kafka-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/kafka-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/service/mongo-db-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/mongo-db-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/service/mysql-db-security-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/mysql-db-security-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/service/mysql-db-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/mysql-db-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/service/redis-cache-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/redis-cache-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/templates/service/security-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/security-microservice-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/templates/service/zookeeper-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/templates/service/zookeeper-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/dockerfile.Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/dockerfile.Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

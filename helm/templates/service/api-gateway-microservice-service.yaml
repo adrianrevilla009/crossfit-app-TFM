@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.api-gateway-microservice.name }}
-  namespace: development
+  name: {{ .Values.apigateway.microservice.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.api-gateway-microservice.name }}
+    app: {{ .Values.apigateway.microservice.name }}
 spec:
   ports:
-    - port: {{ .Values.api-gateway-microservice.port }}
-      targetPort: {{ .Values.api-gateway-microservice.port }}
+    - port: {{ .Values.apigateway.microservice.port }}
+      targetPort: {{ .Values.apigateway.microservice.port }}
       protocol: TCP
-      name: {{ .Values.api-gateway-microservice.name }}-port
+      name: {{ .Values.apigateway.microservice.name }}-port
   selector:
-    app: {{ .Values.api-gateway-microservice.name }}
+    app: {{ .Values.apigateway.microservice.name }}
   type: NodePort

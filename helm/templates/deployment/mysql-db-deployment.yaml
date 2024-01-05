@@ -2,8 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.mysql-db-service.name }}
-  namespace: development
+  name: {{ .Values.mysqldb.service.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
     app: library
 spec:
@@ -11,21 +11,21 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: {{ .Values.mysql-db-service.name }}
+      app: {{ .Values.mysqldb.service.name }}
   replicas: 1
   template:
     metadata:
       labels:
-        app: {{ .Values.mysql-db-service.name }}
+        app: {{ .Values.mysqldb.service.name }}
     spec:
       restartPolicy: Always
       containers:
-        - name: {{ .Values.mysql-db-service.name }}
-          image: {{ .Values.mysql-db-service.name }}:8.0
+        - name: {{ .Values.mysqldb.service.name }}
+          image: {{ .Values.mysqldb.service.image }}
           env:
             - name: MYSQL_DATABASE
-              value: classes
+              value: "classes"
             - name: MYSQL_ROOT_PASSWORD
-              value: password
+              value: "password"
           ports:
-            - containerPort: {{ .Values.mysql-db-service.port }}
+            - containerPort: {{ .Values.mysqldb.service.port }}

@@ -2,25 +2,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.mongo-db-service.name }}
-  namespace: development
+  name: {{ .Values.mongodb.service.name }}
+  namespace: {{ .Values.namespace.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.mongo-db-service.name }}
+      app: {{ .Values.mongodb.service.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.mongo-db-service.name }}
+        app: {{ .Values.mongodb.service.name }}
     spec:
       containers:
-        - name: {{ .Values.mongo-db-service.name }}
-          image: mongo:latest
+        - name: {{ .Values.mongodb.service.name }}
+          image: {{ .Values.mongodb.service.image }}
           ports:
-            - containerPort: {{ .Values.mongo-db-service.port }}
+            - containerPort: {{ .Values.mongodb.service.port }}
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: adrian
+              value: "adrian"
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: password
+              value: "password"

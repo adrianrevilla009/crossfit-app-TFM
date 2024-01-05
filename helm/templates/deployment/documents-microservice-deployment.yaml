@@ -2,32 +2,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.documents-microservice.name }}
-  namespace: development
+  name: {{ .Values.documents.microservice.name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.documents-microservice.name }}
+    app: {{ .Values.documents.microservice.name }}
 spec:
   strategy:
     type: Recreate
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.documents-microservice.name }}
+      app: {{ .Values.documents.microservice.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.documents-microservice.name }}
+        app: {{ .Values.documents.microservice.name }}
     spec:
       restartPolicy: Always
       containers:
-        - name: {{ .Values.documents-microservice.name }}
-          image: docker.io/{{ .Values.docker-hub.user }}/{{ .Values.documents-microservice.name }}:{{ .Values.documents-microservice.version }}
+        - name: {{ .Values.documents.microservice.name }}
+          image: docker.io/{{ .Values.dockerhub.user }}/{{ .Values.documents.microservice.name }}:{{ .Values.documents.microservice.version }}
           resources:
             requests:
               cpu: "100m"
           imagePullPolicy: IfNotPresent #Always
           ports:
-            - containerPort: {{ .Values.documents-microservice.port }}
+            - containerPort: {{ .Values.documents.microservice.port }}
           env:
             - name: SPRING_DATA_MONGODB_HOST
               value: "mongo-db"
@@ -48,7 +48,7 @@ spec:
             - name: SPRING_AUTOCONFIGURE_EXCLUDE
               value: "org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"
             - name: SERVER_PORT
-              value: {{ .Values.documents-microservice.port }}
+              value: "8081"
             - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
               value: "kafka-service:9092"
             - name: DOCUMENTS_GENERATION_PATH
