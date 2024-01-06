@@ -53,3 +53,18 @@ zookeeper:
     name: zookeeper
     port: 2181
     image: confluentinc/cp-zookeeper:7.0.1
+logstash:
+  service:
+    name: logstash
+    port: 5044
+    image: docker.elastic.co/logstash/logstash:7.10.0
+kibana:
+  service:
+    name: kibana
+    port: 5601
+    image: docker.elastic.co/kibana/kibana:7.10.0
+elasticsearch:
+  service:
+    name: elasticsearch
+    port: 9200
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.1

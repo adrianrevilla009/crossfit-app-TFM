@@ -1,0 +1,13 @@
+# kibana-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.kibana.service.name }}
+spec:
+  selector:
+    app: {{ .Values.kibana.service.name }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.kibana.service.port }}
+      targetPort: {{ .Values.kibana.service.port }}
+  type: NodePort
