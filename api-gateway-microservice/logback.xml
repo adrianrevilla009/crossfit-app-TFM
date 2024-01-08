@@ -1,13 +1,12 @@
 <configuration>
-    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-
-    <!-- Configuración para enviar logs a Logstash -->
-    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>logstash:5044</destination> <!-- Cambia 'logstash-host' por la dirección de tu servicio Logstash -->
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/spring-boot-app.log</file>
+        <!-- ... otras configuraciones ... -->
     </appender>
 
-    <root level="INFO">
-        <appender-ref ref="logstash" />
-    </root>
+    <logger name="adrian.tfm.crossfit" level="INFO">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- ... otras configuraciones ... -->
 </configuration>
