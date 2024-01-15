@@ -13,4 +13,6 @@ spec:
     path: 'documents-microservice'
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true

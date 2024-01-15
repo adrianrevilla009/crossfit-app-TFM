@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,11 +45,11 @@
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\classes-microservice\src\main\java\adrian\tfm\crossfit\classes\commons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\monitor" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\elk" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\templates" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="adrian.tfm.crossfit.classes.utils" />
