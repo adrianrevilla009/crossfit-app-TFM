@@ -1,0 +1,12 @@
+loki:
+  enabled: true
+  size: 1Gi
+
+promtail:
+  enabled: true
+
+grafana:
+  enabled: true
+  sidecar:
+    datasources:
+      enabled: true

@@ -1,12 +1,16 @@
 <configuration>
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/spring-boot-app.log</file>
-        <!-- ... otras configuraciones ... -->
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <springProperty scope="context" name="springAppName" source="spring.application.name" />
+
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <endpointUrl>http://loki:3100/loki/api/v1/push</endpointUrl>
+        <labels>
+            <app>${springAppName}</app>
+        </labels>
     </appender>
 
-    <logger name="adrian.tfm.crossfit" level="INFO">
-        <appender-ref ref="FILE" />
-    </logger>
-
-    <!-- ... otras configuraciones ... -->
+    <root level="INFO">
+        <appender-ref ref="LOKI" />
+    </root>
 </configuration>
