@@ -16,6 +16,7 @@ public class RequestLoggingFilter implements GatewayFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
+        logger.info("ESTO ES UN TEST 0");
         logger.info("Request: " + request.getMethod() + " " + request.getURI());
         return chain.filter(exchange);
     }
