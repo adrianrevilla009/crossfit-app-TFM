@@ -13,6 +13,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Read and Increment Version
+        id: version
+        run: |
+          versionFile="version.txt"
+          if [ ! -f $versionFile ]; then
+            echo "1" > $versionFile
+          fi
+          currentVersion=$(cat $versionFile)
+          nextVersion=$((currentVersion + 1))
+          echo $nextVersion > $versionFile
+          echo "::set-output name=version::$nextVersion"  
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -34,7 +46,7 @@ jobs:
             ls -la
             docker buildx create --use
             docker buildx inspect --bootstrap
-            docker buildx build -f dockerfile.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest --push .
+            docker buildx build -f dockerfile.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:${{ steps.version.outputs.version }} --push .
             cd ..
           done
 
