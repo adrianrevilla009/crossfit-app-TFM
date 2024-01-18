@@ -6,22 +6,22 @@ apigateway:
     microservice:
       name: api-gateway-microservice
       port: 8083
-      version: latest
+      version: 2
 classes:
   microservice:
     name: classes-microservice
     port: 8080
-    version: latest
+    version: 2
 documents:
   microservice:
     name: documents-microservice
     port: 8081
-    version: latest
+    version: 2
 security:
   microservice:
     name: security-microservice
     port: 8082
-    version: latest
+    version: 2
 kafka:
   service:
     name: kafka
