@@ -54,7 +54,7 @@ jobs:
             ls -la
             docker buildx create --use
             docker buildx inspect --bootstrap
-            docker buildx build -f dockerfile.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:${{ steps.version.outputs.version }} --push .
+            docker buildx build -f dockerfile.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:$VERSION --push .
             cd ..
           done
     
