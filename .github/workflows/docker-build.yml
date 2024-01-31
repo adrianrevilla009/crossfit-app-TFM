@@ -18,7 +18,7 @@ jobs:
         run: |
           versionFile="version.txt"
           if [ ! -f $versionFile ]; then
-            echo "v1" > $versionFile
+          echo "v1" > $versionFile
           fi
           currentVersion=$(cat $versionFile)
           # Extrae el número de versión sin el prefijo "v"
@@ -26,7 +26,12 @@ jobs:
           nextVersionNumber=$((currentVersionNumber + 1))
           nextVersion="v$nextVersionNumber"
           echo $nextVersion > $versionFile
-          echo "::set-output name=version::$nextVersion"  
+          
+          # Exporta la variable de entorno con la nueva versión
+          echo "VERSION=$nextVersion" >> $GITHUB_ENV
+
+      - name: Acceder a la Variable de Entorno
+        run: echo $VERSION
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
