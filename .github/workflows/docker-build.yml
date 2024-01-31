@@ -52,16 +52,5 @@ jobs:
             docker buildx build -f dockerfile.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:latest -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:${{ steps.version.outputs.version }} --push .
             cd ..
           done
-      - name: Read and Increment Version
-        id: version
-        run: |
-          versionFile="version.txt"
-          if [ ! -f $versionFile ]; then
-            echo "v1" > $versionFile
-          fi
-          currentVersion=$(cat $versionFile)
-          nextVersion=$((currentVersion + 1))
-          echo $nextVersion > $versionFile
-          echo "::set-output name=version::$nextVersion"
     
 
