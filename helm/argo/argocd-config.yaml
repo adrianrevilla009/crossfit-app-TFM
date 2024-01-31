@@ -10,3 +10,6 @@ data:
   repositories: |
     - url: 'https://github.com/adrianrevilla009/crossfit-app-TFM.git'
       type: git
+      secret:
+          name: argocd-repo-secret
+          key: password
