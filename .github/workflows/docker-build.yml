@@ -18,10 +18,13 @@ jobs:
         run: |
           versionFile="version.txt"
           if [ ! -f $versionFile ]; then
-            echo "1" > $versionFile
+            echo "v1" > $versionFile
           fi
           currentVersion=$(cat $versionFile)
-          nextVersion=$((currentVersion + 1))
+          # Extrae el número de versión sin el prefijo "v"
+          currentVersionNumber=$(echo $currentVersion | sed 's/v//')
+          nextVersionNumber=$((currentVersionNumber + 1))
+          nextVersion="v$nextVersionNumber"
           echo $nextVersion > $versionFile
           echo "::set-output name=version::$nextVersion"  
 
