@@ -19,7 +19,7 @@ public class ResponseLoggingFilter implements GatewayFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
             ServerHttpResponse response = exchange.getResponse();
-            logger.info("ESTO ES UN TEST 1");
+            logger.info("ESTO ES UN TEST **********");
             logger.info("Response: " + response.getStatusCode());
         }));
     }

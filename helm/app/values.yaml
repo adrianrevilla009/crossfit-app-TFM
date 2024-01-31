@@ -6,22 +6,22 @@ apigateway:
     microservice:
       name: api-gateway-microservice
       port: 8083
-      version: 3
+      version: $(cat version.txt)
 classes:
   microservice:
     name: classes-microservice
     port: 8080
-    version: 2
+    version: $(cat version.txt)
 documents:
   microservice:
     name: documents-microservice
     port: 8081
-    version: 2
+    version: $(cat version.txt)
 security:
   microservice:
     name: security-microservice
     port: 8082
-    version: 2
+    version: $(cat version.txt)
 kafka:
   service:
     name: kafka
