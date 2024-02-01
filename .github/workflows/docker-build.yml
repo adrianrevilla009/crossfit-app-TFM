@@ -45,13 +45,14 @@ jobs:
 
       - name: Commit & Push changes
         run: |
-          git config user.email "${{ github.actor }}@github.com"
-          git config user.name "${{ github.actor }}"
+          git config --local user.email "adrianrevilla009@github.com"
+          git config --local user.name "adrianrevilla009"
           echo "[skip ci]" >> version.txt
           git add version.txt
           git commit -m "Update version to $VERSION [skip ci]"
           git push origin main
         env:
+          VERSION: v25
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Docker Buildx
