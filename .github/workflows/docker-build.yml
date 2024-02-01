@@ -33,6 +33,15 @@ jobs:
       - name: Acceder a la Variable de Entorno
         run: echo $VERSION
 
+      - name: Update Version
+        run: |
+          echo $VERSION > version.txt
+          git config user.email "${{ github.actor }}@github.com"
+          git config user.name "${{ github.actor }}"
+          git add version.txt
+          git commit -m "Update version to $VERSION"
+          git push   
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
