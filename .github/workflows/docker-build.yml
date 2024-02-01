@@ -44,15 +44,14 @@ jobs:
           fi
 
       - name: Commit & Push changes
-        run: |
-          git config --local user.email "adrianrevilla009@github.com"
-          git config --local user.name "adrianrevilla009"
-          echo "[skip ci]" >> version.txt
-          git add version.txt
-          git commit -m "Update version to $VERSION [skip ci]"
-          git push
-        env:
-          VERSION: v25
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          add_timestamp: true
+          commit_prefix: "[AUTO]"
+          commit_message: "Update version to $VERSION [skip ci]"
+          force: false
+          target_branch: main
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
