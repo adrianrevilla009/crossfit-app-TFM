@@ -36,6 +36,7 @@ jobs:
       - name: Acceder a la Variable de Entorno
         run: echo $VERSION
 
+      # This is needed to avoid iterative CI after committing version
       - name: Check if Skip CI
         run: |
           if git log --format=%B -n 1 $GITHUB_SHA | grep -q '\[skip ci\]'; then
