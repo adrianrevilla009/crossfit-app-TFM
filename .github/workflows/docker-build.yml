@@ -58,7 +58,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: "Update version to $VERSION [skip ci]"
-          title: "Bump version to $VERSION"
+          title: "[AUTO] Bump version to $VERSION"
           labels: "auto-merge"
           branch: version-${{ steps.version.outputs.VERSION }}
           delete-branch: true
