@@ -52,7 +52,16 @@ jobs:
           commit_prefix: "[AUTO]"
           commit_message: "Update version to $VERSION [skip ci]"
           force: false
-          target_branch: main
+          target_branch: version-${{ steps.version.outputs.VERSION }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "Update version to $VERSION [skip ci]"
+          title: "Bump version to $VERSION"
+          labels: "auto-merge"
+          branch: version-${{ steps.version.outputs.VERSION }}
+          delete-branch: true
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
