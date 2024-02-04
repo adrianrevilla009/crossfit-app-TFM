@@ -54,12 +54,15 @@ jobs:
           force: false
           target_branch: version-${{ steps.version.outputs.VERSION }}
 
-      - uses: everlytic/branch-merge@1.1.2
+      # Merge to main does not have to be automated
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
         with:
-          github_token: ${{ github.token }}
-          source_ref: version-${{ steps.version.outputs.VERSION }}
-          target_branch: 'main'
-          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+          commit-message: "Update version to $VERSION [skip ci]"
+          title: "[AUTO] Bump version to $VERSION"
+          labels: "auto-merge"
+          branch: version-${{ steps.version.outputs.VERSION }}
+          delete-branch: true
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
