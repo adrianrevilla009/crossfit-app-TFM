@@ -54,12 +54,12 @@ jobs:
           force: false
           target_branch: version-${{ steps.version.outputs.VERSION }}
 
-      - name: Merge to Main
-        run: |
-          git checkout main
-          git pull origin main
-          git merge HEAD
-          git push origin main
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: version-${{ steps.version.outputs.VERSION }}
+          target_branch: 'main'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
