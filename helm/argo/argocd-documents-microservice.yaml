@@ -7,7 +7,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: development
-  project: default
+  project: documents-microservice
   source:
     repoURL: 'https://adrianrevilla009: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@github.com/adrianrevilla009/crossfit-app-TFM.git'
     path: 'documents-microservice'

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-api-gateway-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-api-gateway-microservice.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-classes-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-classes-microservice.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-documents-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-documents-microservice.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-security-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-security-microservice.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
