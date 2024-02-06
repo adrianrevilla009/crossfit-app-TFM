@@ -24,3 +24,10 @@ spec:
               value: "security"
             - name: MYSQL_ROOT_PASSWORD
               value: "password"
+          volumeMounts:
+            - name: mysql-security-data
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-security-data
+          persistentVolumeClaim:
+            claimName: mysql-security-pvc

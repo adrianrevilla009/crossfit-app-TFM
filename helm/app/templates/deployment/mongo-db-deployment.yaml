@@ -24,3 +24,10 @@ spec:
               value: "adrian"
             - name: MONGO_INITDB_ROOT_PASSWORD
               value: "password"
+          volumeMounts:
+            - name: mongodb-data
+              mountPath: /data/db
+      volumes:
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb-pvc

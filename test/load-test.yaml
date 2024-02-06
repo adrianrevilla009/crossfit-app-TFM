@@ -1,0 +1,39 @@
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 1
+      arrivalRate: 1
+    - duration: 9
+      arrivalRate: 100
+
+scenarios:
+  - flow:
+      - post:
+          url: '/api/auth/signin'
+          json:
+            username: 'Adrian'
+            password: 'Adrian'
+          capture:
+            json: '$.accessToken'
+            as: 'token'
+          maxRequests: 1
+
+      - get:
+          url: '/api/classes/'
+          headers:
+            Authorization: 'Bearer {{ token }}'
+          beforeRequest: 'getToken'
+
+variables:
+  token: null
+  postExecuted: false  # Variable para controlar si el método POST ha sido ejecutado
+
+hooks:
+  - beforeRequest: 'getToken'
+    function: |
+      if (!variables.postExecuted) {
+        const response = http.post('/api/auth/signin', { username: 'Adrian', password: 'Adrian' });
+        const accessToken = response.json().accessToken;
+        variables.token = accessToken;
+        variables.postExecuted = true;
+      }
