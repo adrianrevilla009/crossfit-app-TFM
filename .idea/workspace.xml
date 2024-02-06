@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/helm/app/templates/pvc/mongo-pvc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/app/templates/pvc/mysql-pvc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/app/templates/pvc/mysql-security-pvc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/load-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/app/templates/deployment/mongo-db-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/deployment/mongo-db-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/app/templates/deployment/mysql-db-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/deployment/mysql-db-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/app/templates/deployment/mysql-db-security-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/deployment/mysql-db-security-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/app/templates/deployment/api-gateway-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/api-gateway-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/app/templates/service/api-gateway-microservice-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/api-gateway-microservice-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/argo/argocd-api-gateway-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-api-gateway-microservice.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-classes-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-classes-microservice.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-documents-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-documents-microservice.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-security-microservice.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-security-microservice.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +56,11 @@
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\security-microservice\src\main\java\adrian\tfm\crossfit\security" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates" />
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\monitor" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\elk" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="adrian.tfm.crossfit.classes.utils" />

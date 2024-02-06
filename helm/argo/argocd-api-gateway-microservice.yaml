@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'https://adrianrevilla009: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@github.com/adrianrevilla009/crossfit-app-TFM.git'
-    path: 'helm/app/templates/deployment'
+    path: 'helm/app/templates'
     targetRevision: HEAD
   syncPolicy:
     automated:
