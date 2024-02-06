@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: security-microservice
+  name: crossfit-app-TFM
   namespace: argocd
 spec:
   destination:
@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'https://adrianrevilla009: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@github.com/adrianrevilla009/crossfit-app-TFM.git'
-    path: 'security-microservice'
+    path: 'helm/app'
     targetRevision: HEAD
   syncPolicy:
     automated:
