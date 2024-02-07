@@ -1,0 +1,6 @@
+persistence:
+  enabled: true
+  # Define la capacidad de almacenamiento del volumen persistente
+  size: 1Gi
+  # Define la clase de almacenamiento para el volumen persistente
+  storageClassName: standard
