@@ -6,22 +6,22 @@ apigateway:
     microservice:
       name: api-gateway-microservice
       port: 8083
-      version: v28  # this is updated with version.txt value on helm install
+      version: v30  # this is updated with version.txt value on helm install
 classes:
   microservice:
     name: classes-microservice
     port: 8080
-    version: v28  # this is updated with version.txt value on helm install
+    version: v30  # this is updated with version.txt value on helm install
 documents:
   microservice:
     name: documents-microservice
     port: 8081
-    version: v28  # this is updated with version.txt value on helm install
+    version: v30  # this is updated with version.txt value on helm install
 security:
   microservice:
     name: security-microservice
     port: 8082
-    version: v28  # this is updated with version.txt value on helm install
+    version: v30  # this is updated with version.txt value on helm install
 kafka:
   service:
     name: kafka
