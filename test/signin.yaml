@@ -1,0 +1,21 @@
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 1
+      arrivalRate: 1
+
+scenarios:
+  - flow:
+      - post:
+          url: '/api/auth/signin'
+          json:
+            username: 'Adrian'
+            password: 'Adrian'
+          capture:
+            json: '$.accessToken'
+            as: 'token'
+          maxRequests: 1
+      - log: "Token captured: {{ token }}"
+      - set:
+          path: "./token.txt"
+          value: "{{ token }}"

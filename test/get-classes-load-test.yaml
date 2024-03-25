@@ -1,0 +1,12 @@
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 1
+      arrivalRate: 1
+
+scenarios:
+  - flow:
+      - get:
+          url: '/api/classes/'
+          headers:
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZHJpYW4iLCJpYXQiOjE3MDgxMDAwMTAsImV4cCI6MTcwODE4NjQxMH0.zrdQYmmDq8YwzNvb2e98CrzbnF0fdtQ5MDsoFtC2n6A'

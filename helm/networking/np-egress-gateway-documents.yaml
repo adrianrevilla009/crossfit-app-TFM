@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: egress-gateway-from-documents
+  namespace: development
+spec:
+  podSelector:
+    matchLabels:
+      app: api-gateway-microservice
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: documents-microservice
+      ports:
+        - port: 8081

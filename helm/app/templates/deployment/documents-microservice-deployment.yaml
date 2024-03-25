@@ -59,3 +59,10 @@ spec:
               value: "redis-cache"
             - name: SPRING_REDIS_PORT
               value: "6379"
+          volumeMounts:
+            - name: document-volume
+              mountPath: /documents
+          volumes:
+            - name: document-volume
+              persistentVolumeClaim:
+                claimName: document-pvc

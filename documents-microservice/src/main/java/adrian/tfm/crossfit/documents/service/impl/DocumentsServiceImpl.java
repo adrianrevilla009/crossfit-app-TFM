@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -50,8 +51,7 @@ public class DocumentsServiceImpl implements DocumentsService {
             // create excel and save on mongo db
             Document excelFile = this.classesExcelService.createExcel(nif, classDtoList);
             // save it into a local persistence unit
-            // TODO this has to be changed to a bucket or something
-            // this.saveDocumentLocally(excelFile);
+            this.saveDocumentLocally(excelFile);
         } else {
             logger.info("[CREATE EXCEL] Excel not created due to empty data for user");
         }
@@ -59,7 +59,17 @@ public class DocumentsServiceImpl implements DocumentsService {
     }
 
     private void saveDocumentLocally(Document document) {
+        String filePath = "/documents/" + document.getName();
 
+        File file = new File(filePath);
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(document.getFile().getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Document> findByUser(String nif) {

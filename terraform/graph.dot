@@ -1,0 +1,209 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.aws_caller_identity.current" [label="data.aws_caller_identity.current"];
+  subgraph "cluster_module.database" {
+    label = "module.database"
+    fontname = "sans-serif"
+    "module.database.aws_db_instance.db" [label="aws_db_instance.db"];
+    "module.database.aws_db_subnet_group.Groups" [label="aws_db_subnet_group.Groups"];
+    "module.database.aws_security_group.data" [label="aws_security_group.data"];
+    "module.database.aws_security_group_rule.data" [label="aws_security_group_rule.data"];
+  }
+  subgraph "cluster_module.ecr" {
+    label = "module.ecr"
+    fontname = "sans-serif"
+    "module.ecr.aws_ecr_repository.api" [label="aws_ecr_repository.api"];
+  }
+  subgraph "cluster_module.eks" {
+    label = "module.eks"
+    fontname = "sans-serif"
+    "module.eks.data.tls_certificate.auth" [label="data.tls_certificate.auth"];
+    "module.eks.aws_cloudwatch_log_group.cloudwatch_log_group" [label="aws_cloudwatch_log_group.cloudwatch_log_group"];
+    "module.eks.aws_eks_cluster.eks_cluster" [label="aws_eks_cluster.eks_cluster"];
+    "module.eks.aws_eks_node_group.eks_node_group" [label="aws_eks_node_group.eks_node_group"];
+    "module.eks.aws_iam_openid_connect_provider.main" [label="aws_iam_openid_connect_provider.main"];
+    "module.eks.aws_iam_policy.AmazonEKSClusterCloudWatchMetricsPolicy" [label="aws_iam_policy.AmazonEKSClusterCloudWatchMetricsPolicy"];
+    "module.eks.aws_iam_role.eks_cluster_role" [label="aws_iam_role.eks_cluster_role"];
+    "module.eks.aws_iam_role.eks_node_group_role" [label="aws_iam_role.eks_node_group_role"];
+    "module.eks.aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly" [label="aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly"];
+    "module.eks.aws_iam_role_policy_attachment.AmazonEKSCloudWatchMetricsPolicy" [label="aws_iam_role_policy_attachment.AmazonEKSCloudWatchMetricsPolicy"];
+    "module.eks.aws_iam_role_policy_attachment.AmazonEKSClusterPolicy1" [label="aws_iam_role_policy_attachment.AmazonEKSClusterPolicy1"];
+    "module.eks.aws_iam_role_policy_attachment.AmazonEKSVPCResourceController1" [label="aws_iam_role_policy_attachment.AmazonEKSVPCResourceController1"];
+    "module.eks.aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy" [label="aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy"];
+    "module.eks.aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy" [label="aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy"];
+  }
+  subgraph "cluster_module.hosted_zone_and_certs" {
+    label = "module.hosted_zone_and_certs"
+    fontname = "sans-serif"
+    "module.hosted_zone_and_certs.data.aws_route53_zone.main" [label="data.aws_route53_zone.main"];
+    "module.hosted_zone_and_certs.aws_acm_certificate.us-east-1" [label="aws_acm_certificate.us-east-1"];
+    "module.hosted_zone_and_certs.aws_acm_certificate.us-west-1" [label="aws_acm_certificate.us-west-1"];
+    "module.hosted_zone_and_certs.aws_acm_certificate_validation.us-east-1_certificate_validation" [label="aws_acm_certificate_validation.us-east-1_certificate_validation"];
+    "module.hosted_zone_and_certs.aws_acm_certificate_validation.us-west-1_certificate_validation" [label="aws_acm_certificate_validation.us-west-1_certificate_validation"];
+    "module.hosted_zone_and_certs.aws_route53_record.us-east-1_certificate_record" [label="aws_route53_record.us-east-1_certificate_record"];
+    "module.hosted_zone_and_certs.aws_route53_record.us-west-1_certificate_record" [label="aws_route53_record.us-west-1_certificate_record"];
+  }
+  subgraph "cluster_module.kubernetes" {
+    label = "module.kubernetes"
+    fontname = "sans-serif"
+    "module.kubernetes.data.aws_caller_identity.current" [label="data.aws_caller_identity.current"];
+    "module.kubernetes.data.aws_eks_cluster.cluster" [label="data.aws_eks_cluster.cluster"];
+    "module.kubernetes.data.aws_eks_cluster_auth.cluster" [label="data.aws_eks_cluster_auth.cluster"];
+    "module.kubernetes.data.aws_iam_user.screenshot_signer_user" [label="data.aws_iam_user.screenshot_signer_user"];
+    "module.kubernetes.data.aws_iam_user.tempo_user" [label="data.aws_iam_user.tempo_user"];
+    "module.kubernetes.data.kubectl_file_documents.argocd" [label="data.kubectl_file_documents.argocd"];
+    "module.kubernetes.data.kubectl_file_documents.cert_manager" [label="data.kubectl_file_documents.cert_manager"];
+    "module.kubernetes.data.kubectl_file_documents.opentelemetry-operator" [label="data.kubectl_file_documents.opentelemetry-operator"];
+    "module.kubernetes.data.kubectl_path_documents.argocd_applications" [label="data.kubectl_path_documents.argocd_applications"];
+    "module.kubernetes.data.kubernetes_service.nginx_ingress_controller" [label="data.kubernetes_service.nginx_ingress_controller"];
+    "module.kubernetes.aws_iam_access_key.screenshot_signer_access_key" [label="aws_iam_access_key.screenshot_signer_access_key"];
+    "module.kubernetes.aws_iam_access_key.tempo_access_key" [label="aws_iam_access_key.tempo_access_key"];
+    "module.kubernetes.aws_route53_record.k8s_ingress_route53_record" [label="aws_route53_record.k8s_ingress_route53_record"];
+    "module.kubernetes.helm_release.ingress-nginx_release" [label="helm_release.ingress-nginx_release"];
+    "module.kubernetes.kubectl_manifest.argocd" [label="kubectl_manifest.argocd"];
+    "module.kubernetes.kubectl_manifest.argocd_applications" [label="kubectl_manifest.argocd_applications"];
+    "module.kubernetes.kubectl_manifest.cert_manager" [label="kubectl_manifest.cert_manager"];
+    "module.kubernetes.kubectl_manifest.opentelemetry-operator" [label="kubectl_manifest.opentelemetry-operator"];
+    "module.kubernetes.kubernetes_namespace.argocd_namespace" [label="kubernetes_namespace.argocd_namespace"];
+    "module.kubernetes.kubernetes_namespace.cert_manager_namespace" [label="kubernetes_namespace.cert_manager_namespace"];
+    "module.kubernetes.kubernetes_namespace.ingress-nginx_namespace" [label="kubernetes_namespace.ingress-nginx_namespace"];
+    "module.kubernetes.kubernetes_namespace.opentelemetry_operator_system_namespace" [label="kubernetes_namespace.opentelemetry_operator_system_namespace"];
+    "module.kubernetes.kubernetes_secret.argo_github_repository_secret" [label="kubernetes_secret.argo_github_repository_secret"];
+    "module.kubernetes.kubernetes_secret.db_secret" [label="kubernetes_secret.db_secret"];
+    "module.kubernetes.kubernetes_secret.screenshot_signer_secret" [label="kubernetes_secret.screenshot_signer_secret"];
+    "module.kubernetes.kubernetes_secret.tempo_bucket_secret" [label="kubernetes_secret.tempo_bucket_secret"];
+    "module.kubernetes.kubernetes_service.db_instance_external_name" [label="kubernetes_service.db_instance_external_name"];
+  }
+  subgraph "cluster_module.s3" {
+    label = "module.s3"
+    fontname = "sans-serif"
+    "module.s3.data.aws_iam_policy_document.allow_public_access_to_s3" [label="data.aws_iam_policy_document.allow_public_access_to_s3"];
+    "module.s3.aws_cloudfront_distribution.s3_distribution" [label="aws_cloudfront_distribution.s3_distribution"];
+    "module.s3.aws_route53_record.crossfitapp_web_bucket_route53_record" [label="aws_route53_record.crossfitapp_web_bucket_route53_record"];
+    "module.s3.aws_s3_bucket.crossfitapp_web_bucket" [label="aws_s3_bucket.crossfitapp_web_bucket"];
+    "module.s3.aws_s3_bucket.tempo_storage_bucket" [label="aws_s3_bucket.tempo_storage_bucket"];
+    "module.s3.aws_s3_bucket_acl.tempo_storage_bucket_acl" [label="aws_s3_bucket_acl.tempo_storage_bucket_acl"];
+    "module.s3.aws_s3_bucket_ownership_controls.crossfitapp_web_bucket_ownership_controls" [label="aws_s3_bucket_ownership_controls.crossfitapp_web_bucket_ownership_controls"];
+    "module.s3.aws_s3_bucket_policy.crossfitapp_web_bucket_policy" [label="aws_s3_bucket_policy.crossfitapp_web_bucket_policy"];
+    "module.s3.aws_s3_bucket_public_access_block.crossfitapp_web_bucket_public_access_block" [label="aws_s3_bucket_public_access_block.crossfitapp_web_bucket_public_access_block"];
+    "module.s3.aws_s3_bucket_public_access_block.tempo_storage_bucket_public_access_block" [label="aws_s3_bucket_public_access_block.tempo_storage_bucket_public_access_block"];
+    "module.s3.aws_s3_bucket_versioning.crossfitapp_web_bucket_versioning" [label="aws_s3_bucket_versioning.crossfitapp_web_bucket_versioning"];
+    "module.s3.aws_s3_bucket_website_configuration.crossfitapp_web_bucket_website_configuration" [label="aws_s3_bucket_website_configuration.crossfitapp_web_bucket_website_configuration"];
+  }
+  subgraph "cluster_module.vpc" {
+    label = "module.vpc"
+    fontname = "sans-serif"
+    "module.vpc.aws_eip.nat" [label="aws_eip.nat"];
+    "module.vpc.aws_internet_gateway.gw" [label="aws_internet_gateway.gw"];
+    "module.vpc.aws_nat_gateway.gw" [label="aws_nat_gateway.gw"];
+    "module.vpc.aws_route_table.internet-route" [label="aws_route_table.internet-route"];
+    "module.vpc.aws_route_table.nat-route" [label="aws_route_table.nat-route"];
+    "module.vpc.aws_route_table_association.private" [label="aws_route_table_association.private"];
+    "module.vpc.aws_route_table_association.public" [label="aws_route_table_association.public"];
+    "module.vpc.aws_subnet.private" [label="aws_subnet.private"];
+    "module.vpc.aws_subnet.public" [label="aws_subnet.public"];
+    "module.vpc.aws_vpc.main" [label="aws_vpc.main"];
+  }
+  "module.database.aws_db_instance.db" -> "module.database.aws_db_subnet_group.Groups";
+  "module.database.aws_db_instance.db" -> "module.database.aws_security_group.data";
+  "module.database.aws_db_subnet_group.Groups" -> "module.vpc.aws_subnet.private";
+  "module.database.aws_security_group.data" -> "module.vpc.aws_vpc.main";
+  "module.database.aws_security_group_rule.data" -> "module.database.aws_security_group.data";
+  "module.eks.data.tls_certificate.auth" -> "module.eks.aws_eks_cluster.eks_cluster";
+  "module.eks.aws_eks_cluster.eks_cluster" -> "module.eks.aws_cloudwatch_log_group.cloudwatch_log_group";
+  "module.eks.aws_eks_cluster.eks_cluster" -> "module.eks.aws_iam_role_policy_attachment.AmazonEKSClusterPolicy1";
+  "module.eks.aws_eks_cluster.eks_cluster" -> "module.eks.aws_iam_role_policy_attachment.AmazonEKSVPCResourceController1";
+  "module.eks.aws_eks_cluster.eks_cluster" -> "module.vpc.aws_subnet.private";
+  "module.eks.aws_eks_cluster.eks_cluster" -> "module.vpc.aws_subnet.public";
+  "module.eks.aws_eks_node_group.eks_node_group" -> "module.eks.aws_eks_cluster.eks_cluster";
+  "module.eks.aws_eks_node_group.eks_node_group" -> "module.eks.aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly";
+  "module.eks.aws_eks_node_group.eks_node_group" -> "module.eks.aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy";
+  "module.eks.aws_eks_node_group.eks_node_group" -> "module.eks.aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy";
+  "module.eks.aws_iam_openid_connect_provider.main" -> "module.eks.data.tls_certificate.auth";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly" -> "module.eks.aws_iam_role.eks_node_group_role";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEKSCloudWatchMetricsPolicy" -> "module.eks.aws_iam_policy.AmazonEKSClusterCloudWatchMetricsPolicy";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEKSCloudWatchMetricsPolicy" -> "module.eks.aws_iam_role.eks_cluster_role";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEKSClusterPolicy1" -> "module.eks.aws_iam_role.eks_cluster_role";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEKSVPCResourceController1" -> "module.eks.aws_iam_role.eks_cluster_role";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEKSWorkerNodePolicy" -> "module.eks.aws_iam_role.eks_node_group_role";
+  "module.eks.aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy" -> "module.eks.aws_iam_role.eks_node_group_role";
+  "module.hosted_zone_and_certs.aws_acm_certificate.us-east-1" -> "module.hosted_zone_and_certs.data.aws_route53_zone.main";
+  "module.hosted_zone_and_certs.aws_acm_certificate.us-west-1" -> "module.hosted_zone_and_certs.data.aws_route53_zone.main";
+  "module.hosted_zone_and_certs.aws_acm_certificate_validation.us-east-1_certificate_validation" -> "module.hosted_zone_and_certs.aws_route53_record.us-east-1_certificate_record";
+  "module.hosted_zone_and_certs.aws_acm_certificate_validation.us-west-1_certificate_validation" -> "module.hosted_zone_and_certs.aws_route53_record.us-west-1_certificate_record";
+  "module.hosted_zone_and_certs.aws_route53_record.us-east-1_certificate_record" -> "module.hosted_zone_and_certs.aws_acm_certificate.us-east-1";
+  "module.hosted_zone_and_certs.aws_route53_record.us-west-1_certificate_record" -> "module.hosted_zone_and_certs.aws_acm_certificate.us-west-1";
+  "module.kubernetes.data.aws_eks_cluster.cluster" -> "module.eks.aws_eks_cluster.eks_cluster";
+  "module.kubernetes.data.aws_eks_cluster_auth.cluster" -> "module.eks.aws_eks_cluster.eks_cluster";
+  "module.kubernetes.data.aws_iam_user.screenshot_signer_user" -> "module.eks.aws_eks_cluster.eks_cluster";
+  "module.kubernetes.data.aws_iam_user.tempo_user" -> "module.eks.aws_eks_cluster.eks_cluster";
+  "module.kubernetes.data.kubectl_file_documents.argocd" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.data.kubectl_file_documents.argocd" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.data.kubectl_file_documents.cert_manager" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.data.kubectl_file_documents.cert_manager" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.data.kubectl_file_documents.opentelemetry-operator" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.data.kubectl_file_documents.opentelemetry-operator" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.data.kubectl_path_documents.argocd_applications" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.data.kubectl_path_documents.argocd_applications" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.data.kubernetes_service.nginx_ingress_controller" -> "module.kubernetes.helm_release.ingress-nginx_release";
+  "module.kubernetes.aws_iam_access_key.screenshot_signer_access_key" -> "module.kubernetes.data.aws_iam_user.screenshot_signer_user";
+  "module.kubernetes.aws_iam_access_key.tempo_access_key" -> "module.kubernetes.data.aws_iam_user.tempo_user";
+  "module.kubernetes.aws_route53_record.k8s_ingress_route53_record" -> "module.kubernetes.data.kubernetes_service.nginx_ingress_controller";
+  "module.kubernetes.helm_release.ingress-nginx_release" -> "module.hosted_zone_and_certs.aws_acm_certificate.us-west-1";
+  "module.kubernetes.helm_release.ingress-nginx_release" -> "module.kubernetes.kubernetes_namespace.ingress-nginx_namespace";
+  "module.kubernetes.kubectl_manifest.argocd" -> "module.kubernetes.data.kubectl_file_documents.argocd";
+  "module.kubernetes.kubectl_manifest.argocd" -> "module.kubernetes.kubernetes_namespace.argocd_namespace";
+  "module.kubernetes.kubectl_manifest.argocd_applications" -> "module.kubernetes.data.kubectl_path_documents.argocd_applications";
+  "module.kubernetes.kubectl_manifest.argocd_applications" -> "module.kubernetes.kubectl_manifest.argocd";
+  "module.kubernetes.kubectl_manifest.argocd_applications" -> "module.kubernetes.kubectl_manifest.opentelemetry-operator";
+  "module.kubernetes.kubectl_manifest.argocd_applications" -> "module.kubernetes.kubernetes_secret.argo_github_repository_secret";
+  "module.kubernetes.kubectl_manifest.cert_manager" -> "module.kubernetes.data.kubectl_file_documents.cert_manager";
+  "module.kubernetes.kubectl_manifest.cert_manager" -> "module.kubernetes.kubernetes_namespace.cert_manager_namespace";
+  "module.kubernetes.kubectl_manifest.opentelemetry-operator" -> "module.kubernetes.data.kubectl_file_documents.opentelemetry-operator";
+  "module.kubernetes.kubectl_manifest.opentelemetry-operator" -> "module.kubernetes.kubectl_manifest.cert_manager";
+  "module.kubernetes.kubernetes_namespace.argocd_namespace" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_namespace.argocd_namespace" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_namespace.cert_manager_namespace" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_namespace.cert_manager_namespace" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_namespace.ingress-nginx_namespace" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_namespace.ingress-nginx_namespace" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_namespace.opentelemetry_operator_system_namespace" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_namespace.opentelemetry_operator_system_namespace" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_secret.argo_github_repository_secret" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_secret.argo_github_repository_secret" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_secret.db_secret" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_secret.db_secret" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_secret.screenshot_signer_secret" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_secret.screenshot_signer_secret" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_secret.screenshot_signer_secret" -> "module.kubernetes.aws_iam_access_key.screenshot_signer_access_key";
+  "module.kubernetes.kubernetes_secret.tempo_bucket_secret" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_secret.tempo_bucket_secret" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.kubernetes.kubernetes_secret.tempo_bucket_secret" -> "module.kubernetes.aws_iam_access_key.tempo_access_key";
+  "module.kubernetes.kubernetes_service.db_instance_external_name" -> "module.database.aws_db_instance.db";
+  "module.kubernetes.kubernetes_service.db_instance_external_name" -> "module.kubernetes.data.aws_eks_cluster.cluster";
+  "module.kubernetes.kubernetes_service.db_instance_external_name" -> "module.kubernetes.data.aws_eks_cluster_auth.cluster";
+  "module.s3.data.aws_iam_policy_document.allow_public_access_to_s3" -> "module.s3.aws_s3_bucket.crossfitapp_web_bucket";
+  "module.s3.aws_cloudfront_distribution.s3_distribution" -> "module.hosted_zone_and_certs.aws_acm_certificate.us-east-1";
+  "module.s3.aws_cloudfront_distribution.s3_distribution" -> "module.s3.aws_s3_bucket_website_configuration.crossfitapp_web_bucket_website_configuration";
+  "module.s3.aws_route53_record.crossfitapp_web_bucket_route53_record" -> "module.s3.aws_cloudfront_distribution.s3_distribution";
+  "module.s3.aws_s3_bucket_acl.tempo_storage_bucket_acl" -> "module.s3.aws_s3_bucket.tempo_storage_bucket";
+  "module.s3.aws_s3_bucket_ownership_controls.crossfitapp_web_bucket_ownership_controls" -> "module.s3.aws_s3_bucket.crossfitapp_web_bucket";
+  "module.s3.aws_s3_bucket_policy.crossfitapp_web_bucket_policy" -> "module.s3.data.aws_iam_policy_document.allow_public_access_to_s3";
+  "module.s3.aws_s3_bucket_public_access_block.crossfitapp_web_bucket_public_access_block" -> "module.s3.aws_s3_bucket.crossfitapp_web_bucket";
+  "module.s3.aws_s3_bucket_public_access_block.tempo_storage_bucket_public_access_block" -> "module.s3.aws_s3_bucket.tempo_storage_bucket";
+  "module.s3.aws_s3_bucket_versioning.crossfitapp_web_bucket_versioning" -> "module.s3.aws_s3_bucket.crossfitapp_web_bucket";
+  "module.s3.aws_s3_bucket_website_configuration.crossfitapp_web_bucket_website_configuration" -> "module.s3.aws_s3_bucket.crossfitapp_web_bucket";
+  "module.vpc.aws_internet_gateway.gw" -> "module.vpc.aws_vpc.main";
+  "module.vpc.aws_nat_gateway.gw" -> "module.vpc.aws_eip.nat";
+  "module.vpc.aws_nat_gateway.gw" -> "module.vpc.aws_internet_gateway.gw";
+  "module.vpc.aws_nat_gateway.gw" -> "module.vpc.aws_subnet.public";
+  "module.vpc.aws_route_table.internet-route" -> "module.vpc.aws_internet_gateway.gw";
+  "module.vpc.aws_route_table.nat-route" -> "module.vpc.aws_nat_gateway.gw";
+  "module.vpc.aws_route_table_association.private" -> "module.vpc.aws_route_table.nat-route";
+  "module.vpc.aws_route_table_association.private" -> "module.vpc.aws_subnet.private";
+  "module.vpc.aws_route_table_association.public" -> "module.vpc.aws_route_table.internet-route";
+  "module.vpc.aws_route_table_association.public" -> "module.vpc.aws_subnet.public";
+  "module.vpc.aws_subnet.private" -> "module.vpc.aws_vpc.main";
+  "module.vpc.aws_subnet.public" -> "module.vpc.aws_vpc.main";
+}

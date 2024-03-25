@@ -1,0 +1,15 @@
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 1
+      arrivalRate: 1
+
+scenarios:
+  - flow:
+      - post:
+          url: '/api/auth/signup'
+          json:
+            username: 'Adrian'
+            email: 'adrianrg1996@gmail.com'
+            password: 'Adrian'
+            role: ['mod', 'user']

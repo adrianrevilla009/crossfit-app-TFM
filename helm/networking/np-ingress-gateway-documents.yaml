@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ingress-gateway-to-documents
+  namespace: development
+spec:
+  podSelector:
+    matchLabels:
+      app: api-gateway-microservice
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: documents-microservice
+      ports:
+        - port: 8081

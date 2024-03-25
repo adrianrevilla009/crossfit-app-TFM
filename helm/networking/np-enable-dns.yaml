@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-k8s-dns
+  namespace: development
+spec:
+  podSelector: {}
+  egress:
+    - to:
+      - namespaceSelector:
+          matchLabels:
+            name: development
+        podSelector:
+          matchLabels:
+            k8s-app: kube-dns
+      ports:
+        - port: 53
+          protocol: UDP
