@@ -100,10 +100,11 @@ public class ClassesExcelServiceImpl implements ClassesExcelService {
             if (user.isPresent()) {
                 Document doc = this.createDocument(workbook, docName, user.get());
                 this.documentRepository.save(doc);
+
+                logger.info("[CREATE EXCEL] Excel creation finished");
+
+                return doc;
             }
-
-            logger.info("[CREATE EXCEL] Excel creation finished");
-
         } catch (Exception e) {
             logger.error("[CREATE EXCEL] Excel creation error");
             e.printStackTrace();

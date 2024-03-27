@@ -9,8 +9,6 @@ _
 /helm/networking/np-egress-gateway-security.yaml,5\a\5a58fb19ca005596ad6382826c646e1c516ee936
 `
 0helm/networking/np-ingress-gateway-security.yaml,3\9\39424d37556185b992dbf2133b279e994fb9fa25
-D
-helm/app/values.yaml,7\2\72ba2205ce33c8d244c8472225b991205a2b6f81
 R
 "helm/networking/np-enable-dns.yaml,1\c\1c035786cf5d9236d914577c167fc2e1bf4763e3
 P

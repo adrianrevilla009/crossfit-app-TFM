@@ -43,7 +43,8 @@ Namespace monitorizacion -> $namespace_monitor,
 Namespace CD -> $namespace_cd,
 Nombre del chart de la app -> $helm_chart"
 
-minikube start --cpus $minikube_cpus --memory $minikube_memory --network-plugin=cni --cni=false --driver=hyperv
+minikube start --cpus $minikube_cpus --memory $minikube_memory --driver=docker
+# --network-plugin=cni --cni=false --diver=hyperv
 minikube addons enable ingress
 
 

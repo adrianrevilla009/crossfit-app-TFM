@@ -49,27 +49,11 @@ public class DocumentsServiceImpl implements DocumentsService {
     public void createFile(String nif, List<ClassDto> classDtoList) throws Exception {
         if (!classDtoList.isEmpty()) {
             // create excel and save on mongo db
-            Document excelFile = this.classesExcelService.createExcel(nif, classDtoList);
-            // save it into a local persistence unit
-            this.saveDocumentLocally(excelFile);
+            this.classesExcelService.createExcel(nif, classDtoList);
         } else {
             logger.info("[CREATE EXCEL] Excel not created due to empty data for user");
         }
 
-    }
-
-    private void saveDocumentLocally(Document document) {
-        String filePath = "/documents/" + document.getName();
-
-        File file = new File(filePath);
-
-        try {
-            FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(document.getFile().getBytes());
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public List<Document> findByUser(String nif) {
