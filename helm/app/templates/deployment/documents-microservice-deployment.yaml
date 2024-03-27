@@ -58,6 +58,8 @@ spec:
               value: "redis-cache"
             - name: SPRING_REDIS_PORT
               value: "6379"
+            - name: DOCUMENTS_GENERATION_PATH
+              value: /documents/ # need the last / to complete path
           volumeMounts:
             - name: document-volume
               mountPath: /documents

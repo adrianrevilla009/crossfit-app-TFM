@@ -5,37 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/8/0815ce20d372a7d090c1e39c366717f406ad672c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/8/0815ce20d372a7d090c1e39c366717f406ad672c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesExcelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesExcelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-0b125449-85ee-4780-add1-8ad555d662d5-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-0c0465e7-159c-48fc-82dd-ba77a011242d-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-0cee6b3a-fe93-482a-88e6-03df4626c7bf-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-137a7597-6212-4098-ba15-0d050fd1e2c7-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-1988af7e-b67d-441a-b00f-0adbd28df9c8-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-5835856d-a9e7-40a9-ad20-a6687c0ed034-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-5da6a1a2-1d6d-43d1-8ed3-e61af1fd5091-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-620f1ae0-61bc-4637-a1f7-d3b155cc9fe4-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-635805aa-1e79-46d5-8aa5-14f822e7ac1d-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-68614fc2-f0d1-45f1-aa14-dc62bf92abbc-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-7768544f-d771-4071-a3af-89965e715533-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-7ba67e4f-e74d-473a-8092-01e777cbe2b3-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-8e70a4c2-5b59-48ad-9005-436fdca08d67-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-90976a60-c945-43ca-a5f7-7bb40251e996-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-96ac2553-bad6-4492-9273-545a6baed521-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-9aa4b95c-a114-4caa-873b-c11d77bf8ca0-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-9f5c6ad2-8496-4cdd-9b03-41b86cb14683-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-c4380d3d-3a0c-4a4d-b24c-6552680b1ca5-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-e914e8b1-8c23-4fbe-a542-e1337bec63f4-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-f248f7f4-c8fb-48bb-a9ee-3b0254be55b4-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-f5c1d7e1-6249-45f9-97b0-50f7749ebe32-classes-excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/src/main/resources/static/20895705K-f779c3ce-dea3-42de-b84f-ca75a9a538d3-classes-excel.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/helm/app/templates/deployment/documents-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/deployment/documents-microservice-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/version.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,18 +32,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Proyects/master/TFM/common-TFM",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Proyects/master/TFM/common-TFM&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\terraform" />
@@ -193,36 +164,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/DocumentsServiceImpl.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/DocumentsServiceImpl.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/DocumentsServiceImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesExcelServiceImpl.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/documents-microservice/src/main/java/adrian/tfm/crossfit/documents/service/impl/ClassesExcelServiceImpl.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
