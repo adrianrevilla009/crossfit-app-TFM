@@ -1,0 +1,18 @@
+apiVersion: v2
+appVersion: "5.5"
+description: A Helm chart for JMeter
+icon: https://jmeter.apache.org/images/logo.svg
+keywords:
+- JMeter
+- Performance
+- Distribution
+- Test
+maintainers:
+- email: liukunup@outlook.com
+  name: Liu Kun
+  url: https://github.com/liukunup
+name: jmeter
+sources:
+- https://github.com/liukunup/JMeter
+type: application
+version: 0.1.2

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/jmeter/jmeter-get-classes-test.jmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/app/templates/deployment/documents-microservice-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/app/templates/deployment/documents-microservice-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/get-classes-load-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test/artillery/get-classes-load-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/signin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test/artillery/signin.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/signup.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test/artillery/signup.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +56,11 @@
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\documents-microservice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\testing" />
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\test\artillery" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates\service" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates\deployment" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="adrian.tfm.crossfit.classes.utils" />
@@ -153,6 +156,9 @@
       <updated>1703510401565</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.jmx" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

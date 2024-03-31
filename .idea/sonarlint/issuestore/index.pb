@@ -39,8 +39,6 @@ L
 terraform/database/output.tf,d\1\d1fb4dfdbfaf5acba989d9c65b2530ef55189c1f
 C
 terraform/README.md,8\0\800d400dc35711ca737e1ffc8d80b40a6cff73ef
-b
-2terraform/kubernetes/manifests/argocd/install.yaml,9\a\9af617153def3281cd7ee3c795dab5fb98ef70ef
 Å
 Qterraform/kubernetes/manifests/opentelemetry-operator/opentelemetry-operator.yaml,e\1\e1d7da5e9354a86ae6a50929e234c2f8454c8cfa
 W
