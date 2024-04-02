@@ -3,18 +3,12 @@
 japi-gateway-microservice/src/main/java/adrian/tfm/crossfit/apigateway/classes/ClassesApiConfiguration.java,7\c\7c50c3c93e790fedda44d028f08ea6846cb32334
 ^
 .helm/networking/np-egress-gateway-classes.yaml,4\d\4d5ad893a0fa0e7c1a3e185fe52e7862a9f541c4
-`
-0helm/networking/np-egress-gateway-documents.yaml,0\7\07b28717faf6ad2531d48d45c7d36bfd302fecaa
 _
 /helm/networking/np-egress-gateway-security.yaml,5\a\5a58fb19ca005596ad6382826c646e1c516ee936
 `
 0helm/networking/np-ingress-gateway-security.yaml,3\9\39424d37556185b992dbf2133b279e994fb9fa25
 R
 "helm/networking/np-enable-dns.yaml,1\c\1c035786cf5d9236d914577c167fc2e1bf4763e3
-P
- helm/networking/np-deny-all.yaml,8\7\872ac8f193bd60afb4707f2b6f26bdfdba1cbfcc
-p
-@helm/app/templates/service/api-gateway-microservice-service.yaml,0\4\04b4d379c076ef84ac8381ea5fc4b4cd31a16612
 @
 test/signup.yaml,1\0\104e99d5985ad13b9facf6e1d4683ba5e03583c5
 o
@@ -27,8 +21,6 @@ A
 terraform/LICENSE,f\f\fff60205beb43f0ac4c5994198bb1781068fb328
 C
 terraform/output.tf,a\7\a7901bf424f2bd230b80fdce7c6799c5850b3163
-E
-terraform/vpc/main.tf,b\f\bf3b6ad274c8fe7e774ce2aeade3926144e7c567
 f
 6helm/app/templates/deployment/mysql-db-deployment.yaml,8\7\879548178693bc8cb561861bfa53fedb17b336a0
 I
@@ -41,16 +33,12 @@ C
 terraform/README.md,8\0\800d400dc35711ca737e1ffc8d80b40a6cff73ef
 Å
 Qterraform/kubernetes/manifests/opentelemetry-operator/opentelemetry-operator.yaml,e\1\e1d7da5e9354a86ae6a50929e234c2f8454c8cfa
-W
-'terraform/hosted-zone-and-certs/main.tf,7\7\778851258d5e608adf7fd627c9ba11cbb094eb58
 D
 terraform/.gitignore,b\7\b76c255a43117ec4de6a430188c23bdc51a55681
 E
 terraform/variable.tf,0\9\09214a0aba44796bcaea258471b0043756b50867
 H
 terraform/default.tfvars,1\4\14203bb8507bee0f671680e59a9c3448dd65c0d0
-D
-terraform/s3/main.tf,6\5\65cc51bbb06c03bf30b092b5f3602c1f21d09012
 J
 terraform/database/main.tf,d\2\d2be1f13f1795eabb96904c352371c10aabf5a79
 N

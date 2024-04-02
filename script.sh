@@ -34,6 +34,11 @@ if ($env:NAMESPACE -ne $null) {
     namespace_cd = $env:NAMESPACE
 }
 
+namespace_testing = testing
+if ($env:NAMESPACE -ne $null) {
+    namespace_testing = $env:NAMESPACE
+}
+
 Write-Host "Estas son las variables de entorno definidas:
 Path de helm -> $helm_path,
 Cpus de minikube -> $minikube_cpus,
@@ -41,6 +46,7 @@ Memoria de minikube -> $minikube_memory,
 Namespace -> $namespace,
 Namespace monitorizacion -> $namespace_monitor,
 Namespace CD -> $namespace_cd,
+Namespace testing -> $namespace_testing,
 Nombre del chart de la app -> $helm_chart"
 
 minikube start --cpus $minikube_cpus --memory $minikube_memory --driver=docker
@@ -85,6 +91,16 @@ kubectl -n $namespace_cd get secret argocd-initial-admin-secret -o jsonpath="{.d
 
 # TESTING
 artillery run .\test\load-test.yaml
+
+kubectl create namespace $namespace_testing
+
+helm install jmeter .\helm\testing\distributed-jmeter\  -n $namespace_testing
+
+kubectl cp .\test\jmeter\jmeter-get-classes-test.jmx jmeter-distributed-jmeter-master-578cc6544b-s87zt:/jmeter -n $namespace_testing
+
+kubectl get pods -l app.kubernetes.io/component=server -n $namespace_testing -o jsonpath='{.items[*].status.podIP}'
+
+kubectl exec -it jmeter-distributed-jmeter-master-578cc6544b-s87zt -n $namespace_testing -- jmeter -n -t /jmeter/jmeter-get-classes-test.jmx -R 10.244.0.52,10.244.0.55,10.244.0.54
 
 # SECURIZACION
 kubectl apply -f .\helm\networking\ingress-api-gateway-microservice.yaml

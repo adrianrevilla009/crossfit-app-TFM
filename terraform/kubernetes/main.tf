@@ -228,14 +228,13 @@ resource "kubernetes_secret" "screenshot_signer_secret" {
 }
 # Este bloque recopila archivos YAML locales que contienen la configuración de aplicaciones ArgoCD.
 data "kubectl_path_documents" "argocd_applications" {
-  pattern = "../k8s/argocd/applications/*.yaml"
+  pattern = "../helm/argo/*.yaml"
 }
 
 resource "kubectl_manifest" "argocd_applications" {
   for_each  = toset(data.kubectl_path_documents.argocd_applications.documents)
   yaml_body = each.value
   depends_on = [
-    kubectl_manifest.opentelemetry-operator,
     kubectl_manifest.argocd,
     kubernetes_secret.argo_github_repository_secret
   ]
