@@ -112,6 +112,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: Change to Terraform directory
+        run: cd ./terraform
+
       - name: Print working directory
         run: pwd
 
