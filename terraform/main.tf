@@ -1,19 +1,14 @@
 terraform {
-  required_version = ">= 0.13"
   required_providers {
-    kubectl = {
-      source  = "gavinbunney/kubectl"
-      version = ">= 1.14.0"
-    }
     aws = {
-      source  = "hashicorp/aws"
-      version = ">= 4.53.0"
-    }
-    time = {
-      source  = "hashicorp/time"
-      version = ">= 0.9.1"
+      source = "hashicorp/aws"
+      Version = "~>3.27"
     }
   }
+
+  required_version = ">=0.14.9"
+
+}
 #  backend "s3" {
 #    bucket         = "terraform-crossfitapp-state-bucket"
 #    key            = "terraform.tfstate"
@@ -23,7 +18,7 @@ terraform {
 #    # dynamodb_table = "terraform-state-lock-table"
 #    profile        = "default"
 #  }
-}
+
 
 provider "aws" {
   region  = var.zone
