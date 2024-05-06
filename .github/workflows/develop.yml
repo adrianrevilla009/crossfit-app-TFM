@@ -1,0 +1,106 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Read and Increment Version
+        id: version
+        run: |
+          versionFile="version.txt"
+          if [ ! -f $versionFile ]; then
+          echo "v1" > $versionFile
+          fi
+          currentVersion=$(cat $versionFile)
+          # Extrae el número de versión sin el prefijo "v"
+          currentVersionNumber=$(echo $currentVersion | sed 's/v//')
+          nextVersionNumber=$((currentVersionNumber + 1))
+          nextVersion="v$nextVersionNumber"
+          echo $nextVersion > $versionFile
+          
+          # Exporta la variable de entorno con la nueva versión
+          echo "VERSION=$nextVersion" >> $GITHUB_ENV
+
+      - name: Acceder a la Variable de Entorno
+        run: echo $VERSION
+
+      # This is needed to avoid iterative CI after committing version
+      - name: Check if Skip CI
+        run: |
+          if git log --format=%B -n 1 $GITHUB_SHA | grep -q '\[skip ci\]'; then
+            echo "CI skip detected. Exiting..."
+            exit 78
+          fi
+
+      - name: Commit & Push changes
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.TOKEN }}"
+          add_timestamp: true
+          commit_prefix: "[AUTO]"
+          commit_message: "Update version to $VERSION [skip ci]"
+          force: false
+          target_branch: version-${{ steps.version.outputs.VERSION }}
+
+      # Merge to main does not have to be automated
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "Update version to $VERSION [skip ci]"
+          title: "[AUTO] Bump version to $VERSION"
+          labels: "auto-merge"
+          branch: version-${{ steps.version.outputs.VERSION }}
+          delete-branch: true
+
+#      - name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v1
+#
+#      - name: Login to Docker Hub
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_TOKEN }}
+#
+#      - name: Build and Push Docker Images
+#        run: |
+#          services=("api-gateway-microservice" "classes-microservice" "documents-microservice" "security-microservice")
+#
+#          for service in "${services[@]}"; do
+#            echo "Current directory: $(pwd)"
+#            ls -la
+#            cd $service
+#            echo "Changed to directory: $(pwd)"
+#            ls -la
+#            docker buildx create --use
+#            docker buildx inspect --bootstrap
+#            docker buildx build -f dockerfile.Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/$service:$VERSION --push .
+#            cd ..
+#          done
+
+  sonarqube:
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out
+        uses: actions/checkout@master
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+      - name: SonarQube Scan
+        uses: kitabisa/sonarqube-action@v1.2.0
+        with:
+          host: ${{ secrets.SONARQUBE_HOST }}
+          login: ${{ secrets.SONARQUBE_TOKEN }}
+

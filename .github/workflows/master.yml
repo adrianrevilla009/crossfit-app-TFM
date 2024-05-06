@@ -3,7 +3,7 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build-and-push:
@@ -89,18 +89,44 @@ jobs:
             cd ..
           done
 
-  sonarqube:
-    name: SonarQube Trigger
+#  sonarqube:
+#    name: SonarQube Trigger
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checking out
+#        uses: actions/checkout@master
+#        with:
+#          # Disabling shallow clone is recommended for improving relevancy of reporting
+#          fetch-depth: 0
+#      - name: SonarQube Scan
+#        uses: kitabisa/sonarqube-action@v1.2.0
+#        with:
+#          host: ${{ secrets.SONARQUBE_HOST }}
+#          login: ${{ secrets.SONARQUBE_TOKEN }}
+
+  tf_fmt:
+    name: Deploy Site
     runs-on: ubuntu-latest
     steps:
-      - name: Checking out
-        uses: actions/checkout@master
-        with:
-          # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
-      - name: SonarQube Scan
-        uses: kitabisa/sonarqube-action@v1.2.0
-        with:
-          host: ${{ secrets.SONARQUBE_HOST }}
-          login: ${{ secrets.SONARQUBE_TOKEN }}
 
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+
+      - name: Terraform Init
+        uses: hashicorp/terraform-github-actions/init@v0.4.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          TF_ACTION_WORKING_DIR: 'terraform'
+          AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Terraform Validate
+        uses: hashicorp/terraform-github-actions/validate@v0.3.7
+
+      - name: Terraform Apply
+        uses: hashicorp/terraform-github-actions/apply@v0.4.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          TF_ACTION_WORKING_DIR: 'terraform'
+          AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}

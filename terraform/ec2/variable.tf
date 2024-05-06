@@ -2,12 +2,8 @@ variable "cluster_name" {
   description = "the name of your stack, e.g. \"demo\""
 }
 
-variable "private_subnets" {
-  description = "List of private subnet IDs"
-}
-
-variable "public_subnets" {
-  description = "List of private subnet IDs"
+variable "ami" {
+  description = "AMI ID"
 }
 
 variable "zone" {

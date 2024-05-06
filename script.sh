@@ -90,7 +90,7 @@ kubectl port-forward svc/argocd-server -n $namespace_cd 8090:443
 kubectl -n $namespace_cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
 
 # TESTING
-artillery run .\test\load-test.yaml
+# artillery run .\test\load-test.yaml
 
 kubectl create namespace $namespace_testing
 
