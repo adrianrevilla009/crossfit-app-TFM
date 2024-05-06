@@ -30,6 +30,10 @@ provider "aws" {
   profile = "default"
 }
 
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "example-terraform-project-name-bootstrap-terraform-state"
+}
+
 data "aws_caller_identity" "current" {}
 
 module "ec2" {
