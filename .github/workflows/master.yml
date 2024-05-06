@@ -112,6 +112,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: Print working directory
+        run: pwd
+
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v1
 
