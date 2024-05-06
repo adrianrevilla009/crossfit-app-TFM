@@ -115,6 +115,9 @@ jobs:
       - name: Print working directory
         run: pwd
 
+      - name: List files in Terraform directory
+        run: ls ./terraform
+
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v1
 
