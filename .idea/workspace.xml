@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/classes-microservice/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes-microservice/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes-microservice/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-    </list>
+    <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Proyects/master/TFM/crossfit-app-TFM/classes-microservice",
+    "last_opened_file_path": "C:/Proyects/master/TFM/crossfit-app-TFM/api-gateway-microservice",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
@@ -47,11 +43,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\api-gateway-microservice" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\classes-microservice" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\terraform" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\networking" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\security-microservice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\testing" />

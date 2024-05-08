@@ -27,6 +27,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Clean and Install Dependencies
+        working-directory: ./${{ matrix.service }}
+        run: |
+            # Da permisos de ejecución a mvnw si es necesario
+            chmod +x mvnw
+            
+            # Ejecuta mvn clean install para limpiar e instalar dependencias
+            ./mvnw clean install    
+
       - name: Run Tests
         working-directory: ./${{ matrix.service }}
         run: |
