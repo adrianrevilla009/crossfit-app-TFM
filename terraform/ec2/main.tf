@@ -70,7 +70,7 @@ resource "aws_instance" "ec2" {
 
     echo "Iniciando Minikube..."
     minikube start --cpus 4 --memory 12g --disk-size 54g --driver=docker
-    minikube addons enable ingress
+#    minikube addons enable ingress
 
     echo "Instalando aplicación..."
     kubectl create namespace development
