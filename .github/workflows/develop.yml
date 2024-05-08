@@ -12,10 +12,7 @@ jobs:
     strategy:
       matrix:
         service:
-          - classes-microservice
           - api-gateway-microservice
-          - documents-microservice
-          - security-microservice
 
     steps:
       - name: Checkout Repository
