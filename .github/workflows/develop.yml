@@ -29,6 +29,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Make mvnw executable
+        run: chmod +x ${{ matrix.service }}/mvnw
 
       - name: Run Tests
         run: |
