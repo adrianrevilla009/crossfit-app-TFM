@@ -19,24 +19,22 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
 
-      - name: Set up JDK
+      - name: Setup Maven
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Make mvnw executable
-        run: chmod +x ${{ matrix.service }}/mvnw
-
       - name: Run Tests
+        working-directory: ./${{ matrix.service }}
         run: |
-          cd ${{ matrix.service }}
-          ./mvnw test  # Si usas Maven.
-          # o ./gradlew test  # Si usas Gradle.
+          # Da permisos de ejecución a mvnw si es necesario
+          chmod +x mvnw
+          
+          # Ejecuta las pruebas utilizando Maven Wrapper
+          ./mvnw test
 
   build-and-push:
     runs-on: ubuntu-latest
