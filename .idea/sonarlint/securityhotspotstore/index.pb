@@ -9,21 +9,9 @@ _
 0helm/networking/np-ingress-gateway-security.yaml,3\9\39424d37556185b992dbf2133b279e994fb9fa25
 R
 "helm/networking/np-enable-dns.yaml,1\c\1c035786cf5d9236d914577c167fc2e1bf4763e3
-@
-test/signup.yaml,1\0\104e99d5985ad13b9facf6e1d4683ba5e03583c5
-@
-test/signin.yaml,5\3\53ca59c9580d37ad8b373cec58af393ad6baca78
-O
-test/get-classes-load-test.yaml,2\c\2ce3d6153ae7ef26927a38303f979a9e1dbf7b9f
 D
 terraform/.gitignore,b\7\b76c255a43117ec4de6a430188c23bdc51a55681
 A
 terraform/LICENSE,f\f\fff60205beb43f0ac4c5994198bb1781068fb328
-I
-terraform/vpc/variable.tf,7\2\72f05cf7afa4328094bcd46d9b0a73d1fb8bdff8
-G
-terraform/vpc/output.tf,e\9\e9165a7e4349858232c71400fefba473c8a5435e
-Å
-Qterraform/kubernetes/manifests/opentelemetry-operator/opentelemetry-operator.yaml,e\1\e1d7da5e9354a86ae6a50929e234c2f8454c8cfa
 C
 terraform/README.md,8\0\800d400dc35711ca737e1ffc8d80b40a6cff73ef

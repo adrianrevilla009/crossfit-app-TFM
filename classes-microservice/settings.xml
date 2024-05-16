@@ -27,7 +27,7 @@
         <server>
             <id>github</id>
             <username>adrianrevilla009</username>
-            <password>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</password>
+            <password>${env.TOKEN}</password>
         </server>
     </servers>
 

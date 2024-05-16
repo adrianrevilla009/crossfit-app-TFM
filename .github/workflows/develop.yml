@@ -7,34 +7,44 @@ on:
 
 jobs:
   run-tests:
+    name: Run tests
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         service:
-          - classes-microservice
           - api-gateway-microservice
-          - documents-microservice
-          - security-microservice
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
 
-      - name: Set up JDK
+      - name: Setup Maven
         uses: actions/setup-java@v3
         with:
           java-version: '17'
+          distribution: 'temurin'
+
+      - name: Clean and Install Dependencies
+        working-directory: ./${{ matrix.service }}
+        run: |
+            # Da permisos de ejecución a mvnw si es necesario
+            chmod +x mvnw
+            
+            # Ejecuta mvn clean install para limpiar e instalar dependencias
+            ./mvnw clean install    
 
       - name: Run Tests
+        working-directory: ./${{ matrix.service }}
         run: |
-          cd ${{ matrix.service }}
-          ./mvnw test  # Si usas Maven.
-          # o ./gradlew test  # Si usas Gradle.
+          # Da permisos de ejecución a mvnw si es necesario
+          chmod +x mvnw
+          
+          # Ejecuta las pruebas utilizando Maven Wrapper
+          ./mvnw test
 
   build-and-push:
+    name: Generate images
     runs-on: ubuntu-latest
 
     steps:
@@ -117,18 +127,95 @@ jobs:
             cd ..
           done
 
-  sonarqube:
-    name: SonarQube Trigger
+  sonar-cloud:
+    name: Analyze code
     runs-on: ubuntu-latest
     steps:
-      - name: Checking out
-        uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
-          # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
-      - name: SonarQube Scan
-        uses: kitabisa/sonarqube-action@v1.2.0
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          host: ${{ secrets.SONARQUBE_HOST }}
-          login: ${{ secrets.SONARQUBE_TOKEN }}
+          java-version: 17
+          distribution: 'zulu' # Alternative distribution options are available.
+
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Configure Maven settings
+        run: |
+            mkdir -p ~/.m2
+            echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+                  <activeProfiles>
+                      <activeProfile>github</activeProfile>
+                  </activeProfiles>
+                  <profiles>
+                      <profile>
+                          <id>github</id>
+                          <repositories>
+                              <repository>
+                                  <id>central</id>
+                                  <url>https://repo1.maven.org/maven2</url>
+                              </repository>
+                              <repository>
+                                  <id>github</id>
+                                  <url>https://maven.pkg.github.com/adrianrevilla009/*</url>
+                                  <snapshots>
+                                      <enabled>true</enabled>
+                                  </snapshots>
+                              </repository>
+                          </repositories>
+                      </profile>
+                  </profiles>
+                  <servers>
+                      <server>
+                          <id>github</id>
+                          <username>adrianrevilla009</username>
+                          <password>${{ secrets.TOKEN }}</password>
+                      </server>
+                  </servers>
+                </settings>' > ~/.m2/settings.xml
+
+      # Análisis para el primer subproyecto
+      - name: Analyze subproject 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B -f api-gateway-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
+
+      # Análisis para el segundo subproyecto
+      - name: Analyze subproject 2
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B -f classes-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
+
+      # Análisis para el tercer subproyecto
+      - name: Analyze subproject 3
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B -f documents-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
+
+      # Análisis para el cuarto subproyecto
+      - name: Analyze subproject 4
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B -f security-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
 
