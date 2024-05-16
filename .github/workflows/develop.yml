@@ -186,7 +186,7 @@ jobs:
                       <server>
                           <id>github</id>
                           <username>adrianrevilla009</username>
-                          <password>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</password>
+                          <password>${{ secrets.TOKEN }}</password>
                       </server>
                   </servers>
                 </settings>' > ~/.m2/settings.xml
