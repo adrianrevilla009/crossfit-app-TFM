@@ -155,6 +155,42 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
+      - name: Configure Maven settings
+        run: |
+            mkdir -p ~/.m2
+            echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+                  <activeProfiles>
+                      <activeProfile>github</activeProfile>
+                  </activeProfiles>
+                  <profiles>
+                      <profile>
+                          <id>github</id>
+                          <repositories>
+                              <repository>
+                                  <id>central</id>
+                                  <url>https://repo1.maven.org/maven2</url>
+                              </repository>
+                              <repository>
+                                  <id>github</id>
+                                  <url>https://maven.pkg.github.com/adrianrevilla009/*</url>
+                                  <snapshots>
+                                      <enabled>true</enabled>
+                                  </snapshots>
+                              </repository>
+                          </repositories>
+                      </profile>
+                  </profiles>
+                  <servers>
+                      <server>
+                          <id>github</id>
+                          <username>${{ secrets.GITHUB_ACTOR }}</username>
+                          <password>${{ secrets.GITHUB_TOKEN }}</password>
+                      </server>
+                  </servers>
+                </settings>' > ~/.m2/settings.xml
+
       # Análisis para el primer subproyecto
       - name: Analyze subproject 1
         env:
