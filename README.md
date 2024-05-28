@@ -34,7 +34,7 @@ Se desea cumplir con los siguientes objetivos a nivel técnico.
 ![](C:\Users\adria\Desktop\micros.png)
 
 ## Ejecucion
-Para desplegar el stack se han de seguir los siguientes pasos:
+Para desplegar el stack localmente se han de seguir los siguientes pasos:
 
 ### Actualizar el sistema
     echo "Iniciando el script de configuración de EC2 Minikube"
@@ -71,7 +71,7 @@ Para desplegar el stack se han de seguir los siguientes pasos:
     sudo mkdir -p /app/
     git config --global user.name adrianrevilla009
     git config --global user.email adrianrg1996@gmail.com
-    sudo git clone https://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@github.com/adrianrevilla009/crossfit-app-TFM.git /app/
+    sudo git clone https://xxx@github.com/adrianrevilla009/crossfit-app-TFM.git /app/
     cd /app/
 ### Iniciar minikube
     echo "Iniciando Minikube..."
@@ -80,7 +80,7 @@ Para desplegar el stack se han de seguir los siguientes pasos:
 ### Iniciar aplicacion
     echo "Instalando aplicación..."
     kubectl create namespace development
-    helm install production-cluster ./helm/app --namespace development \
+    helm install development-cluster ./helm/app --namespace development \
     --set apigateway.microservice.version=$(cat version.txt) \
     --set classes.microservice.version=$(cat version.txt) \
     --set documents.microservice.version=$(cat version.txt) \
