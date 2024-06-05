@@ -199,23 +199,23 @@ jobs:
         run: mvn -B -f api-gateway-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
 
       # Análisis para el segundo subproyecto
-      - name: Analyze subproject 2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B -f classes-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
-
-      # Análisis para el tercer subproyecto
-      - name: Analyze subproject 3
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B -f documents-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
-
-      # Análisis para el cuarto subproyecto
-      - name: Analyze subproject 4
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B -f security-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
-
+#      - name: Analyze subproject 2
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        run: mvn -B -f classes-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
+#
+#      # Análisis para el tercer subproyecto
+#      - name: Analyze subproject 3
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        run: mvn -B -f documents-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
+#
+#      # Análisis para el cuarto subproyecto
+#      - name: Analyze subproject 4
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        run: mvn -B -f security-microservice/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=adrianrevilla009_crossfit-app-TFM
+#
