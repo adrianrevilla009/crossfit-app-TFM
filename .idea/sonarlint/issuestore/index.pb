@@ -17,8 +17,6 @@ D
 terraform/.gitignore,b\7\b76c255a43117ec4de6a430188c23bdc51a55681
 P
  api-gateway-microservice/pom.xml,d\0\d08fb594a313a27f3b649720a414bb4c1114407b
-L
-.github/workflows/master.yml,0\9\09f57d3ecc595c66500ce7764c10265fac3ad915
 Q
 !classes-microservice/settings.xml,1\2\12052b380a99a77a8eb8d3963f2f5fe443265512
 S

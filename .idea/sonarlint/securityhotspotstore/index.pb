@@ -21,8 +21,6 @@ M
 .github/workflows/develop.yml,c\f\cff8354385f170cde8b237f2d85150773fe4ef15
 P
  api-gateway-microservice/pom.xml,d\0\d08fb594a313a27f3b649720a414bb4c1114407b
-L
-.github/workflows/master.yml,0\9\09f57d3ecc595c66500ce7764c10265fac3ad915
 E
 terraform/ec2/main.tf,b\a\bab88e1e21871d84785d09ba59ac36b108f8f853
 Q
