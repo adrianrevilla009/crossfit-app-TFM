@@ -65,7 +65,7 @@ resource "aws_instance" "ec2" {
     sudo mkdir -p /app/
     git config --global user.name adrianrevilla009
     git config --global user.email adrianrg1996@gmail.com
-    sudo git clone https://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@github.com/adrianrevilla009/crossfit-app-TFM.git /app/
+    sudo git clone https://xxx@github.com/adrianrevilla009/crossfit-app-TFM.git /app/
     cd /app/
 
     echo "Iniciando Minikube..."

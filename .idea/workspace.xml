@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db229532-622f-417e-88d5-b0998acc4d23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/master.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/master.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes-microservice/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents-microservice/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-secret.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-secret.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-microservice/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/settings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +38,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Proyects/master/TFM/crossfit-app-TFM/api-gateway-microservice&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Proyects/master/TFM/crossfit-app-TFM",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\api-gateway-microservice" />
@@ -53,11 +59,11 @@
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\networking" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\testing" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\test\artillery" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates\service" />
       <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates\deployment" />
-      <recent name="C:\Proyects\master\TFM\crossfit-app-TFM\helm\app\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="adrian.tfm.crossfit.classes.utils" />
@@ -156,6 +162,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.jmx" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
