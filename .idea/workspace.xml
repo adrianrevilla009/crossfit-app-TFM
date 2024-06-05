@@ -8,11 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-microservice/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/classes-microservice/settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents-microservice/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents-microservice/settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/argo/argocd-secret.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/argo/argocd-secret.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security-microservice/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security-microservice/settings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
