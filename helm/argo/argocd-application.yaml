@@ -9,7 +9,7 @@ spec:
     namespace: development
   project: default
   source:
-    repoURL: 'https://adrianrevilla009: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@github.com/adrianrevilla009/crossfit-app-TFM.git'
+    repoURL: 'https://adrianrevilla009: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@github.com/adrianrevilla009/crossfit-app-TFM.git'
     path: 'helm/app'
     targetRevision: HEAD
   syncPolicy:
