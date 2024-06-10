@@ -19,8 +19,6 @@ N
 documents-microservice/pom.xml,8\2\82f73a222c1b7951e33a803c6d633f3015a394ee
 P
  api-gateway-microservice/pom.xml,d\0\d08fb594a313a27f3b649720a414bb4c1114407b
-E
-terraform/ec2/main.tf,b\a\bab88e1e21871d84785d09ba59ac36b108f8f853
 Q
 !classes-microservice/settings.xml,1\2\12052b380a99a77a8eb8d3963f2f5fe443265512
 S
