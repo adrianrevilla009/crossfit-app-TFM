@@ -19,14 +19,10 @@ N
 documents-microservice/pom.xml,8\2\82f73a222c1b7951e33a803c6d633f3015a394ee
 P
  api-gateway-microservice/pom.xml,d\0\d08fb594a313a27f3b649720a414bb4c1114407b
-E
-terraform/ec2/main.tf,b\a\bab88e1e21871d84785d09ba59ac36b108f8f853
 Q
 !classes-microservice/settings.xml,1\2\12052b380a99a77a8eb8d3963f2f5fe443265512
 S
 #documents-microservice/settings.xml,3\5\353eaced96f41270847a03f46c00a9e4784c9d0a
-L
-classes-microservice/pom.xml,4\b\4b95ff046e526e2ca552a32862f44f939bca6c26
 é
 ^classes-microservice/src/main/java/adrian/tfm/crossfit/classes/controller/ClassController.java,4\7\4708172884cae0aef25c05035009a2d37d001acf
 ê

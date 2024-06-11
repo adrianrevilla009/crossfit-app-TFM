@@ -21,10 +21,6 @@ Q
 !classes-microservice/settings.xml,1\2\12052b380a99a77a8eb8d3963f2f5fe443265512
 S
 #documents-microservice/settings.xml,3\5\353eaced96f41270847a03f46c00a9e4784c9d0a
-L
-classes-microservice/pom.xml,4\b\4b95ff046e526e2ca552a32862f44f939bca6c26
-E
-terraform/ec2/main.tf,b\a\bab88e1e21871d84785d09ba59ac36b108f8f853
 N
 documents-microservice/pom.xml,8\2\82f73a222c1b7951e33a803c6d633f3015a394ee
 Ž
