@@ -23,8 +23,6 @@ Q
 !classes-microservice/settings.xml,1\2\12052b380a99a77a8eb8d3963f2f5fe443265512
 S
 #documents-microservice/settings.xml,3\5\353eaced96f41270847a03f46c00a9e4784c9d0a
-L
-classes-microservice/pom.xml,4\b\4b95ff046e526e2ca552a32862f44f939bca6c26
 é
 ^classes-microservice/src/main/java/adrian/tfm/crossfit/classes/controller/ClassController.java,4\7\4708172884cae0aef25c05035009a2d37d001acf
 ê
